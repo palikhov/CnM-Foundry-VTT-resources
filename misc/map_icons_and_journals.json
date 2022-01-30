@@ -1,0 +1,19 @@
+//dont copy this part!!!//
+// Keys like Towns and Mountains are free to change to your preferences. 
+//Otherwise just find the location on your world map / city map using MS paint and fill in each category as you like
+// start copying from the "{" below
+{
+	"Towns": [
+		{"name": "Crossroads", "x": 4233, "y": 4322, "color": "#4F0F0F", "icon": "icons/svg/village.svg", "content" : "A town located at the crossroads of the great Northern road and the great Western road"},
+		{"name": "Big town", "x": 2233, "y": 1760, "color": "#4F0F0F", "icon": "icons/svg/village.svg", "content" : "Big Town is not a big town, it is actually a misnomer, its 20 inhabitants like to pretend though..."}
+	],
+	"Mountains" : [
+		{"name": "Mount Farview", "x": 1276, "y": 605,  "color": "#7A7D80", "icon": "icons/svg/mountain.svg", "content" : "A high rising mountain in an otherwise flat area of land, locals say you can see tomorrow coming from its peak."}
+	],
+	"Place of Interest" : [
+		{"name": "The Hang Inn", "x": 1762, "y": 897,  "color": "#63BDB7", "icon": "assets/art/pins/hanging-sign.svg", "content" : "A dive bar outside Crossroads, local scum seems collect here..."}
+	],
+    "etc" : [
+		
+	]
+}
