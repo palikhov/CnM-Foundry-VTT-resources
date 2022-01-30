@@ -5,7 +5,17 @@
 
 ### Макросы
 
+
+
+# Источники и ссылки
+
+Foundry VTT Community Macros
+
+Crymic 
 ---
 
 Киборги и Чародеи
+
+
+
 
