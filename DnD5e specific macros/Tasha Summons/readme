@@ -1,0 +1,16 @@
+Updated for 0.8.6
+
+All macros require: Item Macro, the Furnace.
+
+step 1: get all the scripts and json files of the spell you want to use.
+
+step 2: import the json files into your game.
+
+step 3: check if the item macro is correctly on the item, if not paste the item macro there.
+
+step 4: create the gm macro, make sure to run it as GM, and name it summonSpiritFey or summonSpiritElemental or summonSpiritBeast
+if you choose another name for it, make sure to correct the item macro.
+
+Final step: place the image file (i have no rights to the images, so dont use commercially) 
+in your foundry data path, and fix the gm macro to have the right location.
+Or make your own.
