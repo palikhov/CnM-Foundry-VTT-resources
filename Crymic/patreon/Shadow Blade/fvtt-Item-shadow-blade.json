@@ -1,0 +1,177 @@
+{
+  "name": "Shadow Blade",
+  "type": "spell",
+  "img": "systems/dnd5e/icons/skills/shadow_03.jpg",
+  "data": {
+    "description": {
+      "value": "<p>You weave together threads of shadow to create a sword of solidified gloom in your hand. This magic sword lasts until the spell ends. It counts as a simple melee weapon with which you are proficient. It deals 2d8 psychic damage on a hit and has the finesse, light, and thrown properties (range 20/60). In addition, when you use the sword to attack a target that is in dim light or darkness, you make the attack roll with advantage.</p>\n<p>If you drop the weapon or throw it, it dissipates at the end of the turn. Thereafter, while the spell persists, you can use a bonus action to cause the sword to reappear in your hand.</p>\n<p><strong>At Higher Levels.</strong> When you cast this spell using a 3rd- or 4th-level spell slot, the damage increases to 3d8. When you cast it using a 5th- or 6th-level spell slot, the damage increases to 4d8. When you cast it using a spell slot of 7th level or higher, the damage increases to 5d8.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "activation": {
+      "type": "bonus",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": 1,
+      "units": "minute"
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": "self"
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "self"
+    },
+    "uses": {
+      "value": 0,
+      "max": "0",
+      "per": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "",
+    "attackBonus": 0,
+    "chatFlavor": "",
+    "critical": null,
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 2,
+    "school": "ill",
+    "components": {
+      "value": "",
+      "vocal": true,
+      "somatic": true,
+      "material": false,
+      "ritual": false,
+      "concentration": true
+    },
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": false
+    },
+    "scaling": {
+      "mode": "none",
+      "formula": ""
+    },
+    "attributes": {
+      "spelldc": 10
+    }
+  },
+  "effects": [
+    {
+      "_id": "Fi95sPQMG0HMGIC6",
+      "flags": {
+        "dae": {
+          "stackable": false,
+          "macroRepeat": "none",
+          "transfer": false,
+          "specialDuration": []
+        }
+      },
+      "changes": [
+        {
+          "key": "macro.itemMacro",
+          "mode": 0,
+          "value": "@item.level",
+          "priority": "20"
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null
+      },
+      "icon": "systems/dnd5e/icons/skills/shadow_03.jpg",
+      "label": "Shadow Blade",
+      "origin": "Actor.u49o8dPLH6fi8Lup.OwnedItem.Qhz7k5OIEWkfd97l",
+      "tint": null,
+      "transfer": false,
+      "selectedKey": "macro.itemMacro"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "autoanimations": {
+      "killAnim": false,
+      "override": false,
+      "animType": "t1",
+      "animName": "",
+      "hmAnim": "a1",
+      "color": "n1",
+      "dtvar": "dt1",
+      "explosion": false,
+      "explodeVariant": "ev1",
+      "explodeColor": "ec1",
+      "explodeRadius": "0",
+      "explodeLoop": "1",
+      "selfRadius": "5",
+      "animTint": "#ffffff",
+      "auraOpacity": 0.75,
+      "ctaOption": false
+    },
+    "midi-qol": {
+      "onUseMacroName": ""
+    },
+    "favtab": {
+      "isFavorite": false
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Shadow Blade",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "//#######################################\n// READ FIRST!!!!!!!!!!\n// DAE Macro, use either macro.execute or macro.itemmacro with @item.level\n//#######################################\nconst lastArg = args[args.length - 1];\nconsole.log(lastArg);\nlet tactor;\nif (lastArg.tokenId) tactor = canvas.tokens.get(lastArg.tokenId).actor;\nelse tactor = game.actors.get(lastArg.actorId);\nconst itemD = lastArg.efData.flags.dae.itemData;\nconst level = Number(args[1]);\nconst damageDice = level > 6 ? Math.ceil(7 / 2 + 1) : Math.ceil(level / 2 + 1);\nconsole.log(damageDice);\n\nif (args[0] === \"on\") {\n    let itemData = [{\n        \"name\": itemD.name,\n        \"type\": \"weapon\",\n        \"img\": itemD.img,\n        \"data\": {\n            \"description\": {\n                \"value\": \"<p>A magical weapon made of Shadows.</p>\",\n                \"chat\": \"\",\n                \"unidentified\": \"\"\n            },\n            \"quantity\": 1,\n            \"weight\": 1,\n            \"equipped\": true,\n            \"identified\": true,\n            \"activation\": {\n                \"type\": \"action\",\n                \"cost\": 1,\n                \"condition\": \"\"\n            },\n            \"range\": {\n                \"value\": 5,\n                \"long\": null,\n                \"units\": \"ft\"\n            },\n            \"uses\": {\n                \"value\": null,\n                \"max\": \"\",\n                \"per\": \"\"\n            },\n            \"actionType\": \"mwak\",\n            \"damage\": {\n                \"parts\": [\n                    [\n                        `${damageDice}d8`,\n                        \"psychic\"\n                    ]\n                ],\n                \"versatile\": \"\"\n            },\n            \"weaponType\": \"simpleM\",\n            \"properties\": {\n                \"fin\": true,\n                \"lgt\": true,\n                \"mgc\": true,\n                \"thr\": true\n            },\n            \"proficient\": true,\n        }\n    }];\n    await tactor.createEmbeddedDocuments(\"Item\", itemData);\n}\n\nif (args[0] === \"off\") {\n    let itemz = tactor.data.items.find(i => i.name === itemD.name && i.type === \"weapon\");\n    if (itemz) await tactor.deleteEmbeddedDocuments('Item', [itemz.id]);\n}",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "core": {
+      "sourceId": "Item.Qhz7k5OIEWkfd97l"
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.9",
+      "systemVersion": "1.5.3"
+    },
+    "enhanced-terrain-layer": {
+      "multiple": 1,
+      "min": 0,
+      "max": 0,
+      "environment": ""
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "name": "Melf's Acid Arrow",
+  "type": "spell",
+  "img": "icons/skills/ranged/arrow-flying-ornate-gold.webp",
+  "data": {
+    "description": {
+      "value": "<p>A shimmering green arrow streaks toward a target within range and bursts in a spray of acid. Make a ranged spell attack against the target. On a hit, the target takes 4d4 acid damage immediately and 2d4 acid damage at the end of its next turn. On a miss, the arrow splashes the target with acid for half as much of the initial damage and no damage at the end of its next turn.</p>\n<p><strong>At Higher Levels. </strong>When you cast this spell using a spell slot of 3rd level or higher, the damage (both initial and later) increases by 1d4 for each slot level above 2nd.</p>",
+      "chat": "<p>A shimmering green arrow streaks toward a target within range and bursts in a spray of acid. Make a ranged spell attack against the target. On a hit, the target takes 4d4 acid damage immediately and 2d4 acid damage at the end of its next turn. On a miss, the arrow splashes the target with acid for half as much of the initial damage and no damage at the end of its next turn.</p>\n<p><strong>At Higher Levels. </strong>When you cast this spell using a spell slot of 3rd level or higher, the damage (both initial and later) increases by 1d4 for each slot level above 2nd.</p>",
+      "unidentified": ""
+    },
+    "source": "Player's Handbook pg 259",
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": null,
+      "units": ""
+    },
+    "target": {
+      "value": 1,
+      "width": null,
+      "units": "",
+      "type": "creature"
+    },
+    "range": {
+      "value": 90,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": 0,
+      "max": "0",
+      "per": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "rsak",
+    "attackBonus": "0",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 2,
+    "school": "evo",
+    "components": {
+      "value": "powdered rhubarb leaf and an adder’s stomach",
+      "vocal": true,
+      "somatic": true,
+      "material": true,
+      "ritual": false,
+      "concentration": false
+    },
+    "materials": {
+      "value": "powdered rhubarb leaf and an adder’s stomach",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": false
+    },
+    "scaling": {
+      "mode": "level",
+      "formula": "1d4"
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "flags": {
+    "ddbimporter": {
+      "id": 138473,
+      "definitionId": 2330,
+      "entityTypeId": 435869154,
+      "dndbeyond": {
+        "lookup": "generic",
+        "lookupName": "generic",
+        "level": null,
+        "castAtLevel": null
+      },
+      "sources": [
+        {
+          "sourceId": 2,
+          "pageNumber": 259,
+          "sourceType": 1
+        }
+      ],
+      "tags": [
+        "Damage"
+      ]
+    },
+    "betterRolls5e": {
+      "quickVersatile": {
+        "altValue": true
+      },
+      "quickCharges": {
+        "value": {
+          "use": true,
+          "resource": true
+        },
+        "altValue": {
+          "use": true,
+          "resource": true
+        }
+      }
+    },
+    "enhanced-terrain-layer": {
+      "multiple": 1,
+      "min": 0,
+      "max": 0,
+      "environment": ""
+    },
+    "midi-qol": {
+      "criticalThreshold": "20",
+      "onUseMacroName": "ItemMacro"
+    },
+    "core": {
+      "sourceId": "Compendium.world.ddb-darklands-spells.P38ecOyGUW8O9jKA"
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Melf's Acid Arrow",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "async function wait(ms) { return new Promise(resolve => { setTimeout(resolve, ms); }); }\nconst lastArg = args[args.length - 1];\nconsole.log(lastArg);\nconst spellLevel = lastArg.spellLevel;\nconst actorD = game.actors.get(lastArg.actor._id);\nconst tokenD = canvas.tokens.get(lastArg.tokenId);\nlet target;\nconst itemD = lastArg.item;\nconst damageType = \"acid\";\nconst gameRound = game.combat ? game.combat.round : 0;\nlet damageRoll;\nif (lastArg.hitTargets.length > 0) {\n    target = canvas.tokens.get(lastArg.hitTargets[0].id);\n    let effectData = {\n        label: itemD.name,\n        icon: itemD.img,\n        flags: { dae: { itemData: itemD, macroRepeat: \"none\", specialDuration: [\"turnEnd\"] } },\n        origin: lastArg.uuid,\n        disabled: false,\n        duration: { turns: 2, startRound: gameRound, startTime: game.time.worldTime },\n        changes: [\n            { key: `flags.midi-qol.OverTime`, mode: 2, value: `turn=end,label=${itemD.name},damageRoll=${spellLevel}d4,damageType=${damageType}`, priority: 20 },\n            { \"key\": \"macro.itemMacro\", mode: 0, value: `ItemMacro.${itemD.name}`, priority: 20 }\n        ]\n    };\n    await MidiQOL.socket().executeAsGM(\"createEffects\", { actorUuid: target.actor.uuid, effects: [effectData] });\n    damageRoll = new Roll(`${spellLevel + 2}d4`).evaluate({ async: false });\n    game.dice3d?.showForRoll(damageRoll);\n    await new MidiQOL.DamageOnlyWorkflow(actorD, tokenD, damageRoll.total, damageType, [target], damageRoll, { flavor: `(${CONFIG.DND5E.damageTypes[damageType]})`, itemCardId: lastArg.itemCardId, useOther: false });\n} else {\n    target = canvas.tokens.get(lastArg.targets[0].id);\n    damageRoll = new Roll(`${spellLevel}d4`).evaluate({ async: false });\n    game.dice3d?.showForRoll(damageRoll);\n    await new MidiQOL.DamageOnlyWorkflow(actorD, tokenD, damageRoll.total, damageType, [target], damageRoll, { flavor: `(${CONFIG.DND5E.damageTypes[damageType]})`, itemCardId: lastArg.itemCardId, useOther: false });\n}",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.9",
+      "systemVersion": "1.5.3"
+    }
+  }
+}

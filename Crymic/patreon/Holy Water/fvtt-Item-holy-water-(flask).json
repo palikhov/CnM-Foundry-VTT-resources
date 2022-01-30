@@ -1,0 +1,136 @@
+{
+  "name": "Holy Water (flask)",
+  "type": "consumable",
+  "img": "icons/consumables/potions/potion-bottle-skull-label-poison-teal.webp",
+  "data": {
+    "description": {
+      "value": "<p>As an action, you can splash the contents of this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. In either case, make a ranged attack against a target creature, treating the holy water as an improvised weapon. If the target is a fiend or undead, it takes 2d6 radiant damage.</p>\n<p>A cleric or paladin may create holy water by performing a special ritual. The ritual takes 1 hour to perform, uses 25 gp worth of powdered silver, and requires the caster to expend a 1st-level spell slot.</p>",
+      "chat": "<p>As an action, you can splash the contents of this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. In either case, make a ranged attack against a target creature, treating the holy water as an improvised weapon. If the target is a fiend or undead, it takes 2d6 radiant damage.</p>\n<p>A cleric or paladin may create holy water by performing a special ritual. The ritual takes 1 hour to perform, uses 25 gp worth of powdered silver, and requires the caster to expend a 1st-level spell slot.</p>",
+      "unidentified": "Gear"
+    },
+    "source": "",
+    "quantity": 1,
+    "weight": 1,
+    "price": 25,
+    "attunement": 0,
+    "equipped": false,
+    "rarity": "common",
+    "identified": true,
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": null,
+      "units": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": 20,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": 3,
+      "max": "3",
+      "per": "charges",
+      "autoDestroy": true
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "rwak",
+    "attackBonus": "0",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "consumableType": "potion"
+  },
+  "effects": [],
+  "sort": 0,
+  "flags": {
+    "ddbimporter": {
+      "dndbeyond": {
+        "type": "Adventuring Gear",
+        "tags": [
+          "Damage",
+          "Utility",
+          "Combat"
+        ],
+        "sources": []
+      },
+      "id": 0,
+      "entityTypeId": 0,
+      "definitionEntityTypeId": 2103445194,
+      "definitionId": 50,
+      "originalName": "Holy Water (flask)"
+    },
+    "magicitems": {
+      "enabled": false,
+      "equipped": false,
+      "attuned": false,
+      "charges": "0",
+      "chargeType": "c1",
+      "destroy": false,
+      "destroyFlavorText": "reaches 0 charges: it crumbles into ashes and is destroyed.",
+      "rechargeable": false,
+      "recharge": "0",
+      "rechargeType": "t1",
+      "rechargeUnit": "r1",
+      "sorting": "l"
+    },
+    "core": {
+      "sourceId": "Compendium.world.ddb-darklands-items.Mn1SGkAWCQKotksV"
+    },
+    "midi-qol": {
+      "criticalThreshold": "20",
+      "onUseMacroName": "ItemMacro"
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Holy Water (flask)",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "if(args[0].hitTargets.length === 0) return {};\nlet actorD = game.actors.get(args[0].actor._id);\nlet tokenD = canvas.tokens.get(args[0].tokenId);\nlet target = canvas.tokens.get(args[0].hitTargets[0].id);\nlet undead = (target.actor.data.data.details?.type?.value || target.actor.data.data.details?.race).toLowerCase().includes(\"undead\", \"fiend\");\nif (!undead) return {};\nlet damageType = \"radiant\";\nlet damageRoll = new Roll(`2d6`).evaluate({async:false});\ngame.dice3d?.showForRoll(damageRoll);\nnew MidiQOL.DamageOnlyWorkflow(actorD, tokenD, damageRoll.total, damageType, [target], damageRoll, {flavor: `(${CONFIG.DND5E.damageTypes[damageType]}))`, itemCardId: args[0].itemCardId, useOther: false});",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.9",
+      "systemVersion": "1.5.3"
+    }
+  }
+}

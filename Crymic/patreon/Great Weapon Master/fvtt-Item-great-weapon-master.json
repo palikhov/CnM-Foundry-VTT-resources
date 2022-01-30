@@ -1,0 +1,119 @@
+{
+  "name": "Great Weapon Master",
+  "type": "feat",
+  "img": "icons/weapons/axes/axe-battle-skull-black.webp",
+  "data": {
+    "description": {
+      "value": "<p>You've learned to put the weight of a weapon to your advantage, letting its momentum empower your strikes. You gain the following benefits:</p>\n<ul>\n<li>On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 hit points with one, you can make one melee weapon attack as a bonus action.</li>\n<li>Before you make a melee attack with a heavy weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage.</li>\n</ul>\n\n",
+      "chat": "On your turn, when you score a critical hit with a melee weapon or reduce a creature to 0 HP with one, you can make one melee weapon attack as a bonus action. Before you make a melee attack with a heavy weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll to add +10 to the attack's damage.\n\n",
+      "unidentified": ""
+    },
+    "source": "Player's Handbook pg 167",
+    "activation": {
+      "type": "special",
+      "cost": null,
+      "condition": ""
+    },
+    "duration": {
+      "value": null,
+      "units": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": "self"
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "self"
+    },
+    "uses": {
+      "value": 0,
+      "max": "0",
+      "per": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "util",
+    "attackBonus": 0,
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": null
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "requirements": "",
+    "recharge": {
+      "value": null,
+      "charged": false
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "flags": {
+    "ddbimporter": {
+      "featId": 21,
+      "prerequisites": []
+    },
+    "core": {
+      "sourceId": "Compendium.world.ddb-darklands-feats.bXRU4xA7JWrsCiq7"
+    },
+    "magicitems": {
+      "enabled": false,
+      "equipped": false,
+      "attuned": false,
+      "charges": "0",
+      "chargeType": "c1",
+      "destroy": false,
+      "destroyFlavorText": "reaches 0 charges: it crumbles into ashes and is destroyed.",
+      "rechargeable": false,
+      "recharge": "0",
+      "rechargeType": "t1",
+      "rechargeUnit": "r1",
+      "sorting": "l"
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Great Weapon Master",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "//#####################################\n// READ THIS\n// Requires Midi-QoL on use\n//####################################\nconst target = canvas.tokens.get(args[0].tokenId).actor;\nconst itemD = args[0].item;\nconst gameRound = game.combat ? game.combat.round : 0;\nlet chatMessage = \"\";\nlet the_message = \"\";\nif (target.effects.find(ef => ef.data.label === itemD.name)) {\n    let effect = await target.effects.find(ef => ef.data.label === itemD.name);\n    await effect.delete();\n    the_message = `<em>${target.name} is swinging <strong>Normally</strong> now.</em>`;\n    chatMessage = game.messages.get(args[0].itemCardId);\n} else {\n    let effectData = [{\n        label: itemD.name,\n        icon: itemD.img,\n        duration: { rounds: 1, startRound: gameRound, startTime: game.time.worldTime },\n        origin: args[0].uuid,\n        changes: [{\n            \"key\": \"data.bonuses.mwak.damage\",\n            \"mode\": 2,\n            \"value\": 10,\n            \"priority\": 20\n        }, {\n            \"key\": \"data.bonuses.mwak.attack\",\n            \"mode\": 2,\n            \"value\": -5,\n            \"priority\": 20\n        }]\n    }];\n    await target.createEmbeddedEntity(\"ActiveEffect\", effectData);\n    the_message = `<em>${target.name} is swinging <strong>Harder</strong> now!</em>`;\n    chatMessage = game.messages.get(args[0].itemCardId);\n}\nlet content = await duplicate(chatMessage.data.content);\nlet searchString = /<div class=\"midi-qol-saves-display\">[\\s\\S]*<div class=\"end-midi-qol-saves-display\">/g;\nlet replaceString = `<div class=\"midi-qol-saves-display\"><div class=\"end-midi-qol-saves-display\">${the_message}`;\ncontent = content.replace(searchString, replaceString);\nawait chatMessage.update({ content: content });\nawait ui.chat.scrollBottom();",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "midi-qol": {
+      "onUseMacroName": "ItemMacro"
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.9",
+      "systemVersion": "1.5.2"
+    }
+  }
+}

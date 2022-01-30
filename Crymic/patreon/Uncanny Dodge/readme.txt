@@ -1,0 +1,1 @@
+Now you too can reverse 1/2 damage automatically to your favorite Rogue.

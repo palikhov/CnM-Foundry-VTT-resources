@@ -1,0 +1,218 @@
+{
+  "name": "Booming Blade",
+  "type": "spell",
+  "img": "icons/skills/melee/sword-stuck-glowing-pink.webp",
+  "data": {
+    "description": {
+      "value": "<p>You brandish the weapon used in the spell’s casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack’s normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 feet or more before then, the target takes 1d8 thunder damage, and the spell ends.</p>\n<p>This spell’s damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level (2d8 and 3d8) and again at 17th level (3d8 and 4d8).</p>",
+      "chat": "<p>You brandish the weapon used in the spell’s casting and make a melee attack with it against one creature within 5 feet of you. On a hit, the target suffers the weapon attack’s normal effects and then becomes sheathed in booming energy until the start of your next turn. If the target willingly moves 5 feet or more before then, the target takes 1d8 thunder damage, and the spell ends.</p>\n<p>This spell’s damage increases when you reach certain levels. At 5th level, the melee attack deals an extra 1d8 thunder damage to the target on a hit, and the damage the target takes for moving increases to 2d8. Both damage rolls increase by 1d8 at 11th level (2d8 and 3d8) and again at 17th level (3d8 and 4d8).</p>",
+      "unidentified": ""
+    },
+    "source": "Sword Coast Adventurer's Guide pg 142",
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": 1,
+      "units": "round"
+    },
+    "target": {
+      "value": 1,
+      "width": null,
+      "units": "",
+      "type": "creature"
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "touch"
+    },
+    "uses": {
+      "value": 0,
+      "max": "0",
+      "per": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "other",
+    "attackBonus": 0,
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": null
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d8",
+          "thunder"
+        ]
+      ],
+      "versatile": "",
+      "value": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "evo",
+    "components": {
+      "value": "a melee weapon worth at least 1 sp",
+      "vocal": false,
+      "somatic": true,
+      "material": true,
+      "ritual": false,
+      "concentration": false
+    },
+    "materials": {
+      "value": "a melee weapon worth at least 1 sp",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": false
+    },
+    "scaling": {
+      "mode": "cantrip",
+      "formula": "1d8"
+    }
+  },
+  "effects": [
+    {
+      "_id": "PwkmUwe1HOCMDZDi",
+      "changes": [
+        {
+          "key": "macro.itemMacro",
+          "mode": 0,
+          "value": "@token",
+          "priority": "20"
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "rounds": 1,
+        "turns": 1
+      },
+      "icon": "systems/dnd5e/icons/skills/weapon_25.jpg",
+      "label": "Booming Blade",
+      "transfer": false,
+      "flags": {
+        "dae": {
+          "stackable": "none",
+          "macroRepeat": "none",
+          "specialDuration": [],
+          "transfer": false
+        },
+        "dnd5e-helpers": {
+          "rest-effect": "Ignore"
+        },
+        "ActiveAuras": {
+          "isAura": false,
+          "aura": "None",
+          "radius": null,
+          "alignment": "",
+          "type": "",
+          "ignoreSelf": false,
+          "height": false,
+          "hidden": false,
+          "hostile": false,
+          "onlyOnce": false
+        }
+      },
+      "tint": null,
+      "selectedKey": "macro.itemMacro"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "ddbimporter": {
+      "id": 130378,
+      "definitionId": 2410,
+      "entityTypeId": 435869154,
+      "dndbeyond": {
+        "lookup": "generic",
+        "lookupName": "generic",
+        "level": null,
+        "castAtLevel": null
+      },
+      "sources": [
+        {
+          "sourceId": 13,
+          "pageNumber": 142,
+          "sourceType": 1
+        }
+      ],
+      "tags": [
+        "Damage",
+        "Control",
+        "Combat"
+      ]
+    },
+    "betterRolls5e": {
+      "quickVersatile": {
+        "altValue": true
+      },
+      "quickCharges": {
+        "value": {
+          "use": true,
+          "resource": true
+        },
+        "altValue": {
+          "use": true,
+          "resource": true
+        }
+      }
+    },
+    "core": {
+      "sourceId": "Compendium.world.ddb-darklands-spells.BX0DmAIb1lmhH5Qj"
+    },
+    "midi-qol": {
+      "onUseMacroName": "",
+      "forceCEOn": false,
+      "effectActivation": false
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Booming Blade",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "async function wait(ms) { return new Promise(resolve => { setTimeout(resolve, ms); }); }\nconst lastArg = args[args.length - 1];\nconst target = canvas.tokens.get(lastArg.tokenId);\nconst itemD = lastArg.efData.flags.dae.itemData;\nconst tokenD = canvas.tokens.get(args[1]);\nconst spellLevel = tokenD.actor.data.type === \"character\" ? tokenD.actor.data.data.details.level : tokenD.actor.data.data.details.cr;\nconst numDice = 1 + (Math.floor((spellLevel + 1) / 6));\nconst damageType = \"thunder\";\n\nasync function tokenMovement(tokenData, tokenId, diff, userid) {\n    let damageRoll = new Roll(`${numDice}d8`).evaluate({ async: false });\n    await wait(1000);\n    if (tokenId._id != target.id) return {};\n    let currentPosition = { x: tokenData.data.x, y: tokenData.data.y };\n    let savedPosition = DAE.getFlag(target.actor, \"BoomingBladePosition\");\n    if (savedPosition === undefined) return {};\n    if ((currentPosition.x === savedPosition.x) && (currentPosition.y === savedPosition.y)) return {};\n    await new MidiQOL.DamageOnlyWorkflow(tokenD.actor, tokenD, damageRoll.total, damageType, [target], damageRoll, { flavor: `(${CONFIG.DND5E.damageTypes[damageType]})`, itemData: itemD, itemCardId: \"new\" });\n    await MidiQOL.socket().executeAsGM(\"removeEffects\", { actorUuid: target.actor.uuid, effects: [lastArg.effectId] });\n    game.dice3d?.showForRoll(damageRoll);\n}\n\nif (args[0] === \"on\") {\n    let hookId = Hooks.on(\"updateToken\", tokenMovement);\n    let hookPos = { x: target.data.x, y: target.data.y };\n    DAE.setFlag(target.actor, \"BoomingBlade\", hookId);\n    DAE.setFlag(target.actor, \"BoomingBladePosition\", hookPos);\n}\n\nif (args[0] === \"off\") {\n    let hookId = DAE.getFlag(target.actor, \"BoomingBlade\");\n    Hooks.off(\"updateToken\", hookId);\n    DAE.unsetFlag(target.actor, \"BoomingBlade\");\n    DAE.unsetFlag(target.actor, \"BoomingBladePosition\");\n}",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "enhanced-terrain-layer": {
+      "multiple": 1,
+      "min": 0,
+      "max": 0,
+      "environment": ""
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.9",
+      "systemVersion": "1.5.3"
+    }
+  }
+}

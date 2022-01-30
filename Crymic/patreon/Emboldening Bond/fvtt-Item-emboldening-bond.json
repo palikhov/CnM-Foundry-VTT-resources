@@ -1,0 +1,217 @@
+{
+  "name": "Emboldening Bond",
+  "type": "feat",
+  "img": "icons/magic/holy/chalice-glowing-yellow-blue.webp",
+  "data": {
+    "description": {
+      "value": "<p><em>1st-level Peace Domain feature</em></p>\n<p>You can forge an empowering bond among people who are at peace with one another. As an action, you choose a number of willing creatures within 30 feet of you (this can include yourself) equal to your proficiency bonus. You create a magical bond among them for 10 minutes or until you use this feature again. While any bonded creature is within 30 feet of another, the creature can roll a d4 and add the number rolled to an attack roll, an ability check, or a saving throw it makes. Each creature can add the d4 no more than once per turn.</p>\n<p>You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</p><h3>Summary</h3>As an action, you choose up to +2 willing creatures within 30 ft. of you, creating a magical bond among them for 10 minutes or until you use this feature again. While any bonded creature is within +30 ft. of another, once per turn, they can roll a <strong>d4</strong> and add it to an attack roll, an ability check, or a saving throw they make.",
+      "chat": "As an action, you choose up to +2 willing creatures within 30 ft. of you, creating a magical bond among them for 10 minutes or until you use this feature again. While any bonded creature is within +30 ft. of another, once per turn, they can roll a <strong>d4</strong> and add it to an attack roll, an ability check, or a saving throw they make.",
+      "unidentified": ""
+    },
+    "source": "",
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": 1,
+      "units": "minute"
+    },
+    "target": {
+      "value": 2,
+      "width": null,
+      "units": "",
+      "type": "creature"
+    },
+    "range": {
+      "value": 30,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": 2,
+      "max": "2",
+      "per": "lr"
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "",
+    "attackBonus": 0,
+    "chatFlavor": "",
+    "critical": null,
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "requirements": "Cleric 1",
+    "recharge": {
+      "value": null,
+      "charged": false
+    }
+  },
+  "effects": [
+    {
+      "_id": "hrw0KvnIXi8G7spD",
+      "changes": [
+        {
+          "key": "macro.itemMacro",
+          "mode": 0,
+          "value": "",
+          "priority": "20"
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null
+      },
+      "icon": "icons/magic/holy/chalice-glowing-yellow-blue.webp",
+      "label": "Emboldening Bond",
+      "transfer": false,
+      "flags": {
+        "dae": {
+          "stackable": "none",
+          "macroRepeat": "none",
+          "specialDuration": [],
+          "transfer": false
+        },
+        "ActiveAuras": {
+          "isAura": false,
+          "radius": null,
+          "aura": "None",
+          "alignment": "",
+          "type": "",
+          "ignoreSelf": false,
+          "height": false,
+          "hidden": false,
+          "hostile": false,
+          "onlyOnce": false
+        }
+      },
+      "tint": "",
+      "selectedKey": "macro.itemMacro"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "ddbimporter": {
+      "id": "2409286",
+      "entityTypeId": "222216831",
+      "componentId": 2997252,
+      "componentTypeId": 12168134,
+      "dndbeyond": {
+        "levelScale": {
+          "id": 385312,
+          "level": 1,
+          "description": "30 feet range",
+          "dice": null,
+          "fixedValue": 30
+        },
+        "levelScales": [
+          {
+            "id": 385312,
+            "level": 1,
+            "description": "30 feet range",
+            "dice": {
+              "diceCount": null,
+              "diceValue": null,
+              "diceMultiplier": null,
+              "fixedValue": null,
+              "diceString": null
+            },
+            "fixedValue": 30
+          },
+          {
+            "id": 385313,
+            "level": 17,
+            "description": "60 feet range",
+            "dice": {
+              "diceCount": null,
+              "diceValue": null,
+              "diceMultiplier": null,
+              "fixedValue": null,
+              "diceString": null
+            },
+            "fixedValue": 60
+          }
+        ],
+        "limitedUse": [
+          {
+            "level": null,
+            "uses": 1
+          }
+        ]
+      }
+    },
+    "betterRolls5e": {
+      "quickCharges": {
+        "value": {
+          "use": true,
+          "resource": true
+        },
+        "altValue": {
+          "use": true,
+          "resource": true
+        }
+      }
+    },
+    "favtab": {
+      "isFavorite": true
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Emboldening Bond",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "// macro.execute\nconst lastArg = args[args.length - 1];\nlet tactor;\nif (lastArg.tokenId) tactor = canvas.tokens.get(lastArg.tokenId).actor;\nelse tactor = game.actors.get(lastArg.actorId);\nconst itemD = lastArg.efData.flags.dae.itemData;\n\nasync function bonusEffect(tactor, itemD){\n  let gameRound = game.combat ? game.combat.round : 0;\n  let effectData = [{\n    label: `${itemD.name} Bonus`,\n    icon: \"icons/svg/d20-highlight.svg\",\n    duration: { turn: 1, startRound: gameRound, startTime: game.time.worldTime },\n    flags: { dae: { specialDuration: [\"1Action\", \"isSave\", \"1Attack\", \"1Reaction\"] } },\n    origin: lastArg.origin,\n    changes: [{key: \"data.bonuses.abilities.save\",mode : 2, value : \"+1d4\", priority : 20},\n    {key: \"data.bonuses.All-Attacks\",mode: 2, value : \"+1d4\", priority : 20}]\n  }];\n  let checkAE = await tactor.effects.find(i => i.data.label === `${itemD.name} Bonus`);\n  if (!checkAE) {\n    await tactor.createEmbeddedDocuments(\"ActiveEffect\", effectData);\n  }\n}\n\nasync function combatRound(combat, update) {\n  if (!(\"turn\" in update)) return;\n  await bonusEffect(tactor, itemD);\n}\n\nif (args[0] === \"on\") {\n  let hookId = Hooks.on(\"updateCombat\", combatRound);\n  DAE.setFlag(tactor, \"emboldenBond\", hookId);\n}\n\nif (args[0] === \"off\") {\n  let hookId = DAE.getFlag(tactor, \"emboldenBond\");\n  Hooks.off(\"updateCombat\", hookId);\n  DAE.unsetFlag(tactor, \"emboldenBond\");\n}",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "midi-qol": {
+      "onUseMacroName": ""
+    },
+    "magicitems": {
+      "enabled": false,
+      "equipped": false,
+      "attuned": false,
+      "charges": "0",
+      "chargeType": "c1",
+      "destroy": false,
+      "destroyFlavorText": "reaches 0 charges: it crumbles into ashes and is destroyed.",
+      "rechargeable": false,
+      "recharge": "0",
+      "rechargeType": "t1",
+      "rechargeUnit": "r1",
+      "sorting": "l"
+    },
+    "core": {
+      "sourceId": "Item.BT9BaLuKtokrjc2g"
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.8",
+      "systemVersion": "1.4.2"
+    }
+  }
+}

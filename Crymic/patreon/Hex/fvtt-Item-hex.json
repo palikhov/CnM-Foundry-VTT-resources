@@ -1,0 +1,166 @@
+{
+  "name": "Hex",
+  "type": "spell",
+  "img": "systems/dnd5e/icons/skills/shadow_17.jpg",
+  "data": {
+    "description": {
+      "value": "<p>You place a curse on a creature that you can see within range. Until the spell ends, you deal an extra 1d6 necrotic damage to the target whenever you hit it with an attack. Also, choose one ability when you cast the spell. The target has disadvantage on ability checks made with the chosen ability.<br /><br />If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to curse a new creature.<br /><br />A remove curse cast on the target ends this spell early.</p>\n<p><strong>At Higher Levels. </strong>When you cast this spell using a spell slot of 3rd or 4th level, you can maintain your concentration on the spell for up to 8 hours. When you use a spell slot of 5th level or higher, you can maintain your concentration on the spell for up to 24 hours.</p>",
+      "chat": "<p>You place a curse on a creature that you can see within range. Until the spell ends, you deal an extra 1d6 necrotic damage to the target whenever you hit it with an attack. Also, choose one ability when you cast the spell. The target has disadvantage on ability checks made with the chosen ability.<br /><br />If the target drops to 0 hit points before this spell ends, you can use a bonus action on a subsequent turn of yours to curse a new creature.<br /><br />A remove curse cast on the target ends this spell early.</p>\n<p><strong>At Higher Levels. </strong>When you cast this spell using a spell slot of 3rd or 4th level, you can maintain your concentration on the spell for up to 8 hours. When you use a spell slot of 5th level or higher, you can maintain your concentration on the spell for up to 24 hours.</p>",
+      "unidentified": ""
+    },
+    "source": "Player's Handbook pg 251",
+    "activation": {
+      "type": "bonus",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": 1,
+      "units": "hour"
+    },
+    "target": {
+      "value": 1,
+      "width": null,
+      "units": "",
+      "type": "creature"
+    },
+    "range": {
+      "value": 90,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": 0,
+      "max": "0",
+      "per": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "util",
+    "attackBonus": "0",
+    "chatFlavor": "",
+    "critical": null,
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 1,
+    "school": "enc",
+    "components": {
+      "value": "the petrified eye of a newt",
+      "vocal": true,
+      "somatic": true,
+      "material": true,
+      "ritual": false,
+      "concentration": true
+    },
+    "materials": {
+      "value": "the petrified eye of a newt",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "pact",
+      "prepared": true
+    },
+    "scaling": {
+      "mode": "none",
+      "formula": ""
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "flags": {
+    "ddbimporter": {
+      "id": 138073,
+      "definitionId": 2317,
+      "entityTypeId": 435869154,
+      "dndbeyond": {
+        "lookup": "classSpell",
+        "class": "Warlock",
+        "level": 3,
+        "characterClassId": 63323005,
+        "spellLevel": 1,
+        "ability": "cha",
+        "mod": 3,
+        "dc": 13,
+        "cantripBoost": false,
+        "overrideDC": false,
+        "id": 138073,
+        "entityTypeId": 435869154,
+        "healingBoost": 0
+      },
+      "sources": [
+        {
+          "sourceId": 2,
+          "pageNumber": 251,
+          "sourceType": 1
+        }
+      ],
+      "tags": [
+        "Damage",
+        "Debuff"
+      ]
+    },
+    "betterRolls5e": {
+      "quickVersatile": {
+        "altValue": true
+      },
+      "quickCharges": {
+        "value": {
+          "use": true,
+          "resource": true
+        },
+        "altValue": {
+          "use": true,
+          "resource": true
+        }
+      }
+    },
+    "favtab": {
+      "isFavorite": true
+    },
+    "midi-qol": {
+      "onUseMacroName": "ItemMacro"
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Hex",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "async function wait(ms) { return new Promise(resolve => { setTimeout(resolve, ms); }); }\n\nif (args[0].tag === \"OnUse\") {\n    const target = canvas.tokens.get(args[0].targets[0].id);\n    const actorD = game.actors.get(args[0].actor._id);\n    const tokenD = canvas.tokens.get(args[0].tokenId);\n    const itemD = args[0].item;\n    const level = args[0].spellLevel;\n    const uuid = args[0].uuid;\n    const hours = level === 3 ? 480 : level === 4 ? 480 : level >= 5 ? 1440 : 60;\n    const seconds = level === 3 ? 28800 : level === 4 ? 28800 : level >= 5 ? 86400 : 3600;\n    const ability_fname = Object.values(CONFIG.DND5E.abilities);\n    const ability_sname = Object.keys(CONFIG.DND5E.abilities);\n    const gameRound = game.combat ? game.combat.round : 0;\n    let ability_list = \"\";\n    for (let i = 0; i < ability_fname.length; i++) {\n        let full_name = ability_fname[i];\n        let short_name = ability_sname[i];\n        ability_list += `<option value=\"${short_name}\">${full_name}</option>`;\n    }\n    let the_content = `<form><div class=\"form-group\"><label for=\"ability\">Ability:</label><select id=\"ability\">${ability_list}</select></div></form>`;\n    new Dialog({\n        title: itemD.name,\n        content: the_content,\n        buttons: {\n            hex: {\n                label: \"Hex\",\n                callback: async (html) => {\n                    let ability = html.find('#ability')[0].value;\n                    bonusDamage(target, itemD, uuid, tokenD, actorD, hours, seconds, gameRound);\n                    await wait(500);\n                    applyDis(target, ability, itemD, uuid, level, tokenD, hours, seconds, gameRound);\n                }\n            }\n        },\n        default: \"Hex\"\n    }).render(true);\n}\n\nasync function bonusDamage(target, itemD, uuid, tokenD, actorD, hours, seconds, gameRound) {\n    let effectData = {\n        label: itemD.name,\n        icon: \"systems/dnd5e/icons/skills/violet_24.jpg\",\n        origin: uuid,\n        disabled: false,\n        duration: { rounds: hours, seconds: seconds, startRound: gameRound, startTime: game.time.worldTime },\n        flags: { dae: { itemData: itemD } },\n        changes: [\n            { key: \"flags.midi-qol.hexMark\", mode: 5, value: target.id, priority: 20 },\n            { key: \"flags.dnd5e.DamageBonusMacro\", mode: 0, value: `ItemMacro.${itemD.name}`, priority: 20 },\n            { key: \"flags.midi-qol.concentration-data.targets\", mode: 2, value: { \"actorId\": actorD.id, \"tokenId\": tokenD.id }, priority: 20 }\n        ]\n    };\n    await actorD.createEmbeddedEntity(\"ActiveEffect\", effectData);\n    let getConc = actorD.effects.find(i => i.data.label === \"Concentrating\");\n    await actorD.updateEmbeddedEntity(\"ActiveEffect\", { \"_id\": getConc.id, origin: uuid,\"duration\": { rounds: hours, seconds: seconds, startRound: gameRound, startTime: game.time.worldTime } });\n}\n\nasync function applyDis(target, ability, itemD, uuid, level, tokenD, hours, seconds, gameRound) {\n    const hexEffect = await tokenD.actor.effects.find(i => i.data.label === \"Hex\");\n    const concEffect = await tokenD.actor.effects.find(i => i.data.label === \"Concentrating\");\n    let effectData = {\n        label: itemD.name,\n        icon: itemD.img,\n        origin: uuid,\n        disabled: false,\n        duration: { rounds: hours, seconds: seconds, startRound: gameRound, startTime: game.time.worldTime },\n        flags: { dae: { itemData: itemD, spellLevel: level, tokenId: tokenD.id, hexId: hexEffect.id, concId: concEffect.id } },\n        changes: [{ key: `flags.midi-qol.disadvantage.ability.check.${ability}`, mode: 2, value: 1, priority: 20 }]\n    };\n    await MidiQOL.socket().executeAsGM(\"createEffects\", {actorUuid: target.actor.uuid, effects: [effectData]});    \n}\n\nif (args[0].tag === \"DamageBonus\") {\n    const target = canvas.tokens.get(args[0].targets[0].id);\n    const tokenD = canvas.tokens.get(args[0].tokenId);\n    const itemD = args[0].item;\n    const damageType = \"necrotic\";\n    if (target.id !== getProperty(tokenD.actor.data.flags, \"midi-qol.hexMark\")) return {};\n    if (![\"ak\"].some(actionType => (itemD.data.actionType || \"\").includes(actionType))) return {};\n    return { damageRoll: `1d6[${damageType}]`, flavor: `(Hex (${CONFIG.DND5E.damageTypes[damageType]}))`, damageList: args[0].damageList, itemCardId: args[0].itemCardId };\n}",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "core": {
+      "sourceId": "Item.1S0dhGchD8UaxxYs"
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.8",
+      "systemVersion": "1.4.1"
+    }
+  }
+}

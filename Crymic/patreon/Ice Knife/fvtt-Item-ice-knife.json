@@ -1,0 +1,174 @@
+{
+  "name": "Ice Knife",
+  "type": "spell",
+  "img": "systems/dnd5e/icons/spells/ice-sky-1.jpg",
+  "data": {
+    "description": {
+      "value": "<p class=\"Core-Styles_Core-Body\">You create a shard of ice and fling it at one creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 piercing damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take 2d6 cold damage.</p>\n<p class=\"Core-Styles_Core-Body\"><span class=\"Serif-Character-Style_Inline-Subhead-Serif\"><strong>At Higher Levels.</strong> </span>When you cast this spell using a spell slot of 2nd level or higher, the cold damage increases by 1d6 for each slot level above 1st.</p>",
+      "chat": "<p class=\"Core-Styles_Core-Body\">You create a shard of ice and fling it at one creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 piercing damage. Hit or miss, the shard then explodes. The target and each creature within 5 feet of it must succeed on a Dexterity saving throw or take 2d6 cold damage.</p>\n<p class=\"Core-Styles_Core-Body\"><span class=\"Serif-Character-Style_Inline-Subhead-Serif\"><strong>At Higher Levels.</strong> </span>When you cast this spell using a spell slot of 2nd level or higher, the cold damage increases by 1d6 for each slot level above 1st.</p>",
+      "unidentified": ""
+    },
+    "source": "Elemental Evil Player's Companion pg 157",
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": null,
+      "units": ""
+    },
+    "target": {
+      "value": 1,
+      "width": null,
+      "units": "",
+      "type": "creature"
+    },
+    "range": {
+      "value": 60,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": 0,
+      "max": "0",
+      "per": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "rsak",
+    "attackBonus": "",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [
+        [
+          "1d10",
+          "piercing"
+        ]
+      ],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 1,
+    "school": "con",
+    "components": {
+      "value": "a drop of water or a piece of ice",
+      "vocal": false,
+      "somatic": true,
+      "material": true,
+      "ritual": false,
+      "concentration": false
+    },
+    "materials": {
+      "value": "a drop of water or a piece of ice",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": true
+    },
+    "scaling": {
+      "mode": "none",
+      "formula": ""
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "flags": {
+    "ddbimporter": {
+      "id": 138119,
+      "definitionId": 2384,
+      "entityTypeId": 435869154,
+      "dndbeyond": {
+        "lookup": "classSpell",
+        "class": "Wizard",
+        "level": 3,
+        "characterClassId": 71161697,
+        "spellLevel": 1,
+        "ability": "int",
+        "mod": 4,
+        "dc": 14,
+        "cantripBoost": false,
+        "overrideDC": false,
+        "id": 138119,
+        "entityTypeId": 435869154,
+        "healingBoost": 0
+      },
+      "sources": [
+        {
+          "sourceId": 4,
+          "pageNumber": 157,
+          "sourceType": 1
+        }
+      ],
+      "tags": [
+        "Damage"
+      ]
+    },
+    "betterRolls5e": {
+      "quickVersatile": {
+        "altValue": true
+      },
+      "quickCharges": {
+        "value": {
+          "use": true,
+          "resource": true
+        },
+        "altValue": {
+          "use": true,
+          "resource": true
+        }
+      }
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Ice Knife",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "// Midi-qol \"on use\"\n// This spell flips between a single target and multi hit targets, then back to single target.\nasync function wait(ms) { return new Promise(resolve => { setTimeout(resolve, ms); }); }\nlet actorD = game.actors.get(args[0].actor._id);\nlet tokenD = canvas.tokens.get(args[0].tokenId);\nlet dc = actorD.getRollData().attributes.spelldc;\nlet itemD = args[0].item;\nlet aoeDamage = Number(args[0].spellLevel) + 1;\nlet firstTarget = canvas.tokens.get(args[0].targets[0].id);\nlet distance = 9.5;\nlet damageRoll = new Roll(`${aoeDamage}d6`).evaluate({ async: false });\nlet damage_target = [];\nlet hitTargets = [];\nlet saveResult = \"\";\nlet saveType = \"dex\";\nlet damageType = \"cold\";\nlet aoe_target = canvas.tokens.placeables.filter(target => (canvas.grid.measureDistance(firstTarget.center, target.center) <= distance && target.actor.data.data.attributes.hp.value > 0));\nfor (let target of aoe_target) {\n    let save = await target.actor.rollAbilitySave(saveType, { chatMessage: false, fastForward: true });\n    if (save.total >= dc) {\n        saveResult = `saves with ${save.total}`;\n    } else {\n        hitTargets.push(target);\n        saveResult = `fails with ${save.total}`;\n    }\n    damage_target.push(`<div class=\"midi-qol-flex-container\"><div class=\"midi-qol-target-npc midi-qol-target-name\" id=\"${target.id}\"> ${target.name}</div><div>${saveResult}</div><div><img src=\"${target.data.img}\" width=\"30\" height=\"30\" style=\"border:0px\"></div></div>`);\n}\nnew MidiQOL.DamageOnlyWorkflow(actorD, tokenD, damageRoll.total, damageType, hitTargets, damageRoll, { flavor: `(${CONFIG.DND5E.damageTypes[damageType]})`, itemData: itemD, itemCardId: \"new\" });\nawait wait(800);\nlet damage_list = damage_target.join('');\nlet damage_results = `<br><div class=\"midi-qol-nobox midi-qol-bigger-text\">${CONFIG.DND5E.abilities[saveType]} Saving Throw: DC ${dc}</div><div class=\"midi-qol-single-hit-card\"><div class=\"midi-qol-nobox\">${damage_list}</div></div>`;\nlet lastMessage = game.messages.contents.map(i => ({ itemName: i.data.flavor ? i.data.flavor : null, itemCardId: i.data._id })).filter(i => i.itemName != null).filter(i => i.itemName != null && i.itemName === itemD.name);\nlet lastChatId = lastMessage[lastMessage.length - 1].itemCardId;\nlet chatMessage = await game.messages.get(lastChatId);\nlet content = await duplicate(chatMessage.data.content);\nlet searchString = /<div class=\"midi-qol-hits-display\">[\\s\\S]*<div class=\"end-midi-qol-hits-display\">/g;\nlet replaceString = `<div class=\"midi-qol-hits-display\"><div class=\"end-midi-qol-hits-display\">${damage_results}`;\ncontent = await content.replace(searchString, replaceString);\nawait chatMessage.update({ content: content });\nawait ui.chat.scrollBottom();",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "midi-qol": {
+      "onUseMacroName": "ItemMacro",
+      "criticalThreshold": "20"
+    },
+    "favtab": {
+      "isFavorite": true
+    },
+    "core": {
+      "sourceId": "Item.Fv3UTTNUgXj7BoUU"
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.9",
+      "systemVersion": "1.5.2"
+    }
+  }
+}

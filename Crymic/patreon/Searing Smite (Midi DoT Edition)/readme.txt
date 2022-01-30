@@ -1,0 +1,17 @@
+Hey guys, Here's a new build of Searing Smite featuring Midi-QoL's new Damage Over Time scripting.  So it works RAW, your player will cast it upon themselves. Then once they hit the target, it will go off. Enjoy :)
+
+The next time you hit a creature with a melee weapon attack during the spell’s duration, your weapon flares with white-hot intensity, and the attack deals an extra 1d6 fire damage to the target and causes the target to ignite in flames. At the start of each of its turns until the spell ends, the target must make a Constitution saving throw. On a failed save, it takes 1d6 fire damage. On a successful save, the spell ends. If the target or a creature within 5 feet of it uses an action to put out the flames, or if some other effect douses the flames (such as the target being submerged in water), the spell ends.
+At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the initial extra damage dealt by the attack increases by 1d6 for each slot.
+
+Modules Required:
+Advanced Macros
+DAE
+Midi-Qol
+Item Macro
+Midi-QoL Workflow Options Required
+
+Auto Damage On
+
+Updates
+9/28: Fixed Initial Damage on Hit.
+10/12: Adjusted DoT Settings

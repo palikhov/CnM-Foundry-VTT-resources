@@ -1,0 +1,155 @@
+{
+  "name": "Chaos Bolt",
+  "type": "spell",
+  "img": "systems/dnd5e/icons/skills/violet_01.jpg",
+  "data": {
+    "description": {
+      "value": "<p>You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack’s damage type, as shown below.</p>\n<div class=\"table-overflow-wrapper\">\n<table class=\"compendium-left-aligned-table\">\n<thead>\n<tr>\n<th>d8</th>\n<th>Damage Type</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1</td>\n<td>Acid</td>\n</tr>\n<tr>\n<td>2</td>\n<td>Cold</td>\n</tr>\n<tr>\n<td>3</td>\n<td>Fire</td>\n</tr>\n<tr>\n<td>4</td>\n<td>Force</td>\n</tr>\n<tr>\n<td>5</td>\n<td>Lightning</td>\n</tr>\n<tr>\n<td>6</td>\n<td>Poison</td>\n</tr>\n<tr>\n<td>7</td>\n<td>Psychic</td>\n</tr>\n<tr>\n<td>8</td>\n<td>Thunder</td>\n</tr>\n</tbody>\n</table>\n</div>\n<p>If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again.</p>\n<p>A creature can be targeted only once by each casting of this spell.</p>\n<p><strong><em>At Higher Levels.</em></strong> When you cast this spell using a spell slot of 2nd level or higher, each target takes 1d6 extra damage of the type rolled for each slot level above 1st.</p>",
+      "chat": "<p>You hurl an undulating, warbling mass of chaotic energy at one creature in range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 + 1d6 damage. Choose one of the d8s. The number rolled on that die determines the attack’s damage type, as shown below.</p>\n<div class=\"table-overflow-wrapper\">\n<table class=\"compendium-left-aligned-table\">\n<thead>\n<tr>\n<th>d8</th>\n<th>Damage Type</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1</td>\n<td>Acid</td>\n</tr>\n<tr>\n<td>2</td>\n<td>Cold</td>\n</tr>\n<tr>\n<td>3</td>\n<td>Fire</td>\n</tr>\n<tr>\n<td>4</td>\n<td>Force</td>\n</tr>\n<tr>\n<td>5</td>\n<td>Lightning</td>\n</tr>\n<tr>\n<td>6</td>\n<td>Poison</td>\n</tr>\n<tr>\n<td>7</td>\n<td>Psychic</td>\n</tr>\n<tr>\n<td>8</td>\n<td>Thunder</td>\n</tr>\n</tbody>\n</table>\n</div>\n<p>If you roll the same number on both d8s, the chaotic energy leaps from the target to a different creature of your choice within 30 feet of it. Make a new attack roll against the new target, and make a new damage roll, which could cause the chaotic energy to leap again.</p>\n<p>A creature can be targeted only once by each casting of this spell.</p>\n<p><strong><em>At Higher Levels.</em></strong> When you cast this spell using a spell slot of 2nd level or higher, each target takes 1d6 extra damage of the type rolled for each slot level above 1st.</p>",
+      "unidentified": ""
+    },
+    "source": "Xanathar's Guide to Everything pg 151",
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": null,
+      "units": "inst"
+    },
+    "target": {
+      "value": 1,
+      "width": null,
+      "units": "",
+      "type": "creature"
+    },
+    "range": {
+      "value": 120,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": 0,
+      "max": "0",
+      "per": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "rsak",
+    "attackBonus": "0",
+    "chatFlavor": "",
+    "critical": null,
+    "damage": {
+      "parts": [],
+      "versatile": "",
+      "value": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 1,
+    "school": "evo",
+    "components": {
+      "value": "",
+      "vocal": true,
+      "somatic": true,
+      "material": false,
+      "ritual": false,
+      "concentration": false
+    },
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": false
+    },
+    "scaling": {
+      "mode": "level",
+      "formula": "1d6"
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "flags": {
+    "ddbimporter": {
+      "id": 154574,
+      "definitionId": 14761,
+      "entityTypeId": 435869154,
+      "dndbeyond": {
+        "lookup": "generic",
+        "lookupName": "generic",
+        "level": null,
+        "castAtLevel": null
+      },
+      "sources": [
+        {
+          "sourceId": 27,
+          "pageNumber": 151,
+          "sourceType": 1
+        }
+      ],
+      "tags": [
+        "Damage"
+      ]
+    },
+    "betterRolls5e": {
+      "quickVersatile": {
+        "altValue": true
+      },
+      "quickCharges": {
+        "value": {
+          "use": true,
+          "resource": true
+        },
+        "altValue": {
+          "use": true,
+          "resource": true
+        }
+      }
+    },
+    "core": {
+      "sourceId": "Compendium.world.ddb-darklands-spells.tkAlk8aLVESjnknR"
+    },
+    "midi-qol": {
+      "criticalThreshold": "20",
+      "onUseMacroName": "ItemMacro"
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Chaos Bolt",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "// Midi-Qol On Use Only\nconst damageList = {1:\"acid\", 2: \"cold\", 3:\"fire\", 4:\"force\", 5:\"lightning\", 6:\"poison\", 7:\"psychic\", 8:\"thunder\"};\nconst actorD = game.actors.get(args[0].actor._id);\nconst tokenD = canvas.tokens.get(args[0].tokenId);\nconst itemD = args[0].item;\nconst getItem = actorD.items.getName(itemD.name);\nconst spellLevel = Number(args[0].spellLevel);\nconst upcast = spellLevel;\nasync function wait(ms) { return new Promise(resolve => { setTimeout(resolve, ms); }); }\n\nif(args[0].hitTargets.length > 0){\nconst target = canvas.tokens.get(args[0].hitTargets[0]._id);\ndealDamage(target);\n}\n\nasync function findTarget(target){\n    let distance = 29.5;\n    let get_targets = await canvas.tokens.placeables.filter(new_target => (canvas.grid.measureDistance(target.center, new_target.center) <= distance && target.id != new_target.id && target.data.disposition === new_target.data.disposition));\n  rollAttack(get_targets);\n}\n\nasync function rollAttack(get_targets){\n    let targetList;\n    for(let target of get_targets){\n        targetList += `<option value=\"${target.id}\">${target.name}</option>`;\n    }\n    new Dialog({\n    title: `${itemD.name} : New Target`,\n      content: `<form><div class=\"form-group\"><label for=\"target\">Pick Target</label><select id=\"target\">${targetList}</select></div></form>`,\n      buttons: {\n        attack: {\n          label: \"Attack\",\n          callback: async (html) => {\n              let find_target = html.find('#target').val();\n              let get_target = canvas.tokens.get(find_target);\n              await get_target.setTarget(true, {releaseOthers: true});\n              await wait(500);\n              let roll = await actorD.items.get(itemD._id).rollAttack();\n              if(roll.total >= get_target.actor.data.data.attributes.ac.value){\n                  const newCritical = roll.parts[0].total === 20 ? true : false;\n                  dealDamage(get_target, 1, newCritical);\n              }\n          }\n        }\n      },\n      default: \"attack\"\n    }).render(true);\n}\n\nasync function dealDamage(target, reCast, newCritical){\n    let numDice = newCritical ? `1d8 + 1d8 + 2d8 + ${upcast *2}d6` : args[0].isCritical ? `1d8 + 1d8 + 2d8 + ${upcast *2}d6` : `1d8 + 1d8 + ${upcast}d6`;\n    const damageRoll = new Roll(`${numDice}`).evaluate({async:false});\n    let firstElement = damageList[damageRoll.terms[0].total];\n    let secondElement = damageList[damageRoll.terms[2].total];\n    let selectElement;\n    let castAgain = 0;\n    let elementList = [];\n    if(firstElement != secondElement) {\n    elementList.push(firstElement);\n    elementList.push(secondElement);\n    } else {\n    elementList = firstElement;\n    castAgain = 1;\n    }\n    for(let element of elementList){\n    selectElement += `<option value=\"${element}\">${element}</option>`;\n    }\n    if(firstElement === secondElement) {\n         game.dice3d?.showForRoll(damageRoll);\n         if(reCast === 1){\n              let newId = await MidiQOL.Workflow.getWorkflow(itemD._id);\n              new MidiQOL.DamageOnlyWorkflow(actorD, tokenD, damageRoll.total, elementList, [target], damageRoll, {flavor: `(${elementList})`, itemCardId: newId.itemCardId, useOther: false});\n              } else {\n                new MidiQOL.DamageOnlyWorkflow(actorD, tokenD, damageRoll.total, elementList, [target], damageRoll, {flavor: `(${elementList})`, itemCardId: args[0].itemCardId, useOther: false});\n              }\n        if(castAgain === 1){\n            await wait(1000);\n            findTarget(target);\n        }\n        \n    } else {\n    let the_message = `<form><div class=\"form-group\"><label for=\"element\">Pick Element</label><select id=\"element\">${selectElement}</select></div></form>`;\n    new Dialog({\n        title: itemD.name,\n        content: the_message,\n      buttons: {\n        damage: {\n          label: \"Damage\",\n          callback: async (html) => {\n            let element = html.find('#element').val();\n             game.dice3d?.showForRoll(damageRoll);\n          if(reCast === 1){\n              let newId = await MidiQOL.Workflow.getWorkflow(itemD._id);\n              new MidiQOL.DamageOnlyWorkflow(actorD, tokenD, damageRoll.total, element, [target], damageRoll, {flavor: `(${element})`, itemCardId: newId.itemCardId, useOther: false});\n              } else {\n                new MidiQOL.DamageOnlyWorkflow(actorD, tokenD, damageRoll.total, element, [target], damageRoll, {flavor: `(${element})`, itemCardId: args[0].itemCardId, useOther: false});\n        }\n            \n      }\n    }\n  },\n   default: \"damage\"\n}).render(true);\n}\n}",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.8",
+      "systemVersion": "1.4.1"
+    }
+  }
+}

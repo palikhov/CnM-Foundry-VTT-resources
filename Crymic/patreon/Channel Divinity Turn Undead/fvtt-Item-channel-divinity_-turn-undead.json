@@ -1,0 +1,139 @@
+{
+  "name": "Channel Divinity: Turn Undead",
+  "type": "feat",
+  "img": "icons/magic/fire/flame-burning-creature-skeleton.webp",
+  "data": {
+    "description": {
+      "value": "<p class=\"Core-Styles_Core-Body\">As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it take<span class=\"No-Break\">s any damage.</span></p>\n<p class=\"Core-Styles_Core-Body\">A turned creature must spend its turns trying to move as far away from you as it can, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. For its action, it can use only the <span class=\"No-Break\">Dodge action.</span></p>",
+      "chat": "As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a WIS saving throw (DC +13). If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage. A turned creature must spend its turns trying to move as far away from you as it can, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.",
+      "unidentified": ""
+    },
+    "source": "",
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": null,
+      "units": ""
+    },
+    "target": {
+      "value": 30,
+      "width": null,
+      "units": "ft",
+      "type": "enemy"
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "self"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": ""
+    },
+    "consume": {
+      "type": "attribute",
+      "target": "resources.primary.value",
+      "amount": 1
+    },
+    "ability": "",
+    "actionType": "other",
+    "attackBonus": 0,
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": null
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "requirements": "",
+    "recharge": {
+      "value": null,
+      "charged": false
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "flags": {
+    "ddbimporter": {
+      "id": "74143",
+      "entityTypeId": "222216831",
+      "componentId": 110,
+      "componentTypeId": 12168134,
+      "dndbeyond": {
+        "levelScale": null,
+        "levelScales": [],
+        "limitedUse": [
+          {
+            "level": null,
+            "uses": 1
+          },
+          {
+            "level": null,
+            "uses": 1
+          }
+        ]
+      }
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Channel Divinity: Turn Undead",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "/////////////////////////////////////////////////\n// READ FIRST\n// Requires: Callback macros ActorUpdate\n////////////////////////////////////////////////\nasync function wait(ms) { return new Promise(resolve => { setTimeout(resolve, ms); }); }\nasync function cr_lookup(level) {\n    if ((level >= 5) && (level < 8)) { return 0.5; }\n    if ((level >= 8) && (level < 11)) { return 1; }\n    if ((level >= 11) && (level < 14)) { return 2; }\n    if ((level >= 14) && (level < 17)) { return 3; }\n    if ((level >= 17) && (level <= 20)) { return 4; }\n}\nconst ActorUpdate = game.macros?.getName(\"ActorUpdate\");\nif (!ActorUpdate) return ui.notifications.error(`Cannot locate ActorUpdate GM Macro`);\nif (!ActorUpdate.data.flags[\"advanced-macros\"].runAsGM) return ui.notifications.error(`ActorUpdate \"Execute as GM\" needs to be checked.`);\nconst actorD = game.actors.get(args[0].actor._id).getRollData();\nconst level = actorD.classes.cleric ? actorD.classes.cleric.levels : actorD.details.cr;\nconst dc = actorD.attributes.spelldc;\nconst itemD = args[0].item;\nconst saveType = actorD.attributes.spellcasting;\nconst targetList = args[0].targets.reduce((list, target) => {\n    if (target.actor.data.data.attributes.hp.value === 0) return list;\n    let creatureTypes = [\"undead\"];\n    let undead = creatureTypes.some(i => (target.actor.data.data.details?.type?.value || target.actor.data.data.details?.race).toLowerCase().includes(i));\n    console.log(`${itemD.name}=>`, target.name, undead);\n    if (undead) list.push(target);\n    return list;\n}, []);\nlet turnTargets = [];\nfor (let target of targetList) {\n    let mon_cr = target.actor.getRollData().details.cr;\n    let level_cr = await cr_lookup(level);\n    console.log(level_cr, mon_cr);\n    // add turn resist terms\n    let resist = [\"Turn Resistance\", \"Turn Defiance\"];\n    let getResistance = target.actor.items.find(i => resist.includes(i.name));\n    let immunity = [\"Turn Immunity\"];\n    let getImmunity = target.actor.items.find(i => immunity.includes(i.name));\n    let getAdvantage = getResistance ? { advantage: true, chatMessage: false, fastForward: true } : { chatMessage: false, fastForward: true };\n    let save = await MidiQOL.socket().executeAsGM(\"rollAbility\", { request: \"save\", targetUuid: target.actor.uuid, ability: saveType, options: getAdvantage });\n    if (getImmunity) {\n        turnTargets.push(`<div class=\"midi-qol-flex-container\"><div class=\"midi-qol-target-npc midi-qol-target-name\" id=\"${target.id}\">${target.name} immune</div><div><img src=\"${target.data.img}\" width=\"30\" height=\"30\" style=\"border:0px\"></div></div>`);\n    }\n    else {\n        if (dc > save.total) {\n            if (level_cr >= mon_cr) {\n                console.log(target.name, save.total, `Fail [Destroyed]`);\n                ActorUpdate.execute(target.id, { \"data.attributes.hp.value\": 0 });\n                turnTargets.push(`<div class=\"midi-qol-flex-container\"><div class=\"midi-qol-target-npc midi-qol-target-name\" id=\"${target.id}\">${target.name} fails with ${save.total} [Destroyed]</div><div><img src=\"${target.data.img}\" width=\"30\" height=\"30\" style=\"border:0px\"></div></div>`);\n            } else {\n                console.log(target.name, save.total, `Fail [Feared]`);\n                let gameRound = game.combat ? game.combat.round : 0;\n                let effectData = {\n                    label: \"Frightened\",\n                    icon: \"modules/combat-utility-belt/icons/frightened.svg\",\n                    origin: args[0].uuid,\n                    disabled: false,\n                    flags: { dae: { specialDuration: [\"isDamaged\"] } },\n                    duration: { rounds: 10, seconds: 60, startRound: gameRound, startTime: game.time.worldTime },\n                    changes: [{ key: `flags.midi-qol.disadvantage.ability.check.all`, mode: 2, value: 1, priority: 20 },\n                    { key: `flags.midi-qol.disadvantage.skill.check.all`, mode: 2, value: 1, priority: 20 },\n                    { key: `flags.midi-qol.disadvantage.attack.all`, mode: 2, value: 1, priority: 20 }]\n                };\n                let effect = target.actor.effects.find(ef => ef.data.label === game.i18n.localize(\"Frightened\"));\n                if (!effect) await MidiQOL.socket().executeAsGM(\"createEffects\", { actorUuid: target.uuid, effects: [effectData] });\n                turnTargets.push(`<div class=\"midi-qol-flex-container\"><div class=\"midi-qol-target-npc midi-qol-target-name\" id=\"${target.id}\">${target.name} fails with ${save.total} [Feared]</div><div><img src=\"${target.data.img}\" width=\"30\" height=\"30\" style=\"border:0px\"></div></div>`);\n            }\n        } else {\n            console.log(target.name, save.total, `Save`);\n            turnTargets.push(`<div class=\"midi-qol-flex-container\"><div class=\"midi-qol-target-npc midi-qol-target-name\" id=\"${target.id}\">${target.name} succeeds with ${save.total}</div><div><img src=\"${target.data.img}\" width=\"30\" height=\"30\" style=\"border:0px\"></div></div>`);\n        }\n    }\n}\nawait wait(600);\nlet turn_results = `<div class=\"midi-qol-nobox midi-qol-bigger-text\">${CONFIG.DND5E.abilities[saveType]} Saving Throw: DC ${dc}</div><div><div class=\"midi-qol-nobox\">${turnTargets.join('')}</div></div>`;\nlet chatMessage = await game.messages.get(args[0].itemCardId);\nlet content = await duplicate(chatMessage.data.content);\nlet searchString = /<div class=\"midi-qol-hits-display\">[\\s\\S]*<div class=\"end-midi-qol-hits-display\">/g;\nlet replaceString = `<div class=\"midi-qol-hits-display\"><div class=\"end-midi-qol-hits-display\">${turn_results}`;\ncontent = await content.replace(searchString, replaceString);\nawait chatMessage.update({ content: content });\nawait ui.chat.scrollBottom();",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "midi-qol": {
+      "onUseMacroName": "ItemMacro",
+      "forceCEOn": false
+    },
+    "magicitems": {
+      "enabled": false,
+      "equipped": false,
+      "attuned": false,
+      "charges": "0",
+      "chargeType": "c1",
+      "destroy": false,
+      "destroyFlavorText": "reaches 0 charges: it crumbles into ashes and is destroyed.",
+      "rechargeable": false,
+      "recharge": "0",
+      "rechargeType": "t1",
+      "rechargeUnit": "r1",
+      "sorting": "l"
+    },
+    "favtab": {
+      "isFavorite": true
+    },
+    "core": {
+      "sourceId": "Item.MBTvfiIZY5gijwQG"
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.9",
+      "systemVersion": "1.5.3"
+    }
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "name": "Sharpshooter",
+  "type": "feat",
+  "img": "graphics/icons/skills/yellow_34.jpg",
+  "data": {
+    "description": {
+      "value": "<p>You have mastered ranged weapons and can make shots that others find impossible. You gain the following benefits:</p>\n<ul>\n<li>Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.</li>\n<li>Your ranged weapon attacks ignore half cover and three-quarters cover.</li>\n<li>Before you make an attack with a ranged weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage.</li>\n</ul>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "activation": {
+      "type": "special",
+      "cost": null,
+      "condition": ""
+    },
+    "duration": {
+      "value": null,
+      "units": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": "self"
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "self"
+    },
+    "uses": {
+      "value": 0,
+      "max": "0",
+      "per": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "util",
+    "attackBonus": 0,
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": null
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "requirements": "",
+    "recharge": {
+      "value": null,
+      "charged": false
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "flags": {
+    "magicitems": {
+      "enabled": false,
+      "equipped": false,
+      "attuned": false,
+      "charges": "0",
+      "chargeType": "c1",
+      "destroy": false,
+      "destroyFlavorText": "reaches 0 charges: it crumbles into ashes and is destroyed.",
+      "rechargeable": false,
+      "recharge": "0",
+      "rechargeType": "t1",
+      "rechargeUnit": "r1",
+      "sorting": "l"
+    },
+    "autoanimations": {
+      "killAnim": false,
+      "override": false,
+      "animType": "t1",
+      "animName": "",
+      "bards": {
+        "bardAnim": "a1",
+        "bardTarget": true,
+        "bardTargetAnim": "a1",
+        "bardTargetColor": "a1",
+        "bardSelf": true,
+        "marker": true,
+        "markerColor": "a1",
+        "markerColorTarget": "a1"
+      },
+      "spellVar": "a1",
+      "hmAnim": "a1",
+      "color": "n1",
+      "spellOptions": {
+        "spellLoops": 1
+      },
+      "uaStrikeType": "physical",
+      "dtvar": "dt1",
+      "divineSmite": {
+        "dsEnable": false,
+        "dsSelf": true,
+        "dsSelfDelay": 0,
+        "dsSelfColor": "a1",
+        "dsTarget": true,
+        "dsTargetDelay": 1250,
+        "dsTargetColor": "a1"
+      },
+      "explosion": false,
+      "explodeVariant": "ev1",
+      "explodeColor": "",
+      "explodeRadius": "0",
+      "explodeLoop": "1",
+      "allSounds": {
+        "explosion": {
+          "audioExplodeEnabled": false,
+          "file": "",
+          "delay": 100,
+          "volume": 25
+        },
+        "item": {
+          "enableAudio": false,
+          "file": "",
+          "delay": 100,
+          "volume": 25
+        }
+      },
+      "selfRadius": "5",
+      "animTint": "#ffffff",
+      "auraOpacity": 0.75,
+      "ctaOption": false,
+      "teleDist": 30
+    },
+    "midi-qol": {
+      "onUseMacroName": "ItemMacro"
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Sharpshooter",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "//#####################################\n// READ THIS\n// Requires Midi-QoL on use\n//####################################\nconst target = canvas.tokens.get(args[0].tokenId).actor;\nconst itemD = args[0].item;\nconst gameRound = game.combat ? game.combat.round : 0;\nlet chatMessage = \"\";\nlet the_message = \"\";\nif (target.effects.find(ef => ef.data.label === itemD.name)) {\n    let effect = await target.effects.find(ef => ef.data.label === itemD.name);\n    await effect.delete();\n    the_message = `<em>${target.name} is aiming <strong>Normally</strong> now.</em>`;\n    chatMessage = game.messages.get(args[0].itemCardId);\n} else {\n    let effectData = [{\n        label: itemD.name,\n        icon: itemD.img,\n        duration: { rounds: 1, startRound: gameRound, startTime: game.time.worldTime },\n        origin: args[0].uuid,\n        changes: [{\n            \"key\": \"data.bonuses.rwak.damage\",\n            \"mode\": 2,\n            \"value\": 10,\n            \"priority\": 20\n        }, {\n            \"key\": \"data.bonuses.rwak.attack\",\n            \"mode\": 2,\n            \"value\": -5,\n            \"priority\": 20\n        }]\n    }];\n    await target.createEmbeddedEntity(\"ActiveEffect\", effectData);\n    the_message = `<em>${target.name} is aiming <strong>Carefully</strong> now!</em>`;\n    chatMessage = game.messages.get(args[0].itemCardId);\n}\nlet content = await duplicate(chatMessage.data.content);\nlet searchString = /<div class=\"midi-qol-saves-display\">[\\s\\S]*<div class=\"end-midi-qol-saves-display\">/g;\nlet replaceString = `<div class=\"midi-qol-saves-display\"><div class=\"end-midi-qol-saves-display\">${the_message}`;\ncontent = content.replace(searchString, replaceString);\nawait chatMessage.update({ content: content });\nawait ui.chat.scrollBottom();",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "favtab": {
+      "isFavorite": true
+    },
+    "core": {
+      "sourceId": "Item.gZ3DOP7XJ8k50r03"
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.9",
+      "systemVersion": "1.5.2"
+    }
+  }
+}

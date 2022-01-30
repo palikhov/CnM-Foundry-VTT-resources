@@ -1,0 +1,153 @@
+{
+  "name": "Blessed Strikes",
+  "type": "feat",
+  "img": "icons/magic/symbols/runes-etched-steel-blade.webp",
+  "data": {
+    "description": {
+      "value": "<p>You are blessed with divine might in battle. When a creature takes damage from one of your cantrips or weapon attacks, you can also deal 1d8 radiant damage to that creature. Once you deal this damage, you can&rsquo;t use this feature again until the start of your next turn.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "activation": {
+      "type": "",
+      "cost": 0,
+      "condition": ""
+    },
+    "duration": {
+      "value": null,
+      "units": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": ""
+    },
+    "uses": {
+      "value": 0,
+      "max": 0,
+      "per": null
+    },
+    "consume": {
+      "type": "",
+      "target": null,
+      "amount": null
+    },
+    "ability": null,
+    "actionType": "",
+    "attackBonus": 0,
+    "chatFlavor": "",
+    "critical": null,
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "requirements": "Cleric 8",
+    "recharge": {
+      "value": null,
+      "charged": false
+    }
+  },
+  "effects": [
+    {
+      "_id": "1WYUO87U4LT1EDWN",
+      "changes": [
+        {
+          "key": "flags.dnd5e.DamageBonusMacro",
+          "mode": 0,
+          "value": "ItemMacro.Blessed Strikes",
+          "priority": "20"
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null
+      },
+      "icon": "icons/svg/item-bag.svg",
+      "label": "Blessed Strikes",
+      "transfer": true,
+      "flags": {
+        "dae": {
+          "stackable": "none",
+          "macroRepeat": "none",
+          "specialDuration": [],
+          "transfer": true
+        },
+        "dnd5e-helpers": {
+          "rest-effect": "Ignore"
+        },
+        "ActiveAuras": {
+          "isAura": false,
+          "aura": "None",
+          "radius": null,
+          "alignment": "",
+          "type": "",
+          "ignoreSelf": false,
+          "height": false,
+          "hidden": false,
+          "hostile": false,
+          "onlyOnce": false
+        }
+      },
+      "tint": null,
+      "selectedKey": "flags.dnd5e.DamageBonusMacro"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Blessed Strikes",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "// Open up the Special Traits window on your Cleric's sheet, then locate DAE.Midi-QOL Specific Bonus Damage Macros. There enter the name of the macro, whatever you named it.\nif(args[0].tag === \"DamageBonus\"){\n    let cantrip = (![\"Cantrip\"].includes(args[0].item.labels?.level)) ? 2 : 1;\n    let melee = (![\"mwak\",\"rwak\"].includes(args[0].item.data.actionType)) ? 2 : 1;\n    let trigger = cantrip > melee ? cantrip : melee > cantrip ? melee : 1;\n    if(trigger === 1) return {};\n    let tokenD = canvas.tokens.get(args[0].tokenId);\n    let level = tokenD.actor.classes.cleric.data.data.levels;\n    let damageType = \"radiant\";\n    let numDice = level > 16 ? 2 : 1;\n    args[0].isCritical ? numDice = numDice*2 : numDice;\n    let itemD = tokenD.actor.items.getName(\"Blessed Strikes\");\n    if(tokenD.actor.effects.find(i=> i.data.label === `${itemD.name} Attack`)) return {};\n    let gameRound = game.combat ? game.combat.round : 0;\n    let effectData = {\n      label : `${itemD.name} Attack`,\n      icon : itemD.img,\n      tint : \"#8f0000\",\n      origin: itemD.uuid,\n      duration: {turns: 1, startRound: gameRound, startTime: game.time.worldTime}\n    };\n    await tokenD.actor.createEmbeddedDocuments(\"ActiveEffect\", [effectData]);\n    return { damageRoll: `${numDice}d8[${damageType}]`, flavor: `(${itemD.name} (${CONFIG.DND5E.damageTypes[damageType]}))` };\n}",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "magicitems": {
+      "enabled": false,
+      "equipped": false,
+      "attuned": false,
+      "charges": "0",
+      "chargeType": "c1",
+      "destroy": false,
+      "destroyFlavorText": "reaches 0 charges: it crumbles into ashes and is destroyed.",
+      "rechargeable": false,
+      "recharge": "0",
+      "rechargeType": "t1",
+      "rechargeUnit": "r1",
+      "sorting": "l"
+    },
+    "core": {
+      "sourceId": "Item.sBVUwACtPz7aXZis"
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.9",
+      "systemVersion": "1.4.3"
+    }
+  }
+}

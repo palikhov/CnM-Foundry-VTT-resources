@@ -1,0 +1,2422 @@
+{
+  "name": "The Blood Hunter Set 1",
+  "type": "character",
+  "img": "graphics/tokens/players/the_blood_hunter.Avatar.webp?1630131503825",
+  "data": {
+    "abilities": {
+      "str": {
+        "value": 16,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        }
+      },
+      "dex": {
+        "value": 14,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        }
+      },
+      "con": {
+        "value": 15,
+        "proficient": 1,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        }
+      },
+      "int": {
+        "value": 13,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        }
+      },
+      "wis": {
+        "value": 9,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        }
+      },
+      "cha": {
+        "value": 11,
+        "proficient": 0,
+        "bonuses": {
+          "check": "",
+          "save": ""
+        }
+      }
+    },
+    "attributes": {
+      "ac": {
+        "flat": null,
+        "calc": "default",
+        "formula": ""
+      },
+      "hp": {
+        "value": 20,
+        "min": 0,
+        "max": 20,
+        "temp": null,
+        "tempmax": null
+      },
+      "init": {
+        "value": 0,
+        "bonus": 0
+      },
+      "movement": {
+        "burrow": 0,
+        "climb": 0,
+        "fly": 0,
+        "swim": 0,
+        "walk": 30,
+        "units": "ft",
+        "hover": false
+      },
+      "senses": {
+        "darkvision": 0,
+        "blindsight": 0,
+        "tremorsense": 0,
+        "truesight": 0,
+        "units": "ft",
+        "special": ""
+      },
+      "spellcasting": "int",
+      "death": {
+        "success": 0,
+        "failure": 0
+      },
+      "exhaustion": 0,
+      "inspiration": false
+    },
+    "details": {
+      "biography": {
+        "value": "",
+        "public": ""
+      },
+      "alignment": "",
+      "race": "Human",
+      "background": "",
+      "originalClass": "WyF2y9VDVmOQgWP8",
+      "xp": {
+        "value": 0,
+        "min": 0,
+        "max": 300
+      },
+      "appearance": "",
+      "trait": "",
+      "ideal": "",
+      "bond": "",
+      "flaw": "",
+      "attunedItemsMax": "3",
+      "attunedItemsCount": 0,
+      "maxPreparedSpells": null,
+      "gender": "",
+      "age": "",
+      "height": "",
+      "weight": "",
+      "eyes": "",
+      "skin": "",
+      "hair": "",
+      "notes1name": "",
+      "notes2name": "",
+      "notes3name": "",
+      "notes4name": ""
+    },
+    "traits": {
+      "size": "med",
+      "di": {
+        "value": [],
+        "custom": ""
+      },
+      "dr": {
+        "value": [],
+        "custom": ""
+      },
+      "dv": {
+        "value": [],
+        "custom": ""
+      },
+      "ci": {
+        "value": [],
+        "custom": ""
+      },
+      "languages": {
+        "value": [],
+        "custom": ""
+      },
+      "weaponProf": {
+        "value": [
+          "sim",
+          "mar"
+        ],
+        "custom": ""
+      },
+      "armorProf": {
+        "value": [],
+        "custom": ""
+      },
+      "toolProf": {
+        "value": [],
+        "custom": ""
+      }
+    },
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "ep": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "skills": {
+      "acr": {
+        "value": 0,
+        "ability": "dex",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "ani": {
+        "value": 0,
+        "ability": "wis",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "arc": {
+        "value": 0,
+        "ability": "int",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "ath": {
+        "value": 0,
+        "ability": "str",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "dec": {
+        "value": 0,
+        "ability": "cha",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "his": {
+        "value": 0,
+        "ability": "int",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "ins": {
+        "value": 0,
+        "ability": "wis",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "itm": {
+        "value": 0,
+        "ability": "cha",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "inv": {
+        "value": 0,
+        "ability": "int",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "med": {
+        "value": 0,
+        "ability": "wis",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "nat": {
+        "value": 0,
+        "ability": "int",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "prc": {
+        "value": 0,
+        "ability": "wis",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "prf": {
+        "value": 0,
+        "ability": "cha",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "per": {
+        "value": 0,
+        "ability": "cha",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "rel": {
+        "value": 0,
+        "ability": "int",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "slt": {
+        "value": 0,
+        "ability": "dex",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "ste": {
+        "value": 0,
+        "ability": "dex",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      },
+      "sur": {
+        "value": 0,
+        "ability": "wis",
+        "bonuses": {
+          "check": "",
+          "passive": ""
+        }
+      }
+    },
+    "spells": {
+      "spell1": {
+        "value": 0,
+        "override": null
+      },
+      "spell2": {
+        "value": 0,
+        "override": null
+      },
+      "spell3": {
+        "value": 0,
+        "override": null
+      },
+      "spell4": {
+        "value": 0,
+        "override": null
+      },
+      "spell5": {
+        "value": 0,
+        "override": null
+      },
+      "spell6": {
+        "value": 0,
+        "override": null
+      },
+      "spell7": {
+        "value": 0,
+        "override": null
+      },
+      "spell8": {
+        "value": 0,
+        "override": null
+      },
+      "spell9": {
+        "value": 0,
+        "override": null
+      },
+      "pact": {
+        "value": 2,
+        "override": null
+      },
+      "pack": {
+        "value": 2
+      }
+    },
+    "bonuses": {
+      "mwak": {
+        "attack": "",
+        "damage": ""
+      },
+      "rwak": {
+        "attack": "",
+        "damage": ""
+      },
+      "msak": {
+        "attack": "",
+        "damage": ""
+      },
+      "rsak": {
+        "attack": "",
+        "damage": ""
+      },
+      "abilities": {
+        "check": "",
+        "save": "",
+        "skill": ""
+      },
+      "spell": {
+        "dc": ""
+      }
+    },
+    "resources": {
+      "primary": {
+        "value": null,
+        "max": null,
+        "sr": false,
+        "lr": false,
+        "label": ""
+      },
+      "secondary": {
+        "value": null,
+        "max": null,
+        "sr": false,
+        "lr": false,
+        "label": ""
+      },
+      "tertiary": {
+        "value": null,
+        "max": null,
+        "sr": false,
+        "lr": false,
+        "label": ""
+      }
+    }
+  },
+  "token": {
+    "name": "The Blood Hunter",
+    "img": "graphics/tokens/players/the_blood_hunter.Token.webp?1630131503825",
+    "displayName": 30,
+    "actorLink": true,
+    "width": 1,
+    "height": 1,
+    "scale": 1,
+    "mirrorX": false,
+    "mirrorY": false,
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "vision": true,
+    "dimSight": 0,
+    "brightSight": 0,
+    "dimLight": 0,
+    "brightLight": 0,
+    "sightAngle": 0,
+    "lightAngle": 0,
+    "lightAlpha": 0.25,
+    "lightAnimation": {
+      "speed": 5,
+      "intensity": 5,
+      "type": "torch"
+    },
+    "disposition": 1,
+    "displayBars": 40,
+    "bar1": {
+      "attribute": "attributes.hp"
+    },
+    "bar2": {
+      "attribute": ""
+    },
+    "flags": {
+      "monks-tokenbar": {
+        "include": "default"
+      },
+      "splatter": {
+        "bloodColor": ""
+      },
+      "token-hud-wildcard": {
+        "default": ""
+      },
+      "perfect-vision": {
+        "visionRules": "default",
+        "monoVisionColor": "",
+        "sightLimit": null
+      }
+    },
+    "randomImg": false,
+    "tint": null,
+    "lightColor": null,
+    "x": null,
+    "y": null,
+    "elevation": null
+  },
+  "items": [
+    {
+      "_id": "3oqusekjv83jaqN1",
+      "name": "Longsword",
+      "type": "weapon",
+      "img": "icons/weapons/swords/greatsword-crossguard-steel.webp",
+      "data": {
+        "description": {
+          "value": "<p>A lengthy stright blade designed for slashing foes, the longsword is a highly versatile weapon that may also be wielded with two hands for more punishing strikes.</p>",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": "PHB pg. 149",
+        "quantity": 1,
+        "weight": 3,
+        "price": 15,
+        "attunement": 0,
+        "equipped": true,
+        "rarity": "common",
+        "identified": true,
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": ""
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": {
+          "value": 5,
+          "long": null,
+          "units": "ft"
+        },
+        "uses": {
+          "value": 0,
+          "max": "0",
+          "per": ""
+        },
+        "consume": {
+          "type": "",
+          "target": "",
+          "amount": null
+        },
+        "ability": "",
+        "actionType": "mwak",
+        "attackBonus": "0",
+        "chatFlavor": "",
+        "critical": {
+          "threshold": null,
+          "damage": null
+        },
+        "damage": {
+          "parts": [
+            [
+              "1d8 + @mod",
+              "slashing"
+            ]
+          ],
+          "versatile": "1d10 + @mod"
+        },
+        "formula": "",
+        "save": {
+          "ability": "",
+          "dc": null,
+          "scaling": "spell"
+        },
+        "armor": {
+          "value": 10
+        },
+        "hp": {
+          "value": 0,
+          "max": 0,
+          "dt": null,
+          "conditions": ""
+        },
+        "weaponType": "martialM",
+        "baseItem": "",
+        "properties": {
+          "ver": true,
+          "ada": false,
+          "amm": false,
+          "fin": false,
+          "fir": false,
+          "foc": false,
+          "hvy": false,
+          "lgt": false,
+          "lod": false,
+          "mgc": false,
+          "rch": false,
+          "rel": false,
+          "ret": false,
+          "sil": false,
+          "spc": false,
+          "thr": false,
+          "two": false,
+          "nodam": false,
+          "fulldam": false,
+          "halfdam": false
+        },
+        "proficient": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "Tyd5yiqWrRZMvG30": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.dnd5e.items.10ZP2Bu3vnCuYMIB"
+        },
+        "favtab": {
+          "isFavorite": false
+        },
+        "midi-qol": {
+          "criticalThreshold": "20",
+          "onUseMacroName": ""
+        }
+      }
+    },
+    {
+      "_id": "c89LozpOR4nYapvC",
+      "name": "Battleaxe",
+      "type": "weapon",
+      "img": "icons/weapons/polearms/halberd-crescent-engraved-steel.webp",
+      "data": {
+        "description": {
+          "value": "<p>A stout crescent blade mounted on a thick shaft wrapped in a sturdy grip. This axe is large enough to be wielded with two hands and is adorned with spikes upon the back-side of the blade and the top of the shaft.</p>",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": "PHB pg. 149",
+        "quantity": 1,
+        "weight": 4,
+        "price": 10,
+        "attunement": 0,
+        "equipped": true,
+        "rarity": "common",
+        "identified": true,
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": ""
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": {
+          "value": 5,
+          "long": null,
+          "units": "ft"
+        },
+        "uses": {
+          "value": 0,
+          "max": "0",
+          "per": ""
+        },
+        "consume": {
+          "type": "",
+          "target": "",
+          "amount": null
+        },
+        "ability": "",
+        "actionType": "mwak",
+        "attackBonus": "0",
+        "chatFlavor": "",
+        "critical": {
+          "threshold": null,
+          "damage": null
+        },
+        "damage": {
+          "parts": [
+            [
+              "1d8 + @mod",
+              "slashing"
+            ]
+          ],
+          "versatile": "1d10 + @mod"
+        },
+        "formula": "",
+        "save": {
+          "ability": "",
+          "dc": null,
+          "scaling": "spell"
+        },
+        "armor": {
+          "value": 10
+        },
+        "hp": {
+          "value": 0,
+          "max": 0,
+          "dt": null,
+          "conditions": ""
+        },
+        "weaponType": "martialM",
+        "baseItem": "",
+        "properties": {
+          "ver": true,
+          "ada": false,
+          "amm": false,
+          "fin": false,
+          "fir": false,
+          "foc": false,
+          "hvy": false,
+          "lgt": false,
+          "lod": false,
+          "mgc": false,
+          "rch": false,
+          "rel": false,
+          "ret": false,
+          "sil": false,
+          "spc": false,
+          "thr": false,
+          "two": false,
+          "nodam": false,
+          "fulldam": false,
+          "halfdam": false
+        },
+        "proficient": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "Tyd5yiqWrRZMvG30": 3
+      },
+      "flags": {
+        "core": {
+          "sourceId": "Compendium.dnd5e.items.I0WocDSuNpGJayPb"
+        },
+        "favtab": {
+          "isFavorite": false
+        },
+        "itemacro": {
+          "macro": {
+            "data": {
+              "_id": null,
+              "name": "Battleaxe",
+              "type": "script",
+              "author": "Tyd5yiqWrRZMvG30",
+              "img": "icons/svg/dice-target.svg",
+              "scope": "global",
+              "command": "",
+              "folder": null,
+              "sort": 0,
+              "permission": {
+                "default": 0
+              },
+              "flags": {}
+            }
+          }
+        },
+        "midi-qol": {
+          "criticalThreshold": "20",
+          "onUseMacroName": ""
+        }
+      }
+    },
+    {
+      "_id": "s3T4nzxDX3WKgJRP",
+      "name": "Blood Curse of the Marked",
+      "type": "feat",
+      "img": "icons/creatures/reptiles/lizard-mouth-glowing-red.webp",
+      "data": {
+        "description": {
+          "value": "<p>Enter Item Description here, I cannot provide them for legal reasons.</p>",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": "Blood Hunter",
+        "activation": {
+          "type": "bonus",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": 1,
+          "units": "turn"
+        },
+        "target": {
+          "value": 1,
+          "width": null,
+          "units": "",
+          "type": "creature"
+        },
+        "range": {
+          "value": 30,
+          "long": null,
+          "units": "ft"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": ""
+        },
+        "consume": {
+          "type": "attribute",
+          "target": "",
+          "amount": 1
+        },
+        "ability": "",
+        "actionType": "util",
+        "attackBonus": 0,
+        "chatFlavor": "",
+        "critical": {
+          "threshold": null,
+          "damage": null
+        },
+        "damage": {
+          "parts": [],
+          "versatile": ""
+        },
+        "formula": "",
+        "save": {
+          "ability": "",
+          "dc": null,
+          "scaling": "spell"
+        },
+        "requirements": "",
+        "recharge": {
+          "value": null,
+          "charged": false
+        },
+        "attributes": {
+          "spelldc": 10
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 450000,
+      "permission": {
+        "default": 0,
+        "Tyd5yiqWrRZMvG30": 3
+      },
+      "flags": {
+        "favtab": {
+          "isFavorite": true,
+          "sort": null
+        },
+        "itemacro": {
+          "macro": {
+            "data": {
+              "_id": null,
+              "name": "Blood Curse of the Marked",
+              "type": "script",
+              "author": "Tyd5yiqWrRZMvG30",
+              "img": "icons/svg/dice-target.svg",
+              "scope": "global",
+              "command": "async function wait(ms) { return new Promise(resolve => { setTimeout(resolve, ms); }); }\nconst lastArg = args[args.length - 1];\nconst tokenD = canvas.tokens.get(lastArg.tokenId);\nconst actorD = tokenD.actor;\nconst casterD = canvas.tokens.get(args[1]);\nconst bloodMal = casterD.actor.items.find(i => i.name === \"Blood Maledict\");\nif (!bloodMal) return ui.notifications.error(`Blood Maledict is missing, please add it.`);\nconst itemD = lastArg.efData.flags.dae.itemData;\nconst dc = Number(casterD.actor.data.data.attributes.spelldc);\nconst originD = lastArg.origin;\nconst level = actorD.data.type === \"npc\" ? actorD.data.data.details.cr : actorD.classes[\"blood-hunter\"].data.data.levels;\nconst damageDie = (4 + (2 * (Math.floor((level + 1) / 6))));\n\nif (args[0].tag === \"OnUse\") {\n    let choice = \"\";\n    new Dialog({\n        title: `${itemD.name}`,\n        content: \"Do you wish to Amplify this curse?\",\n        buttons: {\n            cast: { label: \"Normal\", callback: () => { choice = \"norm\"; } },\n            amplify: { label: \"Amplify\", callback: () => { choice = \"amp\"; } }\n        },\n        close: async (html) => {\n            let gameRound = game.combat ? game.combat.round : 0;\n            let macroChanges = \"\";\n            if (choice === \"amp\") {\n                bloodMal.roll();\n                macroChanges = [{ key: \"flags.midi-qol.grants.advantage.attack.all\", mode: 2, value: 1, priority: 20 }];\n            }\n            else macroChanges = [];\n            let effectDataSelf = {\n                label: itemD.name,\n                icon: itemD.img,\n                flags: { dae: { itemData: itemD, macroRepeat: \"none\", specialDuration: [\"turnEnds\"] } },\n                origin: args[0].uuid,\n                disabled: false,\n                duration: { turns: 1, startRound: gameRound, startTime: game.time.worldTime },\n                changes: [{ key: \"flags.midi-qol.markedCurse\", mode: 5, value: target.uuid, priority: 20 },\n                { key: \"flags.dnd5e.DamageBonusMacro\", mode: 0, value: `ItemMacro.${itemD.name}`, priority: 20 }]\n            };\n            let effectSelf = await actorD.effects.find(i => i.data.label === itemD.name);\n            if (!effectSelf) { await actorD.createEmbeddedDocuments(\"ActiveEffect\", [effectDataSelf]); }\n            else {\n                await actorD.deleteEmbeddedDocuments(\"ActiveEffect\", [effectSelf.id]);\n                await actorD.createEmbeddedDocuments(\"ActiveEffect\", [effectDataSelf]);\n            }\n            let effectDataTarget = {\n                label: itemD.name,\n                icon: itemD.img,\n                flags: { dae: { itemData: itemD, macroRepeat: \"none\", specialDuration: [\"turnEnds\"] } },\n                origin: args[0].uuid,\n                disabled: false,\n                duration: { turns: 1, startRound: gameRound, startTime: game.time.worldTime },\n                changes: macroChanges\n            };\n            let effectTarget = target.actor.effects.find(i => i.data.label === itemD.name);\n            if (effectTarget) {\n                await MidiQOL.socket().executeAsGM(\"removeEffects\", { actorUuid: target.actor.uuid, effects: [effectTarget.id] });\n                await MidiQOL.socket().executeAsGM(\"createEffects\", { actorUuid: target.actor.uuid, effects: [effectDataTarget] });\n            } else {\n                await MidiQOL.socket().executeAsGM(\"createEffects\", { actorUuid: target.actor.uuid, effects: [effectDataTarget] });\n            }\n        }\n    }).render(true);\n} else if (args[0].tag === \"DamageBonus\") {\n    let item = args[0].item;\n    if (![\"mwak\", \"rwak\"].includes(args[0].item.data.actionType)) return {};\n    let targetUuid = args[0].hitTargets[0].uuid;\n    if (targetUuid !== getProperty(args[0].actor.flags, \"midi-qol.markedCurse\")) return {};\n    let getRite = actorD.effects.map(i => ({ name: i.data.label })).find(i => ([item.name.toLowerCase()].some(name => (i.name || \"\").toLowerCase().includes(name))) && ([\"rite of\"].some(name => (i.name || \"\").toLowerCase().includes(name))));\n    if (!getRite) return {};\n    let getEffect = actorD.effects.find(i => i.data.label === getRite.name).data.changes;\n    let damageType = getEffect[1].value;\n    let sourceType = getEffect[2].value;\n    let diceMult = args[0].isCritical ? 2 : 1;\n    return { damageRoll: `${diceMult}d${damageDie}[${damageType}]`, flavor: `(Blood Curse of the Marked (${CONFIG.DND5E.damageTypes[damageType]}))` };\n}",
+              "folder": null,
+              "sort": 0,
+              "permission": {
+                "default": 0
+              },
+              "flags": {}
+            }
+          }
+        },
+        "midi-qol": {
+          "onUseMacroName": "ItemMacro"
+        },
+        "magicitems": {
+          "enabled": false,
+          "equipped": false,
+          "attuned": false,
+          "charges": "0",
+          "chargeType": "c1",
+          "destroy": false,
+          "destroyFlavorText": "reaches 0 charges: it crumbles into ashes and is destroyed.",
+          "rechargeable": false,
+          "recharge": "0",
+          "rechargeType": "t1",
+          "rechargeUnit": "r1",
+          "sorting": "l"
+        },
+        "core": {
+          "sourceId": "Item.IGwSuhqQdjYY5tut"
+        },
+        "enhancedcombathud": {
+          "set1s": false,
+          "set2s": false,
+          "set3s": false
+        }
+      },
+      "changes": []
+    },
+    {
+      "_id": "O6p463yJf4QOV7mv",
+      "name": "Crimson Rite",
+      "type": "feat",
+      "img": "icons/skills/melee/strike-sword-blood-red.webp",
+      "data": {
+        "description": {
+          "value": "<p>Enter Item Description here, I cannot provide them for legal reasons.</p>\n<p>You learn an additional Primal Rite at 7th level, and access to an Esoteric Rite at 14th level.</p>\n<ul>\n<li>Rite of the Flame</li>\n<li>Rite of the Frozen</li>\n</ul>\n<p>Enter your Rites Above ^^</p>",
+          "chat": "As a bonus action, imbue a weapon to strike for 1d6 extra damage of your chosen type. On activating the rite, you take 1d6 damage. Rite damage is magical and lasts while you hold the weapon or until you complete a short/long rest.",
+          "unidentified": ""
+        },
+        "source": "Blood Hunter",
+        "activation": {
+          "type": "bonus",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": 8,
+          "units": "hour"
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": "self"
+        },
+        "range": {
+          "value": null,
+          "long": null,
+          "units": "self"
+        },
+        "uses": {
+          "value": 0,
+          "max": "0",
+          "per": ""
+        },
+        "consume": {
+          "type": "",
+          "target": "",
+          "amount": null
+        },
+        "ability": "",
+        "actionType": "util",
+        "attackBonus": 0,
+        "chatFlavor": "",
+        "critical": {
+          "threshold": null,
+          "damage": null
+        },
+        "damage": {
+          "parts": [],
+          "versatile": ""
+        },
+        "formula": "",
+        "save": {
+          "ability": "",
+          "dc": null,
+          "scaling": "spell"
+        },
+        "requirements": "",
+        "recharge": {
+          "value": null,
+          "charged": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 1103,
+      "permission": {
+        "default": 0,
+        "Tyd5yiqWrRZMvG30": 3
+      },
+      "flags": {
+        "ddbimporter": {
+          "id": "1240380",
+          "entityTypeId": "222216831",
+          "componentId": 1610627,
+          "componentTypeId": 12168134
+        },
+        "midi-qol": {
+          "onUseMacroName": "ItemMacro"
+        },
+        "magicitems": {
+          "enabled": false,
+          "equipped": false,
+          "attuned": false,
+          "charges": "0",
+          "chargeType": "c1",
+          "destroy": false,
+          "destroyFlavorText": "reaches 0 charges: it crumbles into ashes and is destroyed.",
+          "rechargeable": false,
+          "recharge": "0",
+          "rechargeType": "t1",
+          "rechargeUnit": "r1",
+          "sorting": "l"
+        },
+        "betterCurses": {
+          "isCurse": false,
+          "curseName": "",
+          "formula": "",
+          "mwak": false,
+          "rwak": false,
+          "msak": false,
+          "rsak": false
+        },
+        "itemacro": {
+          "macro": {
+            "data": {
+              "_id": null,
+              "name": "Crimson Rite",
+              "type": "script",
+              "author": "Tyd5yiqWrRZMvG30",
+              "img": "icons/svg/dice-target.svg",
+              "scope": "global",
+              "command": "const actorD = game.actors.get(args[0].actor._id);\nconst tokenD = canvas.tokens.get(args[0].tokenId);\nconst level = actorD.data.type === \"npc\" ? actorD.data.data.details.cr : actorD.classes[\"blood-hunter\"].data.data.levels;\nconst numDie = (4 + (2 * (Math.floor((level + 1) / 6))));\nconst itemD = args[0].item;\nconst bloodMal = actorD.items.getName(\"Blood Maledict\");\n\nif (args[0].tag === \"OnUse\") {\n    let itemDescription = args[0].item.data.description.value;\n    let the_rites = [];\n    let frozen_rite = itemDescription.toLowerCase().includes(\"rite of the frozen\");\n    if (frozen_rite) the_rites.push('<option value=\"cold\">Rite of the Frozen</option>');\n    let flame_rite = itemDescription.toLowerCase().includes(\"rite of the flame\");\n    if (flame_rite) the_rites.push('<option value=\"fire\">Rite of Flame</option>');\n    let storm_rite = itemDescription.toLowerCase().includes(\"rite of the storm\");\n    if (storm_rite) the_rites.push('<option value=\"lightning\">Rite of the Storm</option>');\n    let dead_rite = itemDescription.toLowerCase().includes(\"rite of the dead\");\n    if (dead_rite) the_rites.push('<option value=\"necrotic\">Rite of the Dead</option>');\n    let oracle_rite = itemDescription.toLowerCase().includes(\"rite of the oracle\");\n    if (oracle_rite) the_rites.push('<option value=\"psychic\">Rite of the Oracle</option>');\n    let roar_rite = itemDescription.toLowerCase().includes(\"rite of the roar\");\n    if (roar_rite) the_rites.push('<option value=\"thunder\">Rite of the Roar</option>');\n    let dawn_rite = itemDescription.toLowerCase().includes(\"rite of the dawn\");\n    if (dawn_rite) the_rites.push('<option value=\"radiant\">Rite of the Dawn</option>');\n    let items = actorD.items.map(i => ({ _id: i.id, weapon: i.data.type === \"weapon\", name: i.name, equip: i.data.data.equipped ? true : false, weapon: i.data.data.weaponType ? i.data.data.weaponType : false, attack: i.data.data.actionType })).filter(i => i.weapon != false && i.equip != false && i.attack != \"msak\" && i.attack != \"rsak\");\n    let item_list = \"\";\n    for (let item of items) {\n        if (actorD.isPolymorphed) item_list += `<option value=\"${item.name}\">${item.name}</option>`;\n        else if ((item.weapon != \"natural\") || (item.weapon != \"simpleM\")) item_list += `<option value=\"${item.name}\">${item.name}</option>`;\n    }\n    let rite_list = the_rites.join('');\n    let the_content = `<p>Weapon to Imbue</p><form><div class=\"form-group\"><label for=\"item\">Weapons:</label><select id=\"item\">${item_list}</select></div><div class=\"form-group\"><label for=\"type\">Damage Type:</label><select id=\"type\">${rite_list}</select></div></form>`;\n\n    new Dialog({\n        title: itemD.name,\n        content: the_content,\n        buttons: {\n            imbue: {\n                label: \"Imbue\", callback: async (html) => {\n                    let item_name = html.find('#item')[0].value;\n                    let rite_type = html.find('#type')[0].selectedOptions[0].innerText;\n                    let dmg_type = html.find('#type')[0].selectedOptions[0].value;\n                    let item = actorD.items.find(i => i.name === item_name);\n                    let effectUpdate;\n                    if (dmg_type === \"radiant\") {\n                        effectUpdate = [\n                            { key: `flags.midi-qol.crimsonWeapon`, mode: 2, value: item.name, priority: 20 },\n                            { key: `flags.midi-qol.crimsonDamage`, mode: 2, value: dmg_type, priority: 20 },\n                            { key: `flags.midi-qol.crimsonType`, mode: 2, value: rite_type, priority: 20 },\n                            { key: `data.traits.dr.value`, mode: 2, value: `necrotic`, priority: 20 },\n                            { key: `token.dimLight`, mode: 2, value: 20, priority: 20 },\n                            { key: \"flags.dnd5e.DamageBonusMacro\", mode: 0, value: `ItemMacro.${args[0].item.name}`, priority: 20 }\n                        ]\n                    }\n                    else (effectUpdate = [\n                        { key: `flags.midi-qol.crimsonWeapon`, mode: 2, value: item.name, priority: 20 },\n                        { key: `flags.midi-qol.crimsonDamage`, mode: 2, value: dmg_type, priority: 20 },\n                        { key: `flags.midi-qol.crimsonType`, mode: 2, value: rite_type, priority: 20 },\n                        { key: \"flags.dnd5e.DamageBonusMacro\", mode: 0, value: `ItemMacro.${args[0].item.name}`, priority: 20 }\n                    ]);\n                    let effectData = {\n                        label: `${rite_type} : ${item.name}`,\n                        icon: item.img,\n                        changes: effectUpdate,\n                        origin: args[0].uuid,\n                        disabled: false,\n                        duration: { seconds: 999999, startTime: game.time.worldTime },\n                        flags: { dae: { specialDuration: [\"shortRest\", \"longRest\"] } },\n                    };\n                    let get_rite = actorD.effects.filter(i => [`${item_name}`].some(label => (i.data.label || \"\").includes(label)));\n                    if (get_rite.length > 0) {\n                        for (let rite of get_rite) {\n                            await actorD.deleteEmbeddedDocuments(\"ActiveEffect\", [rite.id]);\n                            await actorD.createEmbeddedDocuments(\"ActiveEffect\", [effectData]);\n                        }\n                    } else await actorD.createEmbeddedDocuments(\"ActiveEffect\", [effectData]);\n                }\n            }\n        },\n        default: \"imbue\",\n        close: async (html) => {\n            bloodMal.roll();\n            let item_name = html.find('#item')[0].value;\n            let rite_type = html.find('#type')[0].selectedOptions[0].innerText;\n            let crim_message = `Applied ${rite_type} to ${item_name}`;\n            let findMessage = game.messages.filter(i => i.data.flavor === itemD.name && i.data.speaker.token === tokenD.id);\n            let lastMessage = findMessage[findMessage.length - 1];\n            let chatMessage = await game.messages.get(lastMessage.id);\n            let content = await duplicate(chatMessage.data.content);\n            const searchString = /<div class=\"midi-qol-hits-display\">[\\s\\S]*<div class=\"end-midi-qol-hits-display\">/g;\n            const replaceString = `<div class=\"midi-qol-hits-display\"><div class=\"end-midi-qol-hits-display\">${crim_message}`;\n            content = await content.replace(searchString, replaceString);\n            await chatMessage.update({ content: content });\n            await ui.chat.scrollBottom();\n        }\n    }).render(true);\n} else if (args[0].tag === \"DamageBonus\") {\n    if (![\"mwak\", \"rwak\"].includes(args[0].item.data.actionType)) return {};\n    let getRite = actorD.effects.map(i => ({ name: i.data.label })).find(i => ([itemD.name.toLowerCase()].some(name => (i.name || \"\").toLowerCase().includes(name))) && ([\"rite of\"].some(name => (i.name || \"\").toLowerCase().includes(name))));\n    if (!getRite) return {};\n    let getEffect = actorD.effects.find(i => i.data.label === getRite.name).data.changes;\n    let target = canvas.tokens.get(args[0].hitTargets[0].id);\n    let undead = (target.actor.data.data.details?.type?.value || target.actor.data.data.details?.race).toLowerCase().includes(\"undead\");\n    let damageType = getEffect[1].value;\n    let sourceType = getEffect[2].value;\n    let diceNum = undead ? 2 : 1;\n    let diceMult = args[0].isCritical ? 2 : 1;\n    let diceDamage = diceNum * diceMult;\n    return { damageRoll: `${diceDamage}d${numDie}[${damageType}]`, flavor: `(${sourceType} (${CONFIG.DND5E.damageTypes[damageType]}))` };\n}",
+              "folder": null,
+              "sort": 0,
+              "permission": {
+                "default": 0
+              },
+              "flags": {}
+            }
+          }
+        },
+        "favtab": {
+          "isFavorite": true
+        },
+        "autoanimations": {
+          "killAnim": false,
+          "override": false,
+          "animType": "t1",
+          "animName": "",
+          "color": "n1",
+          "dtvar": "dt1",
+          "explosion": false,
+          "explodeVariant": "ev1",
+          "explodeColor": "ec1",
+          "explodeRadius": "0",
+          "hmAnim": "a1",
+          "explodeLoop": "1",
+          "selfRadius": "5",
+          "animTint": "#ffffff",
+          "auraOpacity": 0.75,
+          "ctaOption": false
+        },
+        "innocenti-openlock": {
+          "enabled": false,
+          "keylock": "",
+          "wallCoord": "",
+          "disarmTrap": 10,
+          "findTrap": 10,
+          "skillfindTrap": "prc",
+          "passive": 10,
+          "forceLock": 12,
+          "openLock": 10,
+          "toolsBreak": 5
+        },
+        "core": {
+          "sourceId": "Item.Oq9BiBkxK2gLqt90"
+        },
+        "exportSource": {
+          "world": "avadol_v2",
+          "system": "dnd5e",
+          "coreVersion": "0.8.8",
+          "systemVersion": "1.4.1"
+        },
+        "enhancedcombathud": {
+          "set1s": false,
+          "set2s": false,
+          "set3s": false
+        }
+      },
+      "changes": []
+    },
+    {
+      "_id": "WyF2y9VDVmOQgWP8",
+      "name": "Blood Hunter",
+      "type": "class",
+      "img": "https://www.dndbeyond.com/avatars/8551/969/637158853102614868.png?width=1000&height=1000&fit=bounds&quality=95&auto=webp",
+      "data": {
+        "description": {
+          "value": "<p>A fanatical slayer that embraces dark knowledge to destroy evil</p>\n<p class=\"characters-statblock\" style=\"font-family:Roboto Condensed;font-size:14px\"><strong>Hit Die:</strong> d10<br /><strong>Primary Ability:</strong> Strength or Dexterity, &amp; Intelligence<br /><strong>Saves:</strong> Dexterity &amp; Intelligence</p>\n<p class=\"characters-statblock\" style=\"font-family:Roboto Condensed;font-size:14px\"> </p>\n<p class=\"characters-statblock\" style=\"font-family:Roboto Condensed;font-size:14px\"><span style=\"font-family:Signika, sans-serif\">Enter Item Description here, I cannot provide them for legal reasons.</span></p>",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": "Critical Role",
+        "levels": 2,
+        "subclass": "",
+        "hitDice": "d10",
+        "hitDiceUsed": 0,
+        "saves": [],
+        "skills": {
+          "number": 2,
+          "choices": [],
+          "value": []
+        },
+        "spellcasting": {
+          "progression": "none",
+          "ability": ""
+        },
+        "critical": {
+          "threshold": null,
+          "damage": null
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "Tyd5yiqWrRZMvG30": 3
+      },
+      "flags": {
+        "ddbimporter": {
+          "id": 357975,
+          "data": {
+            "id": 357975,
+            "name": "Blood Hunter",
+            "description": "<p>A fanatical slayer that embraces dark knowledge to destroy evil</p>\r\n<p class=\"characters-statblock\" style=\"font-family: Roboto Condensed; font-size: 14px;\"><strong>Hit Die:</strong> d10<br /><strong>Primary Ability:</strong> Strength&nbsp;or Dexterity, &amp; Intelligence<br /><strong>Saves:</strong>&nbsp;Dexterity &amp;&nbsp;Intelligence</p>",
+            "equipmentDescription": "<p>You start with the following equipment, in addition to the equipment granted by your background:</p>\r\n<ul>\r\n<li>(a) a martial weapon or (b) two simple weapons</li>\r\n<li>(a) a light crossbow and 20 bolts or (b) hand crossbow and 20 bolts</li>\r\n<li>(a) studded leather armor or (b) scale mail armor</li>\r\n<li>an explorer’s pack</li>\r\n</ul>\r\n<p>Alternatively, you could begin with starting wealth of 4d4 x 10 gp and purchase starting items of your choice.</p>",
+            "parentClassId": null,
+            "avatarUrl": "https://www.dndbeyond.com/avatars/8551/967/637158853097790600.png?width=350&height=350&fit=bounds&quality=95&auto=webp",
+            "largeAvatarUrl": "https://www.dndbeyond.com/avatars/8551/968/637158853099606981.png?width=1000&height=1000&fit=bounds&quality=95&auto=webp",
+            "portraitAvatarUrl": "https://www.dndbeyond.com/avatars/8551/969/637158853102614868.png?width=1000&height=1000&fit=bounds&quality=95&auto=webp",
+            "moreDetailsUrl": "/characters/classes/blood-hunter",
+            "spellCastingAbilityId": null,
+            "sourceIds": [],
+            "sources": [
+              {
+                "sourceId": 31,
+                "pageNumber": null,
+                "sourceType": 1
+              }
+            ],
+            "hitDice": 10,
+            "classFeatures": [
+              {
+                "id": 1610518,
+                "name": "Hit Points",
+                "prerequisite": null,
+                "description": "<p><strong>Hit Dice:</strong>&nbsp;1d10 per blood hunter&nbsp;level<br /><strong>Hit Points at 1st Level:</strong>&nbsp;10 + your Constitution modifier<br /><strong>Hit Points at Higher Levels:</strong>&nbsp;1d10 (or 6) + your Constitution modifier per blood hunter level after 1st</p>",
+                "requiredLevel": 1,
+                "displayOrder": 1
+              },
+              {
+                "id": 1610574,
+                "name": "Proficiencies",
+                "prerequisite": null,
+                "description": "<p><strong>Armor:</strong>&nbsp;Light armor, medium armor, shields<br /><strong>Weapons:</strong>&nbsp;Simple weapons, martial weapons<br /><strong>Tools:</strong>&nbsp;Alchemist’s supplies<br /><strong>Saving Throws:</strong>&nbsp;Dexterity, Intelligence<br /><strong>Skills:</strong>&nbsp;Choose three from Athletics, Acrobatics, Arcana, History, Insight, Investigation, Religion, and Survival</p>",
+                "requiredLevel": 1,
+                "displayOrder": 2
+              },
+              {
+                "id": 1610579,
+                "name": "Hunter's Bane",
+                "prerequisite": null,
+                "description": "<p>Beginning at 1st level, you have survived the Hunter’s Bane, a dangerous, long-guarded ritual that alters your life’s blood, forever binding you to the darkness and honing your senses against it. You have advantage on Wisdom (Survival) checks to track fey, fiends, or undead, as well as on Intelligence ability checks to recall information about them.</p>\r\n<p>The Hunter’s Bane also empowers your body to control and shape hemocraft magic, using your own blood and life essence to fuel your abilities. Some of your features require your target to make a saving throw to resist the feature’s effects. The saving throw DC is calculated as follows:</p>\r\n<p><strong>Hemocraft save DC</strong> = 8 + your proficiency bonus + your Intelligence modifier.</p>",
+                "requiredLevel": 1,
+                "displayOrder": 3
+              },
+              {
+                "id": 1610580,
+                "name": "Blood Maledict",
+                "prerequisite": null,
+                "description": "<p>At 1st level, you gain the ability to channel, and sometimes sacrifice, a part of your vital essence to curse and manipulate creatures through hemocraft magic. You gain one blood curse of your choice, detailed in the &ldquo;<a title=\"Blood Curses\" href=\"https://www.dndbeyond.com/classes/blood-hunter#BloodCurses-1611383\">Blood Curses</a>&rdquo; section at the end of the class description. You learn one additional blood curse of your choice, and you can choose one of the blood curses you know and replace it with another blood curse, at 6th, 10th, 14th, and 18th level.</p>\r\n<p>When you use your Blood Maledict, you choose which curse to invoke. While invoking a blood curse, but before it affects the target, you can choose to amplify the curse by losing a number of hit points equal to one roll of your hemocraft die, as shown in the Hemocraft Die column of the Blood Hunter table. An amplified curse gains an additional effect, noted in the curse’s description. Creatures that do not have blood in their bodies are immune to blood curses, unless you have amplified the curse.</p>\r\n<p>You can use this feature once. Beginning at 6th level, you can use your Blood Maledict feature twice, at 13th level you can use it three times between rests, and at 17th level, you can use it four times between rests. You regain all expended uses when you finish a short or long rest.</p>",
+                "requiredLevel": 1,
+                "displayOrder": 4
+              },
+              {
+                "id": 1610582,
+                "name": "Fighting Style",
+                "prerequisite": null,
+                "description": "<p>At 2nd level, you adopt a style of fighting as your specialty. Choose one of the following options. You can’t take a Fighting Style option more than once, even if you later get to choose again.</p>",
+                "requiredLevel": 2,
+                "displayOrder": 6
+              },
+              {
+                "id": 1610627,
+                "name": "Crimson Rite",
+                "prerequisite": null,
+                "description": "<p>At 2nd level, you learn to invoke a rite of hemocraft within your weapon at the cost of your own vitality. Choose one rite from the Primal Rites list below to learn.</p>\r\n<p>As a bonus action, you can activate a crimson rite on a single weapon with the elemental energy of a known rite of your choice that lasts until you finish a short or long rest, or if you aren’t holding the weapon at the end of your turn. When you activate a rite, you lose a number of hit points equal to one roll of your hemocraft die, as shown in the Hemocraft Die column of the Blood Hunter table.</p>\r\n<p>For the duration, attacks from this weapon deal an additional 1d4 damage of the chosen rite’s type. This damage is magical, and increases as you gain levels as a blood hunter, as shown in the Hemocraft Die column of the Blood Hunter table. A weapon can only hold a single active rite at a time.</p>\r\n<p>You learn an additional Primal Rite at 7th level, and access to an Esoteric Rite at 14th level.</p>\r\n<h4 id=\"PrimalRites\">Primal Rites</h4>\r\n<p>Choose from the following:</p>\r\n<p><em><strong>Rite of the Flame.</strong></em> Your rite damage is fire damage.</p>\r\n<p><em><strong>Rite of the Frozen.</strong></em> Your rite damage is cold damage.</p>\r\n<p><em><strong>Rite of the Storm.</strong></em> Your rite damage is lightning damage.</p>\r\n<h4 id=\"EsotericRites\">Esoteric Rites</h4>\r\n<p>Choose from the following:</p>\r\n<p><em><strong>Rite of the Dead.</strong></em> Your rite damage is necrotic damage.</p>\r\n<p><em><strong>Rite of the Oracle.</strong></em> Your rite damage is psychic damage.</p>\r\n<p><em><strong>Rite of the Roar.</strong></em> Your rite damage is thunder damage.</p>",
+                "requiredLevel": 2,
+                "displayOrder": 7
+              },
+              {
+                "id": 1610847,
+                "name": "Blood Hunter Order",
+                "prerequisite": null,
+                "description": "<p>At 3rd level, you commit to an order of blood hunter martial focus. Choose Order of the Ghostslayer, Order of the Profane Soul, Order of the Mutant, or Order of the Lycan, all detailed at the end of the class description. The order you choose grants you features at 3rd level, and again at 7th, 11th, 15th, and 18th level.</p>",
+                "requiredLevel": 3,
+                "displayOrder": 8
+              },
+              {
+                "id": 1610874,
+                "name": "Ability Score Improvement",
+                "prerequisite": null,
+                "description": "<p>When you reach 4th level, and again at 8th, 12th, 16th and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+                "requiredLevel": 4,
+                "displayOrder": 9
+              },
+              {
+                "id": 1610882,
+                "name": "Ability Score Improvement",
+                "prerequisite": null,
+                "description": "<p>When you reach 4th level, and again at 8th, 12th, 16th and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+                "requiredLevel": 8,
+                "displayOrder": 12
+              },
+              {
+                "id": 1610883,
+                "name": "Ability Score Improvement",
+                "prerequisite": null,
+                "description": "<p>When you reach 4th level, and again at 8th, 12th, 16th and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+                "requiredLevel": 12,
+                "displayOrder": 15
+              },
+              {
+                "id": 1610884,
+                "name": "Ability Score Improvement",
+                "prerequisite": null,
+                "description": "<p>When you reach 4th level, and again at 8th, 12th, 16th and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+                "requiredLevel": 16,
+                "displayOrder": 18
+              },
+              {
+                "id": 1610885,
+                "name": "Ability Score Improvement",
+                "prerequisite": null,
+                "description": "<p>When you reach 4th level, and again at 8th, 12th, 16th and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.</p>\r\n<p>Using the optional feats rule, you can forgo taking this feature to take a feat of your choice instead.</p>",
+                "requiredLevel": 19,
+                "displayOrder": 19
+              },
+              {
+                "id": 1610898,
+                "name": "Extra Attack",
+                "prerequisite": null,
+                "description": "<p>Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.</p>",
+                "requiredLevel": 5,
+                "displayOrder": 10
+              },
+              {
+                "id": 1610903,
+                "name": "Brand of Castigation",
+                "prerequisite": null,
+                "description": "<p>At 6th level, whenever you damage a creature with your Crimson Rite feature, you can choose to sear an arcane brand of hemocraft magic into it (requires no action). You always know the direction to the branded creature, and each time the branded creature deals damage to you or a creature you can see within 5 feet of you, the creature takes psychic damage equal to your Intelligence modifier (minimum of 1 damage).</p>\r\n<p>Your brand lasts until you dismiss it, or you apply a brand to another creature. Your brand counts as a spell for the purposes of dispel magic, and the spell level is equal to half of your blood hunter level (maximum of 9th level spell).</p>\r\n<p>Once you use this feature, you can’t use it again until you finish a short or long rest.</p>",
+                "requiredLevel": 6,
+                "displayOrder": 11
+              },
+              {
+                "id": 1610910,
+                "name": "Grim Psychometry",
+                "prerequisite": null,
+                "description": "<p>When you reach 9th level, you have a supernatural talent for discerning the history surrounding mysterious objects or places touched by evil. When making an Intelligence (History) check to recall information about a darker past surrounding an object you are touching, or a location you are present in, you have advantage on the roll. The information gleaned often leans towards the more sinister influences of the past, and sometimes conveys&nbsp;visions of things previously unknown to the character on higher rolls.</p>",
+                "requiredLevel": 9,
+                "displayOrder": 13
+              },
+              {
+                "id": 1610911,
+                "name": "Dark Augmentation",
+                "prerequisite": null,
+                "description": "<p>Upon reaching 10th level, arcane blood magic suffuses your body, permanently reinforcing your resilience. Your speed increases by 5 feet, and whenever you make a Strength, Dexterity, or Constitution saving throw, you gain a bonus to the saving throw equal to your Intelligence modifier (minimum of +1).</p>",
+                "requiredLevel": 10,
+                "displayOrder": 14
+              },
+              {
+                "id": 1610915,
+                "name": "Brand of Tethering",
+                "prerequisite": null,
+                "description": "<p>Starting at 13th level, the psychic damage from your Brand of Castigation increases to twice your Intelligence modifier (minimum of 2 damage).</p>\r\n<p>In addition, a branded creature can’t take the Dash action, and if a creature branded by you attempts to teleport or leave their current plane via ability, spell, or portal, they take 4d6 psychic damage and must make a Wisdom saving throw. On a failure, the teleport or plane shift fails.</p>",
+                "requiredLevel": 13,
+                "displayOrder": 16
+              },
+              {
+                "id": 1610921,
+                "name": "Hardened Soul",
+                "prerequisite": null,
+                "description": "<p>When you reach 14th level, you have advantage on saving throws against being charmed and frightened.</p>",
+                "requiredLevel": 14,
+                "displayOrder": 17
+              },
+              {
+                "id": 1610923,
+                "name": "Sanguine Mastery",
+                "prerequisite": null,
+                "description": "<p>Upon becoming 20th level, you hone your control over blood magic, mitigating your sacrifice and empowering your capability. Once per turn, whenever a blood hunter feature requires you to roll a hemocraft die, you can choose to reroll the die and choose which result to use.</p>\r\n<p>In addition, whenever you score a critical hit with a weapon attack empowered by your Crimson Rite, you regain one expended use of your Blood Maledict feature.</p>",
+                "requiredLevel": 20,
+                "displayOrder": 20
+              },
+              {
+                "id": 1611383,
+                "name": "Blood Curses",
+                "prerequisite": null,
+                "description": "<p>The blood curses are presented in alphabetical order.</p>\r\n<h5 id=\"BloodCurseoftheAnxious\">Blood Curse of the Anxious</h5>\r\n<p>As a bonus action, you magnify the adrenaline in the body of a creature within 30 feet of you, making them susceptible to forceful influence. Until the end of your next turn, all creatures have advantage on Charisma (Intimidation) checks directed at the target creature.</p>\r\n<p><em><strong>Amplify.</strong></em> The next Wisdom saving throw the target makes before this curse ends has disadvantage. Once you’ve amplified this blood curse, you must finish a long rest before you can amplify it again.</p>\r\n<h5 id=\"BloodCurseofBinding\">Blood Curse of Binding</h5>\r\n<p>As a bonus action, you can attempt to bind a creature you can see within 30 feet of you that is no more than one size larger than you. The target must succeed on a Strength saving throw or have their speed be reduced to 0 and they can’t use reactions until the end of your next turn.</p>\r\n<p><strong><em>Amplify.</em></strong> This curse lasts for 1 minute and can affect a creature regardless of their size. At the end of each of its turns, the cursed creature can make another Strength saving throw. On a success, this curse ends.</p>\r\n<h5 id=\"BloodCurseofBloatedAgony\">Blood Curse of Bloated Agony</h5>\r\n<p>As a bonus action, you curse a creature that you can see within 30 feet of you to painfully swell until the end of your next turn. For the duration of this curse, the creature has disadvantage on Strength and Dexterity ability checks, and suffers 1d8 necrotic damage if it makes more than one melee or ranged attack during its turn.</p>\r\n<p><strong><em>Amplify.</em></strong> This curse lasts for 1 minute. At the end of each of its turns, the cursed creature can make a Constitution saving throw. On a success, this curse ends.</p>\r\n<h5 id=\"BloodCurseofCorrosion\">Blood Curse of Corrosion</h5>\r\n<p><em>Prerequisite: 15th level, Order of the Mutant</em></p>\r\n<p>As a bonus action, a creature within 30 feet of you becomes poisoned. At the end of each of its turns, the target can make another Constitution saving throw. On a success, the curse ends.</p>\r\n<p><strong><em>Amplify.</em></strong> The cursed creature suffers 4d6 necrotic damage, and suffers this damage again every time it fails its Constitution saving throw to end this curse at the end of its turn.</p>\r\n<h5 id=\"BloodCurseoftheExorcist\">Blood Curse of the Exorcist</h5>\r\n<p><em>Prerequisite: 15th level, Order of the Ghostslayer</em></p>\r\n<p>As a bonus action, you can choose one creature you can see within 30 feet of you that is charmed, frightened, or possessed. The target creature is no longer charmed, frightened, or possessed.</p>\r\n<p><strong><em>Amplify.</em></strong> The creature that charmed, frightened, or possessed the target of your curse suffers 3d6 psychic damage and must make a Wisdom saving throw or be stunned until the end of your next turn.</p>\r\n<h5 id=\"BloodCurseofExposure\">Blood Curse of Exposure</h5>\r\n<p>When a creature you can see within 30 feet is hit by an attack or spell, you can use your reaction to temporarily weaken their resilience against it. Until the end of the turn, the target loses resistance to the damage types of the triggering attack or spell.</p>\r\n<p><em><strong>Amplify.</strong></em> The target instead loses invulnerability to the damage types of the triggering attack or spell, having resistance to them until the end of the turn.</p>\r\n<h5 id=\"BloodCurseoftheEyeless\">Blood Curse of the Eyeless</h5>\r\n<p>When a creature you can see within 30 feet of you makes an attack roll, you can use your reaction to roll one hemocraft die and subtract the number rolled from the creature’s attack roll. You can choose to use this feature after the creature’s roll, but before the DM determines whether the attack roll succeeds. The creature is immune if it is immune to blindness.</p>\r\n<p><strong><em>Amplify.</em></strong> You apply this curse to all of the creature’s attack rolls until the end of the turn. You roll a new hemocraft die for each affected attack.</p>\r\n<h5 id=\"BloodCurseoftheFallenPuppet\">Blood Curse of the Fallen Puppet</h5>\r\n<p>When a creature you can see within 30 feet of you drops to 0 hit points, you can use your reaction to give that creature a final act of aggression. That creature immediately makes a single weapon attack against a target of your choice within its attack range.</p>\r\n<p><strong><em>Amplify.</em></strong> You can first move the cursed creature up to half their speed, and you grant a bonus to the cursed creature’s attack roll equal to your Intelligence modifier (minimum of +1).</p>\r\n<h5 id=\"BloodCurseoftheHowl\">Blood Curse of the Howl</h5>\r\n<p><em>Prerequisite: 18th level, Order of the Lycan</em></p>\r\n<p>As an action, you unleash a blood-curdling howl. Each creature within 30 feet of you that can hear you must succeed on a Wisdom saving throw or become frightened of you until the end of your next turn. If they fail their saving throw by 5 or more, they are stunned while frightened in this way. A creature that succeeds on this saving throw is immune to this blood curse for the next 24 hours.</p>\r\n<p>You can choose any number of creatures you can see to be unaffected by the howl.</p>\r\n<p><em><strong>Amplify.</strong></em> The range of this curse increases to 60 feet.</p>\r\n<h5 id=\"BloodCurseoftheMarked\">Blood Curse of the Marked</h5>\r\n<p>As a bonus action, you can mark a creature that you can see within 30 feet of you. Until the end of your turn, whenever you deal rite damage to the target, you roll an additional hemocraft die of rite damage.</p>\r\n<p><strong><em>Amplify.</em></strong> The next attack roll you make against the target before the end of your turn has advantage.</p>\r\n<h5 id=\"BloodCurseoftheMuddledMind\">Blood Curse of the Muddled Mind</h5>\r\n<p>As a bonus action, you curse a creature that you can see within 30 feet of you that is concentrating on a spell. That creature has disadvantage on the next Constitution saving throw it must make to maintain concentration before the end of your next turn.</p>\r\n<p><strong><em>Amplify.</em></strong> The cursed creature has disadvantage on all Constitution saving throws made to maintain concentration of spells until the end of your next turn.</p>\r\n<h5 id=\"BloodCurseoftheSouleater\">Blood Curse of the Souleater</h5>\r\n<p><em>Prerequisite: 18th level, Order of the Profane Soul</em></p>\r\n<p>When a creature that isn’t a construct or undead is reduced to 0 hit points within 30 feet of you, you can use your reaction to usher their soul to your patron in exchange for power. Until the end of your next turn, your weapon attacks have advantage.</p>\r\n<p><em><strong>Amplify.</strong></em> In addition, you regain an expended warlock spell slot. Once you’ve amplified this blood curse, you must finish a long rest before you can amplify it again.</p>",
+                "requiredLevel": 1,
+                "displayOrder": 21
+              }
+            ],
+            "classFeatureDefinitions": null,
+            "wealthDice": {
+              "diceCount": 4,
+              "diceValue": 4,
+              "diceMultiplier": 10,
+              "fixedValue": null,
+              "diceString": "4d4"
+            },
+            "canCastSpells": false,
+            "knowsAllSpells": null,
+            "spellPrepareType": null,
+            "spellContainerName": null,
+            "sourceId": null,
+            "sourcePageNumber": null,
+            "subclassDefinition": null,
+            "isHomebrew": false,
+            "primaryAbilities": [],
+            "spellRules": {
+              "multiClassSpellSlotDivisor": 3,
+              "isRitualSpellCaster": false,
+              "levelCantripsKnownMaxes": [
+                0,
+                0,
+                0,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3
+              ],
+              "levelSpellKnownMaxes": [
+                0,
+                0,
+                0,
+                2,
+                2,
+                3,
+                3,
+                4,
+                4,
+                5,
+                5,
+                6,
+                6,
+                7,
+                7,
+                8,
+                8,
+                9,
+                9,
+                10,
+                11
+              ],
+              "levelSpellSlots": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  2,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "multiClassSpellSlotRounding": 1
+            },
+            "prerequisites": [
+              {
+                "description": "Intelligence 13",
+                "prerequisiteMappings": [
+                  {
+                    "id": 146776,
+                    "entityId": 4,
+                    "entityTypeId": 1472902489,
+                    "type": "ability-score",
+                    "subType": "intelligence",
+                    "value": 13,
+                    "friendlyTypeName": "Ability Score",
+                    "friendlySubTypeName": "Intelligence"
+                  }
+                ]
+              }
+            ]
+          },
+          "moreDetailsUrl": "/characters/classes/blood-hunter",
+          "portraitAvatarUrl": "https://www.dndbeyond.com/avatars/8551/969/637158853102614868.png?width=1000&height=1000&fit=bounds&quality=95&auto=webp",
+          "avatarUrl": "https://www.dndbeyond.com/avatars/8551/967/637158853097790600.png?width=350&height=350&fit=bounds&quality=95&auto=webp",
+          "largeAvatarUrl": "https://www.dndbeyond.com/avatars/8551/968/637158853099606981.png?width=1000&height=1000&fit=bounds&quality=95&auto=webp",
+          "parentClassId": null,
+          "hitDice": 10,
+          "spellCastingAbilityId": null,
+          "canCastSpells": false
+        },
+        "core": {
+          "sourceId": "Compendium.world.ddb-darklands-classes.X6gthgixA2RiQFPV"
+        }
+      }
+    },
+    {
+      "_id": "wqp0KgCOhmOGeeJG",
+      "name": "Chain Mail",
+      "type": "equipment",
+      "img": "icons/equipment/chest/breastplate-metal-scaled-grey.webp",
+      "data": {
+        "description": {
+          "value": "<p>Made of interlocking metal rings, chain mail includes a layer of quilted fabric worn underneath the mail to prevent chafing and to cushion the impact of blows. The suit includes gauntlets.</p>",
+          "chat": "<p>Made of interlocking metal rings, chain mail includes a layer of quilted fabric worn underneath the mail to prevent chafing and to cushion the impact of blows. The suit includes gauntlets.</p>",
+          "unidentified": ""
+        },
+        "source": "",
+        "quantity": 1,
+        "weight": 55,
+        "price": 75,
+        "attunement": 0,
+        "equipped": true,
+        "rarity": "common",
+        "identified": true,
+        "activation": {
+          "type": "",
+          "cost": 0,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": ""
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": {
+          "value": null,
+          "long": null,
+          "units": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": null
+        },
+        "consume": {
+          "type": "",
+          "target": null,
+          "amount": null
+        },
+        "ability": null,
+        "actionType": "",
+        "attackBonus": 0,
+        "chatFlavor": "",
+        "critical": {
+          "threshold": null,
+          "damage": null
+        },
+        "damage": {
+          "parts": [],
+          "versatile": ""
+        },
+        "formula": "",
+        "save": {
+          "ability": "",
+          "dc": null,
+          "scaling": "spell"
+        },
+        "armor": {
+          "value": 16,
+          "type": "heavy",
+          "dex": null
+        },
+        "hp": {
+          "value": 0,
+          "max": 0,
+          "dt": null,
+          "conditions": ""
+        },
+        "baseItem": "",
+        "speed": {
+          "value": null,
+          "conditions": ""
+        },
+        "strength": 13,
+        "stealth": true,
+        "proficient": false
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "Tyd5yiqWrRZMvG30": 3
+      },
+      "flags": {
+        "ddbimporter": {
+          "dndbeyond": {
+            "type": "",
+            "filterType": "Armor",
+            "tags": [
+              "Warding"
+            ],
+            "sources": []
+          },
+          "id": 0,
+          "entityTypeId": 0,
+          "definitionEntityTypeId": 701257905,
+          "definitionId": 16,
+          "originalName": "Chain Mail"
+        },
+        "magicitems": {
+          "enabled": false
+        },
+        "core": {
+          "sourceId": "Compendium.world.ddb-darklands-items.yxq8la5l7pLS7ATq"
+        }
+      }
+    },
+    {
+      "_id": "pt7App0JlLdP8VpM",
+      "name": "Unarmed Strike",
+      "type": "weapon",
+      "img": "icons/skills/melee/unarmed-punch-fist-yellow-red.webp",
+      "data": {
+        "description": {
+          "value": "Instead of using a weapon to make a melee weapon attack, you can use an unarmed strike: a punch, kick, head-butt, or similar forceful blow (none of which count as weapons). On a hit, an unarmed strike deals bludgeoning damage equal to 1 + your Strength modifier. You are proficient with your unarmed strikes.",
+          "chat": "Instead of using a weapon to make a melee weapon attack, you can use an unarmed strike: a punch, kick, head-butt, or similar forceful blow (none of which count as weapons). On a hit, an unarmed strike deals bludgeoning damage equal to 1 + your Strength modifier. You are proficient with your unarmed strikes.",
+          "unidentified": ""
+        },
+        "source": "",
+        "quantity": 1,
+        "weight": 0,
+        "price": 0,
+        "attunement": 0,
+        "equipped": true,
+        "rarity": "common",
+        "identified": true,
+        "activation": {
+          "type": "action",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": ""
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": {
+          "value": 5,
+          "long": null,
+          "units": ""
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": ""
+        },
+        "consume": {
+          "type": "",
+          "target": "",
+          "amount": null
+        },
+        "ability": "str",
+        "actionType": "mwak",
+        "attackBonus": "0",
+        "chatFlavor": "",
+        "critical": {
+          "threshold": null,
+          "damage": null
+        },
+        "damage": {
+          "parts": [
+            [
+              "1 + @mod",
+              "bludgeoning"
+            ]
+          ],
+          "versatile": ""
+        },
+        "formula": "",
+        "save": {
+          "ability": "",
+          "dc": null,
+          "scaling": "spell"
+        },
+        "armor": {
+          "value": 10
+        },
+        "hp": {
+          "value": 0,
+          "max": 0,
+          "dt": null,
+          "conditions": ""
+        },
+        "weaponType": "natural",
+        "baseItem": "",
+        "properties": {
+          "ada": false,
+          "amm": false,
+          "fin": false,
+          "fir": false,
+          "foc": false,
+          "hvy": false,
+          "lgt": false,
+          "lod": false,
+          "mgc": false,
+          "rch": false,
+          "rel": false,
+          "ret": false,
+          "sil": false,
+          "spc": false,
+          "thr": false,
+          "two": false,
+          "ver": false,
+          "nodam": false,
+          "fulldam": false,
+          "halfdam": false
+        },
+        "proficient": true
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 1004,
+      "permission": {
+        "default": 0,
+        "Tyd5yiqWrRZMvG30": 3
+      },
+      "flags": {
+        "ddbimporter": {
+          "id": "unarmedStrike",
+          "action": true,
+          "dndbeyond": {
+            "type": "Martial Arts"
+          }
+        },
+        "favtab": {
+          "isFavorite": false
+        },
+        "midi-qol": {
+          "criticalThreshold": "20",
+          "onUseMacroName": ""
+        },
+        "core": {
+          "sourceId": "Item.s1hf8BKUZTyFw3XD"
+        }
+      }
+    },
+    {
+      "_id": "wXOuxTtuUV4ABLim",
+      "name": "Blood Curse of Bloated Agony",
+      "type": "feat",
+      "img": "icons/skills/wounds/injury-hand-blood-red.webp",
+      "data": {
+        "description": {
+          "value": "<p>Enter Item Description here, I cannot provide them for legal reasons.</p>",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": "Blood Hunter",
+        "activation": {
+          "type": "bonus",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": 1,
+          "units": "round"
+        },
+        "target": {
+          "value": 1,
+          "width": null,
+          "units": "",
+          "type": "creature"
+        },
+        "range": {
+          "value": 30,
+          "long": null,
+          "units": "ft"
+        },
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": ""
+        },
+        "consume": {
+          "type": "attribute",
+          "target": "",
+          "amount": 1
+        },
+        "ability": "",
+        "actionType": "util",
+        "attackBonus": 0,
+        "chatFlavor": "",
+        "critical": {
+          "threshold": null,
+          "damage": null
+        },
+        "damage": {
+          "parts": [],
+          "versatile": ""
+        },
+        "formula": "",
+        "save": {
+          "ability": "",
+          "dc": null,
+          "scaling": "spell"
+        },
+        "requirements": "",
+        "recharge": {
+          "value": null,
+          "charged": false
+        },
+        "attributes": {
+          "spelldc": 10
+        }
+      },
+      "effects": [
+        {
+          "_id": "Tr4c6w6uIb8ygXpe",
+          "changes": [
+            {
+              "key": "macro.itemMacro",
+              "mode": 0,
+              "value": "@token",
+              "priority": "20"
+            },
+            {
+              "key": "flags.midi-qol.disadvantage.ability.check.str",
+              "mode": 2,
+              "value": "1",
+              "priority": "20"
+            },
+            {
+              "key": "flags.midi-qol.disadvantage.ability.check.dex",
+              "mode": 2,
+              "value": "1",
+              "priority": "20"
+            }
+          ],
+          "disabled": false,
+          "duration": {
+            "startTime": null
+          },
+          "icon": "systems/dnd5e/icons/skills/blood_09.jpg",
+          "label": "Blood Curse of Bloated Agony",
+          "transfer": false,
+          "flags": {
+            "dae": {
+              "stackable": "none",
+              "macroRepeat": "none",
+              "specialDuration": [],
+              "transfer": false
+            }
+          },
+          "tint": null,
+          "selectedKey": [
+            "macro.itemMacro",
+            "data.abilities.cha.dc",
+            "data.abilities.cha.dc"
+          ]
+        }
+      ],
+      "folder": null,
+      "sort": 350000,
+      "permission": {
+        "default": 0,
+        "Tyd5yiqWrRZMvG30": 3
+      },
+      "flags": {
+        "ddbimporter": {
+          "id": 1611383,
+          "dndbeyond": {
+            "requiredLevel": 1,
+            "displayOrder": 21,
+            "class": "Blood Hunter"
+          }
+        },
+        "magicitems": {
+          "enabled": false,
+          "equipped": false,
+          "attuned": false,
+          "charges": "0",
+          "chargeType": "c1",
+          "destroy": false,
+          "destroyFlavorText": "reaches 0 charges: it crumbles into ashes and is destroyed.",
+          "rechargeable": false,
+          "recharge": "0",
+          "rechargeType": "t1",
+          "rechargeUnit": "r1",
+          "sorting": "l"
+        },
+        "betterCurses": {
+          "isCurse": false,
+          "curseName": "",
+          "formula": "",
+          "mwak": false,
+          "rwak": false,
+          "msak": false,
+          "rsak": false
+        },
+        "midi-qol": {
+          "onUseMacroName": ""
+        },
+        "favtab": {
+          "isFavorite": true,
+          "sort": null
+        },
+        "itemacro": {
+          "macro": {
+            "data": {
+              "_id": null,
+              "name": "Blood Curse of Bloated Agony",
+              "type": "script",
+              "author": "Tyd5yiqWrRZMvG30",
+              "img": "icons/svg/dice-target.svg",
+              "scope": "global",
+              "command": "const lastArg = args[args.length - 1];\nconst tokenD = canvas.tokens.get(lastArg.tokenId);\nconst actorD = tokenD.actor;\nconst casterD = canvas.tokens.get(args[1]);\nconst bloodMal = casterD.actor.items.find(i=> i.name === \"Blood Maledict\");\nif(!bloodMal) return ui.notifications.error(`Blood Maledict is missing, please add it.`);\nconst itemD = lastArg.efData.flags.dae.itemData;\nconst dc = Number(casterD.actor.data.data.attributes.spelldc);\nconst originD = lastArg.origin;\n\nif (args[0] === \"on\") {\n    let choice;\n    new Dialog({\n        title: itemD.name,\n        content: \"Do you wish to Amplify this curse?\",\n        buttons: {\n            cast: { label: \"Normal\", callback: () => { choice = \"norm\"; } },\n            amplify: { label: \"Amplify\", callback: () => { choice = \"amp\"; } }\n        },\n        close: async (html) => {\n            let gameRound = game.combat ? game.combat.round : 0;\n            let macroRepeat = { dae: { itemData: itemD, macroRepeat: \"none\", specialDuration: [\"none\"] } };\n            let macroDuration = { rounds: 1, seconds: 1, startRound: gameRound, startTime: game.time.worldTime };\n            if (choice === \"amp\") {\n                bloodMal.roll();                \n                macroRepeat = { dae: { itemData: itemD, macroRepeat: \"endEveryTurn\", specialDuration: [\"none\"] } };\n                macroDuration = { rounds: 10, seconds: 1, startRound: gameRound, startTime: game.time.worldTime };\n            }\n            let effectData = {\n                _id: lastArg.effectId,\n                flags: macroRepeat,\n                duration: macroDuration,\n                origin: originD\n            };\n            console.log(itemD.name, \"hooking\");\n            const hookRoll = Hooks.on(\"midi-qol.AttackRollComplete\", countAtk);\n            const hookTurn = Hooks.on(\"updateCombat\", combatRound);\n            await DAE.setFlag(actorD, \"bloatedAgonyA\", hookRoll);\n            await DAE.setFlag(actorD, \"bloatedAgonyB\", hookTurn);\n            await actorD.updateEmbeddedDocuments(\"ActiveEffect\", [effectData]);\n        }\n    }).render(true);\n}\n\nif (args[0] === \"each\") {\n    console.log(itemD.name, \"turnSave\");\n    let saveType = \"con\";\n    let workflow = await MidiQOL.Workflow.getWorkflow(originD);\n    let itemCard = await MidiQOL.showItemInfo.bind(workflow.item)();\n    let save = (await actorD.rollAbilitySave(saveType, { chatMessage: false }));\n    let success = \"fails\";\n    if (save.total >= dc) {\n        success = \"saves\";\n        await actorD.updateEmbeddedDocuments(\"ActiveEffect\", [{ _id: lastArg.effectId, disabled: true }]);\n        await actorD.deleteEmbeddedDocuments(\"ActiveEffect\", [lastArg.effectId]);\n    }\n    await wait(700);\n    let the_message = `<div class=\"midi-qol-nobox midi-qol-bigger-text\">${CONFIG.DND5E.abilities[saveType]} Saving Throw: DC ${dc}</div><div><div class=\"midi-qol-nobox\"><div class=\"midi-qol-flex-container\"><div class=\"midi-qol-target-npc midi-qol-target-name\" id=\"${tokenD.id}\">${tokenD.name} ${success} with a ${save.total} </div><div><img src=\"${tokenD.data.img}\" width=\"30\" height=\"30\" style=\"border:0px\" /></div></div></div></div>`;\n    let chatMessage = await game.messages.get(itemCard.id);\n    let content = await duplicate(chatMessage.data.content);\n    let searchString = /<div class=\"midi-qol-attack-roll\">[\\s\\S]*<div class=\"end-midi-qol-attack-roll\">/g;\n    let replaceString = `<div class=\"midi-qol-attack-roll\"><div class=\"end-midi-qol-attack-roll\">${the_message}`;\n    content = await content.replace(searchString, replaceString);\n    await chatMessage.update({ content: content });\n    await ui.chat.scrollBottom();\n}\n\nif (args[0] === \"off\") {\n    console.log(itemD.name, \"unhooking\");\n    const hookRoll = DAE.getFlag(actorD, \"bloatedAgonyA\");\n    const hookTurn = DAE.getFlag(actorD, \"bloatedAgonyB\");\n    const hookTime = DAE.getFlag(actorD, \"combatTime\");\n    Hooks.off(\"midi-qol.AttackRollComplete\", hookRoll);\n    Hooks.off(\"updateCombat\", hookTurn);\n    DAE.unsetFlag(actorD, \"bloatedAgonyA\", hookRoll);\n    DAE.unsetFlag(actorD, \"bloatedAgonyB\", hookTurn);\n    DAE.unsetFlag(actorD, \"combatTime\", hookTime);\n}\n\nfunction combatRound(combat, update) {\n    if (!(\"round\" in update || \"turn\" in update)) return;\n    if (game.combat?.current.tokenId === lastArg.tokenId) {\n        const time = new Date().getTime();\n        DAE.setFlag(actorD, \"combatTime\", time);\n    }\n}\n\nfunction countAtk(workflow) {\n    let currentId = game.combat.current.tokenId;\n    if ((currentId === workflow.tokenId) && (currentId === lastArg.tokenId)) {\n        let currentTime = DAE.getFlag(actorD, \"combatTime\");\n        let getToken = canvas.tokens.get(lastArg.tokenId);\n        let count = game.messages.filter(i => i.data?.flags[\"midi-qol\"]?.itemId === workflow.itemId && i.data.timestamp > currentTime).length;\n        if (count > 1) {\n            let damageType = \"necrotic\";\n            let damageRoll = new Roll('1d8').evaluate({ async: false });\n            new MidiQOL.DamageOnlyWorkflow(casterD.actor, casterD, damageRoll.total, damageType, [getToken], damageRoll, { flavor: `(${CONFIG.DND5E.damageTypes[damageType]})`, itemData: itemD, itemCardId: \"new\" });\n        }\n    }\n}",
+              "folder": null,
+              "sort": 0,
+              "permission": {
+                "default": 0
+              },
+              "flags": {}
+            }
+          }
+        },
+        "core": {
+          "sourceId": "Item.RPCJRrWvlAUSjc7X"
+        },
+        "autoanimations": {
+          "killAnim": false,
+          "override": false,
+          "animType": "t1",
+          "animName": "",
+          "hmAnim": "a1",
+          "color": "n1",
+          "dtvar": "dt1",
+          "explosion": false,
+          "explodeVariant": "ev1",
+          "explodeColor": "ec1",
+          "explodeRadius": "0",
+          "explodeLoop": "1",
+          "selfRadius": "5",
+          "animTint": "#ffffff",
+          "auraOpacity": 0.75,
+          "ctaOption": false,
+          "uaStrikeType": "physical"
+        },
+        "innocenti-openlock": {
+          "enabled": false,
+          "keylock": "",
+          "wallCoord": "",
+          "disarmTrap": 10,
+          "findTrap": 10,
+          "skillfindTrap": "prc",
+          "passive": 10,
+          "forceLock": 12,
+          "openLock": 10,
+          "toolsBreak": 5
+        },
+        "exportSource": {
+          "world": "avadol_v2",
+          "system": "dnd5e",
+          "coreVersion": "0.8.8",
+          "systemVersion": "1.4.1"
+        },
+        "enhancedcombathud": {
+          "set1s": false,
+          "set2s": false,
+          "set3s": false
+        }
+      },
+      "changes": []
+    },
+    {
+      "_id": "O5w0BGMYAOAtCLP3",
+      "name": "Blood Curse of Binding",
+      "type": "feat",
+      "img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+      "data": {
+        "description": {
+          "value": "<p>As a bonus action, you can attempt to bind a creature you can see within 30 feet of you that is no more than one size larger than you. The target must succeed on a Strength saving throw or have their speed be reduced to 0 and they can’t use reactions until the end of your next turn.</p>\n<p><strong>Amplify.</strong> This curse lasts for 1 minute and can affect a creature regardless of their size. At the end of each of its turns, the cursed creature can make another Strength saving throw. On a success, this curse ends.</p>",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": "",
+        "activation": {
+          "type": "bonus",
+          "cost": 1,
+          "condition": ""
+        },
+        "duration": {
+          "value": 1,
+          "units": "round"
+        },
+        "target": {
+          "value": 1,
+          "width": null,
+          "units": "",
+          "type": "creature"
+        },
+        "range": {
+          "value": 30,
+          "long": null,
+          "units": "ft"
+        },
+        "uses": {
+          "value": 0,
+          "max": "0",
+          "per": ""
+        },
+        "consume": {
+          "type": "",
+          "target": "",
+          "amount": null
+        },
+        "ability": "",
+        "actionType": "save",
+        "attackBonus": 0,
+        "chatFlavor": "",
+        "critical": {
+          "threshold": null,
+          "damage": null
+        },
+        "damage": {
+          "parts": [],
+          "versatile": ""
+        },
+        "formula": "",
+        "save": {
+          "ability": "str",
+          "dc": null,
+          "scaling": "int"
+        },
+        "requirements": "",
+        "recharge": {
+          "value": null,
+          "charged": false
+        }
+      },
+      "effects": [
+        {
+          "_id": "sejXpMI3ZphrTpgl",
+          "changes": [
+            {
+              "key": "macro.itemMacro",
+              "mode": 0,
+              "value": "@token",
+              "priority": "20"
+            },
+            {
+              "key": "data.attributes.movement.all",
+              "mode": 0,
+              "value": "0",
+              "priority": "20"
+            }
+          ],
+          "disabled": false,
+          "duration": {
+            "startTime": null
+          },
+          "icon": "icons/svg/item-bag.svg",
+          "label": "Blood Curse of Binding",
+          "transfer": false,
+          "flags": {
+            "dae": {
+              "stackable": "none",
+              "macroRepeat": "none",
+              "specialDuration": [],
+              "transfer": false
+            }
+          },
+          "tint": null,
+          "selectedKey": [
+            "macro.itemMacro",
+            "data.attributes.movement.all"
+          ]
+        }
+      ],
+      "folder": null,
+      "sort": 2400000,
+      "permission": {
+        "default": 0,
+        "Tyd5yiqWrRZMvG30": 3
+      },
+      "flags": {
+        "itemacro": {
+          "macro": {
+            "data": {
+              "_id": null,
+              "name": "Blood Curse of Binding",
+              "type": "script",
+              "author": "Tyd5yiqWrRZMvG30",
+              "img": "icons/svg/dice-target.svg",
+              "scope": "global",
+              "command": "const lastArg = args[args.length - 1];\nconst tokenD = canvas.tokens.get(lastArg.tokenId);\nconst actorD = tokenD.actor;\nconst casterD = canvas.tokens.get(args[1]);\nconst bloodMal = casterD.actor.items.find(i => i.name === \"Blood Maledict\");\nif (!bloodMal) return ui.notifications.error(`Blood Maledict is missing, please add it.`);\nconst itemD = lastArg.efData.flags.dae.itemData;\nconst dc = Number(casterD.actor.data.data.attributes.spelldc);\nconst originD = lastArg.origin;\n\nif (args[0] === \"on\") {\n    let choice = \"\";\n    let playerSize = Object.keys(CONFIG.DND5E.actorSizes).indexOf(tokenD.actor.data.data.traits.size);\n    let targetSize = Object.keys(CONFIG.DND5E.actorSizes).indexOf(target.actor.data.data.traits.size);\n    let plusSize = playerSize + targetSize + 1;\n    if (plusSize > playerSize + targetSize) await tactor.deleteEmbeddedDocuments(\"ActiveEffect\", [lastArg.effectId]);\n    new Dialog({\n        title: itemD.name,\n        content: \"Do you wish to Amplify this curse?\",\n        buttons: {\n            cast: { label: \"Normal\", callback: () => { choice = \"norm\"; } },\n            amplify: { label: \"Amplify\", callback: () => { choice = \"amp\"; } }\n        },\n        close: async (html) => {\n            let gameRound = game.combat ? game.combat.round : 0;\n            let get_amplify = choice === \"amp\" ? 10 : 1;\n            let macroRepeat = macroRepeat = { dae: { itemData: itemD, macroRepeat: \"none\", specialDuration: [\"none\"] } };\n            if (choice === \"amp\") {\n                bloodMal.roll();\n                macroRepeat = { dae: { itemData: itemD, macroRepeat: \"endEveryTurn\", specialDuration: [\"none\"] } };\n            }\n            let effectData = {\n                _id: lastArg.effectId,\n                flags: macroRepeat,\n                duration: { rounds: get_amplify, seconds: get_amplify * 6, startRound: gameRound, startTime: game.time.worldTime }\n            };\n            await tactor.updateEmbeddedDocuments(\"ActiveEffect\", [effectData]);\n        }\n    }).render(true);\n}\n\nif (args[0] === \"each\") {\n    let workflow = await MidiQOL.Workflow.getWorkflow(origin);\n    let itemCard = await MidiQOL.showItemCard.bind(workflow.item)(false, workflow, false);\n    workflow.itemCardId = await itemCard.id;\n    await workflow.checkSaves(false);\n    await workflow.displaySaves(false, true);\n    let save = await workflow.saveResults[0];\n    let DC = workflow.item.data.data.save.dc;\n    game.dice3d?.showForRoll(save);\n    await ui.chat.scrollBottom();\n    if (await save.total >= DC) await tactor.deleteEmbeddedDocuments(\"ActiveEffect\", [lastArg.effectId]);\n}",
+              "folder": null,
+              "sort": 0,
+              "permission": {
+                "default": 0
+              },
+              "flags": {}
+            }
+          }
+        },
+        "core": {
+          "sourceId": "Item.4dKVThBWqCUJQxcn"
+        },
+        "midi-qol": {
+          "onUseMacroName": ""
+        },
+        "favtab": {
+          "isFavorite": true
+        },
+        "magicitems": {
+          "enabled": false,
+          "equipped": false,
+          "attuned": false,
+          "charges": "0",
+          "chargeType": "c1",
+          "destroy": false,
+          "destroyFlavorText": "reaches 0 charges: it crumbles into ashes and is destroyed.",
+          "rechargeable": false,
+          "recharge": "0",
+          "rechargeType": "t1",
+          "rechargeUnit": "r1",
+          "sorting": "l"
+        }
+      }
+    },
+    {
+      "_id": "JjcwHykW3DIbo071",
+      "name": "Blood Maledict",
+      "type": "feat",
+      "img": "icons/skills/wounds/blood-spurt-spray-red.webp",
+      "data": {
+        "description": {
+          "value": "<p>At 1st level, you gain the ability to channel, and sometimes sacrifice, a part of your vital essence to curse and manipulate creatures through hemocraft magic. You gain one blood curse of your choice, detailed in the “<a title=\"Blood Curses\" href=\"https://www.dndbeyond.com/classes/blood-hunter#BloodCurses-1611383\">Blood Curses</a>” section at the end of the class description. You learn one additional blood curse of your choice, and you can choose one of the blood curses you know and replace it with another blood curse, at 6th, 10th, 14th, and 18th level.</p>\n<p>When you use your Blood Maledict, you choose which curse to invoke. While invoking a blood curse, but before it affects the target, you can choose to amplify the curse by losing a number of hit points equal to one roll of your hemocraft die, as shown in the Hemocraft Die column of the Blood Hunter table. An amplified curse gains an additional effect, noted in the curse’s description. Creatures that do not have blood in their bodies are immune to blood curses, unless you have amplified the curse.</p>\n<p>You can use this feature once. Beginning at 6th level, you can use your Blood Maledict feature twice, at 13th level you can use it three times between rests, and at 17th level, you can use it four times between rests. You regain all expended uses when you finish a short or long rest.</p>\n\n",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": "",
+        "activation": {
+          "type": "",
+          "cost": null,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": ""
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": {
+          "value": null,
+          "long": null,
+          "units": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": "0",
+          "per": ""
+        },
+        "consume": {
+          "type": "",
+          "target": "",
+          "amount": null
+        },
+        "ability": "",
+        "actionType": "other",
+        "attackBonus": 0,
+        "chatFlavor": "",
+        "critical": {
+          "threshold": null,
+          "damage": null
+        },
+        "damage": {
+          "parts": [],
+          "versatile": ""
+        },
+        "formula": "",
+        "save": {
+          "ability": "",
+          "dc": null,
+          "scaling": "spell"
+        },
+        "requirements": "Blood Hunter",
+        "recharge": {
+          "value": null,
+          "charged": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "permission": {
+        "default": 0,
+        "Tyd5yiqWrRZMvG30": 3
+      },
+      "flags": {
+        "ddbimporter": {
+          "id": 1610580,
+          "data": {
+            "id": 1610580,
+            "name": "Blood Maledict",
+            "prerequisite": null,
+            "description": "<p>At 1st level, you gain the ability to channel, and sometimes sacrifice, a part of your vital essence to curse and manipulate creatures through hemocraft magic. You gain one blood curse of your choice, detailed in the &ldquo;<a title=\"Blood Curses\" href=\"https://www.dndbeyond.com/classes/blood-hunter#BloodCurses-1611383\">Blood Curses</a>&rdquo; section at the end of the class description. You learn one additional blood curse of your choice, and you can choose one of the blood curses you know and replace it with another blood curse, at 6th, 10th, 14th, and 18th level.</p>\r\n<p>When you use your Blood Maledict, you choose which curse to invoke. While invoking a blood curse, but before it affects the target, you can choose to amplify the curse by losing a number of hit points equal to one roll of your hemocraft die, as shown in the Hemocraft Die column of the Blood Hunter table. An amplified curse gains an additional effect, noted in the curse’s description. Creatures that do not have blood in their bodies are immune to blood curses, unless you have amplified the curse.</p>\r\n<p>You can use this feature once. Beginning at 6th level, you can use your Blood Maledict feature twice, at 13th level you can use it three times between rests, and at 17th level, you can use it four times between rests. You regain all expended uses when you finish a short or long rest.</p>",
+            "requiredLevel": 1,
+            "displayOrder": 4
+          },
+          "featureId": 1610580,
+          "requiredLevel": 1,
+          "prerequisite": null,
+          "class": "Blood Hunter",
+          "classId": 357975,
+          "subClass": ""
+        },
+        "core": {
+          "sourceId": "Compendium.world.ddb-darklands-class-features.5rZwtfZwhRtPvGGs"
+        },
+        "magicitems": {
+          "enabled": false,
+          "equipped": false,
+          "attuned": false,
+          "charges": "0",
+          "chargeType": "c1",
+          "destroy": false,
+          "destroyFlavorText": "reaches 0 charges: it crumbles into ashes and is destroyed.",
+          "rechargeable": false,
+          "recharge": "0",
+          "rechargeType": "t1",
+          "rechargeUnit": "r1",
+          "sorting": "l"
+        },
+        "midi-qol": {
+          "onUseMacroName": "ItemMacro"
+        },
+        "itemacro": {
+          "macro": {
+            "data": {
+              "_id": null,
+              "name": "Blood Maledict",
+              "type": "script",
+              "author": "Tyd5yiqWrRZMvG30",
+              "img": "icons/svg/dice-target.svg",
+              "scope": "global",
+              "command": "let actorD = game.actors.get(args[0].actor._id);\nlet tokenD = canvas.tokens.get(args[0].tokenId);\nlet level = actorD.data.type === \"npc\" ? actorD.data.data.details.cr : actorD.classes[\"blood-hunter\"].data.data.levels;\nlet numDie = (4 + (2 * (Math.floor((level + 1) / 6))));\nlet damageType = \"necrotic\";\nlet damageRoll = new Roll(`1d${numDie}`).evaluate({ async: false });\nnew MidiQOL.DamageOnlyWorkflow(actorD, tokenD, damageRoll.total, damageType, [tokenD], damageRoll, { flavor: `(${CONFIG.DND5E.damageTypes[damageType]})`, itemCardId: args[0].itemCardId, useOther: false });",
+              "folder": null,
+              "sort": 0,
+              "permission": {
+                "default": 0
+              },
+              "flags": {}
+            }
+          }
+        }
+      }
+    }
+  ],
+  "effects": [],
+  "sort": 0,
+  "flags": {
+    "VariantEncumbrance": {
+      "tier": 0,
+      "weight": 49.6,
+      "burrow": 0,
+      "climb": 0,
+      "fly": 0,
+      "swim": 0,
+      "walk": 30
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.9",
+      "systemVersion": "1.5.2"
+    },
+    "dae": {
+      "damageApplied": 4
+    },
+    "tidy5e-sheet": {
+      "traitsExpanded": true
+    },
+    "dnd5e": {
+      "initiativeAdv": true,
+      "initiativeAlert": true
+    },
+    "ATL": {
+      "originals": {
+        "dimLight": 0,
+        "brightLight": 0,
+        "lightColor": null,
+        "lightAnimation": {
+          "speed": 5,
+          "intensity": 5
+        },
+        "lightAlpha": 0.25,
+        "lightAngle": 360,
+        "sightAngle": 360
+      }
+    },
+    "midi-qol": {
+      "concentration-damage": -4
+    }
+  }
+}

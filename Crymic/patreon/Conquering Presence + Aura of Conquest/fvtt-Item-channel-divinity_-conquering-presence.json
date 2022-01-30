@@ -1,0 +1,233 @@
+{
+  "name": "Channel Divinity: Conquering Presence",
+  "type": "feat",
+  "img": "graphics/icons/skills/yellow_14.jpg",
+  "data": {
+    "description": {
+      "value": "<p>You can use your Channel Divinity to exude a terrifying presence. As an action, you force each creature of your choice that you can see within 30 feet of you to make a Wisdom saving throw. On a failed save, a creature becomes @Compendium[combat-utility-belt.conditionsdnd5e.PTANb5kCweCv3Jna]{Frightened} of you for 1 minute. The @Compendium[combat-utility-belt.conditionsdnd5e.PTANb5kCweCv3Jna]{Frightened} creature can repeat this saving throw at the end of each of its turns, ending the effect on itself on a success.</p>\n<h3>Summary</h3>\n<p>As an action, force chosen creatures within 30 ft. to make a WIS saving throw (DC +15) or they become frightened for 1 minute. Creatures can repeat the saving throw at the end of each of its turns.</p>",
+      "chat": "As an action, force chosen creatures within 30 ft. to make a WIS saving throw (DC +15) or they become frightened for 1 minute. Creatures can repeat the saving throw at the end of each of its turns.",
+      "unidentified": ""
+    },
+    "source": "",
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": 1,
+      "units": "minute"
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "any",
+      "type": "creature"
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "self"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": ""
+    },
+    "consume": {
+      "type": "attribute",
+      "target": "resources.secondary.value",
+      "amount": 1
+    },
+    "ability": "",
+    "actionType": "save",
+    "attackBonus": 0,
+    "chatFlavor": "",
+    "critical": null,
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "wis",
+      "dc": 15,
+      "scaling": "cha"
+    },
+    "requirements": "",
+    "recharge": {
+      "value": null,
+      "charged": false
+    },
+    "attributes": {
+      "spelldc": 10
+    }
+  },
+  "effects": [
+    {
+      "_id": "Wz8EmDWwYnmylwA8",
+      "flags": {
+        "dae": {
+          "transfer": false,
+          "stackable": false,
+          "specialDuration": [
+            "None"
+          ],
+          "macroRepeat": "endEveryTurn"
+        }
+      },
+      "changes": [
+        {
+          "key": "macro.itemMacro",
+          "mode": 0,
+          "value": "",
+          "priority": "20"
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null
+      },
+      "icon": "graphics/icons/skills/yellow_14.jpg",
+      "label": "Channel Divinity: Conquering Presence",
+      "origin": "Actor.X8XAmgZOsDxoKEdZ.OwnedItem.lhIAr8HJwaTYHBxu",
+      "tint": null,
+      "transfer": false,
+      "selectedKey": "macro.itemMacro"
+    },
+    {
+      "_id": "jxwX9ekAN73zVVGa",
+      "flags": {
+        "dae": {
+          "stackable": false,
+          "specialDuration": [],
+          "macroRepeat": "startEveryTurn",
+          "transfer": false
+        }
+      },
+      "changes": [
+        {
+          "key": "macro.execute",
+          "mode": 0,
+          "value": "\"AuraConquest\" @token",
+          "priority": "20"
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null
+      },
+      "icon": "graphics/icons/spell_conditions/da_spell_091.webp",
+      "label": "Aura of Conquest",
+      "origin": "Actor.X8XAmgZOsDxoKEdZ.OwnedItem.lhIAr8HJwaTYHBxu",
+      "tint": null,
+      "transfer": false,
+      "selectedKey": "macro.execute"
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "mess": {
+      "templateTexture": ""
+    },
+    "dynamiceffects": {
+      "effects": [
+        {
+          "modSpecKey": "flags.dnd5e.conditions",
+          "value": "Frightened",
+          "mode": "+",
+          "targetSpecific": false,
+          "id": 1,
+          "itemId": "Otgnef2a1lFDVA77",
+          "active": true,
+          "_targets": [],
+          "label": "Flags Condition"
+        },
+        {
+          "modSpecKey": "macro.itemMacro",
+          "value": "@target @item",
+          "mode": "+",
+          "targetSpecific": false,
+          "id": 2,
+          "itemId": "Otgnef2a1lFDVA77",
+          "active": true,
+          "_targets": []
+        }
+      ]
+    },
+    "favtab": {
+      "isFavorite": true,
+      "sort": 200000
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Channel Divinity: Conquering Presence",
+          "type": "script",
+          "author": "feceaHtk8xrriPzY",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "// DAE Macro\n// Macro Repeat: End of Each Turn\n(async () => {\n    const lastArg = args[args.length - 1];\n    let tactor;\n    if (lastArg.tokenId) tactor = canvas.tokens.get(lastArg.tokenId).actor;\n    else tactor = game.actors.get(lastArg.actorId);\n    const item = lastArg.efData.flags.dae.itemData;\n    const origin = lastArg.origin;\n    const DC = item.data.save.dc;\n    if (args[0] === \"each\") {\n        let workflow = await MidiQOL.Workflow.getWorkflow(origin);\n        let itemCard = await MidiQOL.showItemCard.bind(workflow.item)(false, workflow, false);\n        workflow.itemCardId = await itemCard.id;\n        await workflow.checkSaves(false);\n        await workflow.displaySaves(false, true);\n        let save = await workflow.saveResults[0];\n        await ui.chat.scrollBottom();\n        game.dice3d?.showForRoll(save);\n        if (await save.total >= DC) {\n            let effectList = [];\n            effectList.push(lastArg.effectId);\n            effectList.push(tactor.effects.find(i => i.data.label === \"Aura of Conquest\").id);\n            await tactor.deleteEmbeddedDocuments(\"ActiveEffect\", effectList);\n        }\n    }\n})();",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "dae": {
+      "activeEquipped": false,
+      "alwaysActive": false
+    },
+    "betterCurses": {
+      "isCurse": false,
+      "curseName": "",
+      "formula": "",
+      "mwak": false,
+      "rwak": false,
+      "msak": false,
+      "rsak": false
+    },
+    "core": {
+      "sourceId": "Item.5tkZKYJWXc2433Nb"
+    },
+    "midi-qol": {
+      "onUseMacroName": ""
+    },
+    "magicitems": {
+      "enabled": false,
+      "equipped": false,
+      "attuned": false,
+      "charges": "0",
+      "chargeType": "c1",
+      "destroy": false,
+      "destroyFlavorText": "reaches 0 charges: it crumbles into ashes and is destroyed.",
+      "rechargeable": false,
+      "recharge": "0",
+      "rechargeType": "t1",
+      "rechargeUnit": "r1",
+      "sorting": "l"
+    },
+    "innocenti-openlock": {
+      "enabled": false,
+      "keylock": "",
+      "wallCoord": "",
+      "disarmTrap": 10,
+      "findTrap": 10,
+      "skillfindTrap": "prc",
+      "passive": 10,
+      "forceLock": 12,
+      "openLock": 10,
+      "toolsBreak": 5
+    },
+    "exportSource": {
+      "world": "avadol_v2",
+      "system": "dnd5e",
+      "coreVersion": "0.8.7",
+      "systemVersion": "1.3.5"
+    }
+  }
+}

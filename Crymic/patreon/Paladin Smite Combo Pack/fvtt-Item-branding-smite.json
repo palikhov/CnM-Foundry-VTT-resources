@@ -1,0 +1,170 @@
+{
+  "name": "Branding Smite",
+  "type": "spell",
+  "img": "systems/dnd5e/icons/spells/enchant-orange-2.jpg",
+  "data": {
+    "description": {
+      "value": "<p>The next time you hit a creature with a weapon attack before this spell ends, the weapon gleams with astral radiance as you strike. The attack deals an extra 2d6 radiant damage to the target, which becomes visible if it is invisible, and the target sheds dim light in a 5-foot radius and can’t become invisible until the spell ends. </p>\n<p><strong>At Higher Levels. </strong>When you cast this spell using a spell slot of 3rd level or higher, the extra damage increases by 1d6 for each slot level above 2nd.</p>",
+      "chat": "<p>The next time you hit a creature with a weapon attack before this spell ends, the weapon gleams with astral radiance as you strike. The attack deals an extra 2d6 radiant damage to the target, which becomes visible if it is invisible, and the target sheds dim light in a 5-foot radius and can’t become invisible until the spell ends. </p>\n<p><strong>At Higher Levels. </strong>When you cast this spell using a spell slot of 3rd level or higher, the extra damage increases by 1d6 for each slot level above 2nd.</p>",
+      "unidentified": ""
+    },
+    "source": "Basic Rules, Player's Handbook pg 219",
+    "activation": {
+      "type": "bonus",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": 1,
+      "units": "minute"
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": "self"
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "self"
+    },
+    "uses": {
+      "value": 0,
+      "max": "0",
+      "per": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "util",
+    "attackBonus": "0",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 2,
+    "school": "evo",
+    "components": {
+      "value": "",
+      "vocal": true,
+      "somatic": false,
+      "material": false,
+      "ritual": false,
+      "concentration": true
+    },
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": true
+    },
+    "scaling": {
+      "mode": "level",
+      "formula": "1d6"
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "flags": {
+    "ddbimporter": {
+      "id": 307827,
+      "definitionId": 2326,
+      "entityTypeId": 435869154,
+      "dndbeyond": {
+        "lookup": "generic",
+        "lookupName": "generic",
+        "level": null,
+        "castAtLevel": null
+      },
+      "sources": [
+        {
+          "sourceId": 1,
+          "pageNumber": null,
+          "sourceType": 2
+        },
+        {
+          "sourceId": 2,
+          "pageNumber": 219,
+          "sourceType": 1
+        }
+      ],
+      "tags": [
+        "Damage",
+        "Control"
+      ]
+    },
+    "betterRolls5e": {
+      "quickVersatile": {
+        "altValue": true
+      },
+      "quickCharges": {
+        "value": {
+          "use": true,
+          "resource": true
+        },
+        "altValue": {
+          "use": true,
+          "resource": true
+        }
+      }
+    },
+    "core": {
+      "sourceId": "Compendium.world.ddb-darklands-spells.WCXokAA12WcY0Xfx"
+    },
+    "enhanced-terrain-layer": {
+      "multiple": 1,
+      "min": 0,
+      "max": 0,
+      "environment": ""
+    },
+    "midi-qol": {
+      "criticalThreshold": "20",
+      "onUseMacroName": "ItemMacro",
+      "effectActivation": false
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Branding Smite",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "// special thanks to theripper93\nasync function wait(ms) { return new Promise(resolve => { setTimeout(resolve, ms); }); }\nconst lastArg = args[args.length - 1];\nconst actorD = game.actors.get(lastArg.actor._id);\nconst tokenD = canvas.tokens.get(lastArg.tokenId);\nconst gameRound = game.combat ? game.combat.round : 0;\nconst spellDC = tokenD.actor.data.data.attributes.spelldc;\n\nif (args[0].tag === \"OnUse\") {\n    let itemD = lastArg.item;\n    let effectData = [{\n        changes: [\n            { key: \"flags.dnd5e.DamageBonusMacro\", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, value: `ItemMacro.${itemD.name}`, priority: 20 },\n            { key: \"flags.midi-qol.BrandingSmite.Damage\", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, value: `${lastArg.spellLevel}`, priority: 20 },\n            { key: \"flags.midi-qol.itemDetails\", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, value: `${lastArg.uuid}`, priority: 20 }\n        ],\n        origin: lastArg.uuid,\n        disabled: false,\n        duration: { rounds: 1, seconds: 6, startRound: gameRound, startTime: game.time.worldTime },\n        flags: { dae: { itemData: itemD, specialDuration: [\"DamageDealt\"] } },\n        icon: itemD.img,\n        label: itemD.name\n    }];\n    await MidiQOL.socket().executeAsGM(\"createEffects\", { actorUuid: tokenD.actor.uuid, effects: effectData });\n}\nif (args[0].tag === \"DamageBonus\") {\n    if (![\"mwak\"].includes(lastArg.item.data.actionType)) return {};\n    let tokenD = canvas.tokens.get(lastArg.tokenId);\n    let itemUuid = getProperty(lastArg.actor.flags, \"midi-qol.itemDetails\");\n    let itemD = await fromUuid(itemUuid);\n    let target = canvas.tokens.get(lastArg.hitTargets[0].id);\n    let spellLevel = getProperty(lastArg.actor.flags, \"midi-qol.BrandingSmite.Damage\");\n    let numDice = lastArg.isCritcal ? spellLevel * 2 : spellLevel;\n    let damageType = \"radiant\";\n    let invis = target.actor.effects.find(i => i.data.label === \"Invisibility\");\n    let conc = tokenD.actor.effects.find(i => i.data.label === \"Concentrating\");\n    if (invis) await MidiQOL.socket().executeAsGM(\"removeEffects\", { actorUuid: target.actor.uuid, effects: [invis.id] });\n    let effectData = [{\n        changes: [            \n            { key: `data.traits.ci.value`, mode: CONST.ACTIVE_EFFECT_MODES.ADD, value: \"invisible\", priority: 20 },\n            { key: `flags.dae.deleteUuid`, mode: CONST.ACTIVE_EFFECT_MODES.OVERRIDE, value: conc.uuid, priority: 20 },\n            { key: `ATL.dimLight`, mode: CONST.ACTIVE_EFFECT_MODES.UPGRADE, value: 5, priority: 20 }\n        ],\n        origin: \"\",\n        disabled: false,\n        duration: { rounds: 10, seconds: 60, startRound: gameRound, startTime: game.time.worldTime },\n        icon: itemD.img,\n        label: itemD.name\n    }];\n    let branded = target.actor.effects.find(i => i.data.label === itemD.name);\n    if (!branded) applyEffect(target, effectData);\n    await wait(500);\n    updateEffect(tokenD, target, itemD, conc);\n    await wait(500);\n    return { damageRoll: `${numDice}d6[${damageType}]`, flavor: `(${itemD.name} (${CONFIG.DND5E.damageTypes[damageType]}))` };\n}\n\nasync function applyEffect(target, effectData) {\n    await MidiQOL.socket().executeAsGM(\"createEffects\", { actorUuid: target.actor.uuid, effects: effectData });\n}\nasync function updateEffect(tokenD, target, itemD, conc) {\n    let branding = target.actor.effects.find(i => i.data.label === itemD.name);\n    await MidiQOL.socket().executeAsGM(\"updateEffects\", { actorUuid: tokenD.actor.uuid, updates: [{ _id: conc.id, changes: [{ key: `flags.dae.deleteUuid`, mode: 5, value: branding.uuid, priority: 20 }] }] });\n}",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.9",
+      "systemVersion": "1.5.3"
+    }
+  }
+}

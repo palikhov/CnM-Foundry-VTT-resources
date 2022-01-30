@@ -1,0 +1,164 @@
+{
+  "name": "Unarmed Strike",
+  "type": "weapon",
+  "img": "icons/equipment/hand/gauntlet-simple-leather-brown-gold.webp",
+  "data": {
+    "description": {
+      "value": "<p><em><strong></strong> Melee Weapon Attack:</em> +9 to hit, reach 5 ft., one creature. <em>Hit:</em> 8 (1d8 + 4) bludgeoning damage. Instead of dealing damage, the vampire can grapple the target (escape DC 18).</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "Basic Rules pg 352",
+    "quantity": 1,
+    "weight": 0,
+    "price": 0,
+    "attunement": 0,
+    "equipped": true,
+    "rarity": "",
+    "identified": true,
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": null,
+      "units": "inst"
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": 5,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": 0,
+      "max": "0",
+      "per": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "str",
+    "actionType": "mwak",
+    "attackBonus": "0",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "armor": {
+      "value": 10
+    },
+    "hp": {
+      "value": 0,
+      "max": 0,
+      "dt": null,
+      "conditions": ""
+    },
+    "weaponType": "simpleM",
+    "baseItem": "",
+    "properties": {
+      "amm": false,
+      "fin": false,
+      "fir": false,
+      "foc": false,
+      "hvy": false,
+      "lgt": false,
+      "lod": false,
+      "rch": false,
+      "rel": false,
+      "ret": false,
+      "spc": false,
+      "thr": false,
+      "two": false,
+      "ver": false,
+      "ada": false,
+      "mgc": false,
+      "sil": false,
+      "nodam": false,
+      "fulldam": false,
+      "halfdam": false,
+      "critOther": false
+    },
+    "proficient": true,
+    "recharge": {
+      "value": null,
+      "charged": null
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "flags": {
+    "monsterMunch": {
+      "titleHTML": "<strong>Unarmed Strike (Vampire Form Only).</strong>",
+      "fullName": "Unarmed Strike (Vampire Form Only)."
+    },
+    "midi-qol": {
+      "criticalThreshold": "20",
+      "onUseMacroName": "ItemMacro"
+    },
+    "magicitems": {
+      "enabled": false,
+      "equipped": false,
+      "attuned": false,
+      "charges": "0",
+      "chargeType": "c1",
+      "destroy": false,
+      "destroyFlavorText": "reaches 0 charges: it crumbles into ashes and is destroyed.",
+      "rechargeable": false,
+      "recharge": "0",
+      "rechargeType": "t1",
+      "rechargeUnit": "r1",
+      "sorting": "l"
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Unarmed Strike",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "async function wait(ms) { return new Promise(resolve => { setTimeout(resolve, ms); }); }\nconst lastArg = args[args.length - 1];\nif (lastArg.hitTargets.length === 0) return {};\nconst actorD = game.actors.get(lastArg.actor._id);\nconst tokenD = canvas.tokens.get(lastArg.tokenId);\nconst target = canvas.tokens.get(lastArg.hitTargets[0].id);\nconst itemD = lastArg.item;\nconst damageType = \"bludgeoning\";\nconst damageRoll = new Roll(`1d8 + @abilities.str.mod`, actorD.getRollData()).evaluate({ async: false });\nconst effect = target.actor.effects.find(ef => ef.data.label === game.i18n.localize(\"Grappled\"));\nif (!effect) {\n    new Dialog({\n        title: itemD.name,\n        content: `Pick an attack`,\n        buttons: {\n            attack: {\n                label: \"Attack\", callback: async () => {\n                    game.dice3d?.showForRoll(damageRoll);\n                    await new MidiQOL.DamageOnlyWorkflow(actorD, tokenD, damageRoll.total, damageType, [target], damageRoll, { flavor: `(${CONFIG.DND5E.damageTypes[damageType]})`, itemCardId: lastArg.itemCardId, useOther: false });\n                }\n            },\n            grapple: {\n                label: \"Grappled\", callback: async () => {\n                    let saveType = \"dex\";\n                    let DC = 18;\n                    let save = await target.actor.rollAbilitySave(saveType, { chatMessage: false, fastForward: true });\n                    let success = \"saves\";\n                    if (save.total < DC) {\n                        success = \"fails\";\n                        let gameRound = game.combat ? game.combat.round : 0;\n                        let effectData = {\n                            label: \"Grappled\",\n                            icon: \"modules/combat-utility-belt/icons/grappled.svg\",\n                            origin: lastArg.uuid,\n                            disabled: false,\n                            duration: { rounds: 10, seconds: 60, startRound: gameRound, startTime: game.time.worldTime },\n                            changes: [{ key: `data.attributes.movement.all`, mode: 5, value: 0, priority: 20 }]\n                        };\n                        await MidiQOL.socket().executeAsGM(\"createEffects\", { actorUuid: target.uuid, effects: [effectData] });\n                    }\n                    await wait(300);\n                    let grapple_msg = `<div class=\"midi-qol-flex-container\"><div class=\"midi-qol-target-npc midi-qol-target-name\" id=\"${target.id}\">${target.name} ${success} with ${save.total}</div><div><img src=\"${target.data.img}\" width=\"30\" height=\"30\" style=\"border:0px\"></div></div>`;\n                    let grapple_result = `<div class=\"midi-qol-nobox midi-qol-bigger-text\">Grapple ${CONFIG.DND5E.abilities[saveType]} Saving Throw: DC ${DC}</div><div><div class=\"midi-qol-nobox\">${grapple_msg}</div></div>`;\n                    let chatMessage = await game.messages.get(args[0].itemCardId);\n                    let content = await duplicate(chatMessage.data.content);\n                    let searchString = /<div class=\"midi-qol-hits-display\">[\\s\\S]*<div class=\"end-midi-qol-hits-display\">/g;\n                    let replaceString = `<div class=\"midi-qol-hits-display\"><div class=\"end-midi-qol-hits-display\">${grapple_result}`;\n                    content = await content.replace(searchString, replaceString);\n                    await chatMessage.update({ content: content });\n                    await ui.chat.scrollBottom();\n                }\n            }\n        },\n        default: \"attack\"\n    }).render(true);\n} else {\n    game.dice3d?.showForRoll(damageRoll);\n    await new MidiQOL.DamageOnlyWorkflow(actorD, tokenD, damageRoll.total, damageType, [target], damageRoll, { flavor: `(${CONFIG.DND5E.damageTypes[damageType]})`, itemCardId: lastArg.itemCardId, useOther: false });\n}",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "favtab": {
+      "isFavorite": true
+    },
+    "core": {
+      "sourceId": "Item.WCPuzIrBzJ8pczQT"
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.9",
+      "systemVersion": "1.5.3"
+    }
+  }
+}

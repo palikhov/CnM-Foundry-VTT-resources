@@ -1,0 +1,151 @@
+{
+  "name": "Favored Foe",
+  "type": "spell",
+  "img": "icons/skills/targeting/crosshair-pointed-orange.webp",
+  "data": {
+    "description": {
+      "value": "<p data-content-chunk-id=\"4a3e5f32-acb8-43db-818b-37d1302e8fa8\">When you hit a creature with an attack roll, you can call on your mystical bond with nature to mark the target as your favored enemy for 1 minute or until you lose your concentration (as if you were concentrating on a spell).</p>\n<p data-content-chunk-id=\"7db745a2-977a-4432-a38e-91d1a26760b2\">The first time on each of your turns that you hit the favored enemy and deal damage to it, including when you mark it, you can increase that damage by 1d4.</p>\n<p data-content-chunk-id=\"3bfda3fe-fdd9-4c20-b20c-5d456ca1cbb0\">You can use this feature to mark a favored enemy a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</p>\n<p data-content-chunk-id=\"fcb93e19-8eb5-4200-ba15-f27ace0dc962\">This feature’s extra damage increases when you reach certain levels in this class: to 1d6 at 6th level and to 1d8 at 14th level.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "activation": {
+      "type": "special",
+      "cost": null,
+      "condition": ""
+    },
+    "duration": {
+      "value": 1,
+      "units": "minute"
+    },
+    "target": {
+      "value": 1,
+      "width": null,
+      "units": "",
+      "type": "creature"
+    },
+    "range": {
+      "value": 60,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": ""
+    },
+    "consume": {
+      "type": "attribute",
+      "target": "resources.primary.value",
+      "amount": 1
+    },
+    "ability": "",
+    "actionType": "util",
+    "attackBonus": 0,
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": null
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "enc",
+    "components": {
+      "value": "",
+      "vocal": false,
+      "somatic": false,
+      "material": false,
+      "ritual": false,
+      "concentration": true
+    },
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "atwill",
+      "prepared": true
+    },
+    "scaling": {
+      "mode": "none",
+      "formula": ""
+    }
+  },
+  "effects": [
+    {
+      "_id": "QeFbXAbsgp1AYAGs",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 3600
+      },
+      "icon": "icons/skills/targeting/crosshair-pointed-orange.webp",
+      "label": "Favored Foe",
+      "transfer": false,
+      "flags": {
+        "dae": {
+          "stackable": false,
+          "macroRepeat": "none",
+          "specialDuration": [],
+          "transfer": false
+        }
+      },
+      "tint": null
+    }
+  ],
+  "sort": 0,
+  "flags": {
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Favored Foe",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "////////////////////////////////////////////////\n// #READ FIRST\n// # Remade version of Hunters Mark by Tposney\n// # Requires Midi-qol On Use\n// # Create Item as a Cantrip At-will for concentration ease\n///////////////////////////////////////////////\nif (args[0].hitTargets.length === 0) return;\nif (args[0].tag === \"OnUse\") {\n    let targetUuid = args[0].hitTargets[0].uuid;\n    let actorD = MidiQOL.MQfromActorUuid(args[0].actorUuid);\n    if (!actor || !targetUuid) {\n        console.error(\"Favored Foe: no token/target selected\");\n        return;\n    }\n    let tokenD = canvas.tokens.get(args[0].tokenId);\n    const effectData = {\n        changes: [\n            { key: \"flags.midi-qol.favoredFoe\", mode: 5, value: targetUuid, priority: 20 },\n            { key: \"flags.midi-qol.concentration-data.targets\", mode: 2, value: { \"actorId\": actorD.id, \"tokenId\": tokenD.id }, priority: 20 },\n            { key: \"flags.dnd5e.DamageBonusMacro\", mode: 0, value: `ItemMacro.${args[0].item.name}`, priority: 20 }\n        ],\n        origin: args[0].itemUuid,\n        disabled: false,\n        duration: duplicate(args[0].item.effects[0].duration),\n        icon: args[0].item.img,\n        label: args[0].item.name\n    }\n    effectData.duration.startTime = game.time.worldTime;\n    actorD.createEmbeddedDocuments(\"ActiveEffect\", [effectData]);\n} else if (args[0].tag === \"DamageBonus\") {\n    if (![\"mwak\", \"rwak\"].includes(args[0].item.data.actionType)) return {};\n    let targetUuid = args[0].hitTargets[0].uuid;\n    let actorD = canvas.tokens.get(args[0].tokenId).actor;\n    let itemD = actorD.items.getName(\"Favored Foe\");\n    if (targetUuid !== getProperty(args[0].actor.flags, \"midi-qol.favoredFoe\")) return {};\n    if (args[0].actor.effects.find(i => i.data.label === `${itemD.name} Effect`)) return {};\n    let gameRound = game.combat ? game.combat.round : 0;\n    let effectData = {\n        label: `${itemD.name} Effect`,\n        icon: itemD.img,\n        tint: \"#8f0000\",\n        origin: itemD.uuid,\n        duration: { turns: 1, startRound: gameRound, startTime: game.time.worldTime }\n    };\n    actorD.createEmbeddedDocuments(\"ActiveEffect\", [effectData]);\n    let damageType = args[0].item.data.damage.parts[0][1];\n    let level = actorD.items.find(i=> i.name === \"Ranger\")?.data.data.levels;\n    if(!level) return ui.notifications.error(\"Ranger class missing\");\n    let baseDie = level >= 14 ? 8 : level >= 6 ? 6 : 4;\n    let diceMult = args[0].isCritical ? 2 : 1;\n    return { damageRoll: `${diceMult}d${baseDie}[${damageType}]`, flavor: `(Favored Foe (${CONFIG.DND5E.damageTypes[damageType]}))` };\n}",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "core": {
+      "sourceId": "Item.99mweYiHXGE9UvRz"
+    },
+    "midi-qol": {
+      "onUseMacroName": "ItemMacro"
+    },
+    "favtab": {
+      "isFavorite": true
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.9",
+      "systemVersion": "1.5.3"
+    },
+    "enhanced-terrain-layer": {
+      "multiple": 1,
+      "min": 0,
+      "max": 0,
+      "environment": ""
+    }
+  }
+}

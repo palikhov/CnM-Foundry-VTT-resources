@@ -1,0 +1,244 @@
+{
+  "name": "Green-Flame Blade",
+  "type": "spell",
+  "img": "icons/skills/melee/weapons-crossed-swords-yellow-teal.webp",
+  "data": {
+    "description": {
+      "value": "<p>As part of the action used to cast this spell, you must make a melee attack with a weapon against one creature within the spell's range, otherwise the spell fails.</p>\n<p>On a hit, the target suffers the attack's normal effects, and green fire leaps from the target to a different creature of your choice that you can see within 5 feet of it.</p>\n<p>The second creature takes fire damage equal to your spellcasting ability modifier.</p>\n<p>This spell's damage increases when you reach higher levels. At 5th level, the melee attack deals an extra 1d8 fire damage to the target, and the fire damage to the second creature increases to 1d8 + your spellcasting ability modifier. Both damage rolls increase by 1d8 at 11th level and 17th level.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "",
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": null,
+      "units": ""
+    },
+    "target": {
+      "value": 1,
+      "width": null,
+      "units": "spec",
+      "type": "object"
+    },
+    "range": {
+      "value": 5,
+      "long": null,
+      "units": "ft"
+    },
+    "uses": {
+      "value": 0,
+      "max": "0",
+      "per": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "util",
+    "attackBonus": "0",
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": null
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 0,
+    "school": "evo",
+    "components": {
+      "value": "",
+      "vocal": true,
+      "somatic": false,
+      "material": true,
+      "ritual": false,
+      "concentration": false
+    },
+    "materials": {
+      "value": "a weapon",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": false
+    },
+    "scaling": {
+      "mode": "none",
+      "formula": ""
+    },
+    "attributes": {
+      "spelldc": 10
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "flags": {
+    "betterRolls5e": {
+      "critRange": {
+        "type": "String",
+        "value": ""
+      },
+      "quickDesc": {
+        "type": "Boolean",
+        "value": true,
+        "altValue": true
+      },
+      "quickAttack": {
+        "type": "Boolean",
+        "value": true,
+        "altValue": true
+      },
+      "quickSave": {
+        "type": "Boolean",
+        "value": true,
+        "altValue": true
+      },
+      "quickDamage": {
+        "type": "Array",
+        "value": {
+          "0": true
+        },
+        "altValue": {
+          "0": true
+        },
+        "context": {
+          "0": "Second target within 5'"
+        }
+      },
+      "quickVersatile": {
+        "type": "Boolean",
+        "value": false,
+        "altValue": false
+      },
+      "quickProperties": {
+        "type": "Boolean",
+        "value": true,
+        "altValue": true
+      },
+      "quickCharges": {
+        "type": "Boolean",
+        "value": true,
+        "altValue": true
+      },
+      "quickTemplate": {
+        "type": "Boolean",
+        "value": true,
+        "altValue": true
+      },
+      "quickOther": {
+        "type": "Boolean",
+        "value": true,
+        "altValue": true,
+        "context": ""
+      },
+      "quickFlavor": {
+        "type": "Boolean",
+        "value": true,
+        "altValue": true
+      },
+      "critDamage": {
+        "value": ""
+      }
+    },
+    "dynamiceffects": {
+      "equipActive": false,
+      "alwaysActive": false
+    },
+    "mess": {
+      "templateTexture": "",
+      "isBonusDamage": false
+    },
+    "midi-qol": {
+      "onUseMacroName": "ItemMacro",
+      "forceCEOn": false
+    },
+    "betterCurses": {
+      "isCurse": false,
+      "curseName": "",
+      "formula": "",
+      "mwak": false,
+      "rwak": false,
+      "msak": false,
+      "rsak": false
+    },
+    "core": {
+      "sourceId": "Compendium.world.master-spellbook.ZOt4uNKUn29qDMgL"
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Green-Flame Blade",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "// Midi-Qol On Use Macro\n// Downloaded from https://www.patreon.com/crymic\nlet actorD = game.actors.get(args[0].actor._id);\nlet tokenD = canvas.tokens.get(args[0].tokenId);\nlet mainTarget = canvas.tokens.get(args[0].hitTargets[0].id);\nlet itemD = args[0].item;\nlet msgHistory = Object.values(MidiQOL.Workflow.workflows).filter(i => i.actor.id === actorD.id && i.item?.name != itemD.name && i.workflowType === \"Workflow\");\nif (msgHistory.length === 0) return ui.notifications.warn(`You need to successfully attack first.`);\nlet lastAttack = msgHistory[msgHistory.length - 1];\nlet level = actorD.data.type === \"character\" ? actorD.data.data.details.level : actorD.data.data.details.cr;\nlet spellStat = actorD.data.data.attributes.spellcasting;\nlet spellcasting = actorD.data.data.abilities[spellStat].mod;\nlet numDice = Math.floor((level + 1) / 6);\nlet damageType = \"fire\";\nlet firstDamage = lastAttack.isCritical ? `${numDice * 2}d8` : `${numDice}d8`;\nlet secondDamage = numDice >= 1 ? `${numDice}d8 + ${spellcasting}` : spellcasting;\nlet firstDamageRoll = new Roll(`${firstDamage}`).evaluate({ async: false });\nlet secondDamageRoll = new Roll(`${secondDamage}`).evaluate({ async: false });\nlet distance = 9.5;\nlet secondTarget = canvas.tokens.placeables.filter(target => (canvas.grid.measureDistance(mainTarget.center, target.center) <= distance && mainTarget.id != target.id && mainTarget.data.disposition === target.data.disposition && target.actor.data.data.attributes.hp.value > 0));\nif (numDice >= 1) await new MidiQOL.DamageOnlyWorkflow(actorD, tokenD, firstDamageRoll.total, damageType, [mainTarget], firstDamageRoll, { flavor: `(${CONFIG.DND5E.damageTypes[damageType]})`, itemCardId: args[0].itemCardId });\nif (secondTarget.length > 1) {\n    let target_list = \"\";\n    for (let target of secondTarget) {\n        target_list += `<option value=\"${target.id}\">${target.name}</option>`;\n    }\n    new Dialog({\n        title: itemD.name,\n        content: `<p>Pick a secondary target</p><form><div class=\"form-group\"><select id=\"hitTarget\">${target_list}</select></div></form>`,\n        buttons: {\n            attack: {\n                label: \"Confirmed\", callback: async (html) => {\n                    let target_id = html.find('#hitTarget')[0].value;\n                    let find_target = canvas.tokens.get(target_id);\n                    let cardType = numDice >= 1 ? { flavor: `(${CONFIG.DND5E.damageTypes[damageType]})`, itemData: itemD, itemCardId: \"new\" } : { flavor: `(${CONFIG.DND5E.damageTypes[damageType]})`, itemData: itemD, itemCardId: \"new\" };\n                    await new MidiQOL.DamageOnlyWorkflow(actorD, tokenD, secondDamageRoll.total, damageType, [find_target], secondDamageRoll, cardType);\n                }\n            }\n        },\n        default: \"Confirmed\"\n    }).render(true);\n} else {\n    for (let find_target of secondTarget) {\n        let cardType = numDice >= 1 ? { flavor: `(${CONFIG.DND5E.damageTypes[damageType]})`, itemData: itemD, itemCardId: \"new\" } : { flavor: `(${CONFIG.DND5E.damageTypes[damageType]})`, itemData: itemD, itemCardId: \"new\" };\n        await new MidiQOL.DamageOnlyWorkflow(actorD, tokenD, secondDamageRoll.total, damageType, [find_target], secondDamageRoll, cardType);\n    }\n}",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "autoanimations": {
+      "killAnim": false,
+      "override": false,
+      "animType": "t1",
+      "animName": "",
+      "color": "n1",
+      "dtvar": "dt1",
+      "explosion": false,
+      "explodeVariant": "ev1",
+      "explodeColor": "",
+      "explodeRadius": "0",
+      "explodeLoop": "1",
+      "hmAnim": "a1",
+      "selfRadius": "5",
+      "animTint": "#ffffff",
+      "auraOpacity": 0.75,
+      "ctaOption": false,
+      "uaStrikeType": "physical",
+      "bards": {
+        "bardAnim": "a1",
+        "bardTarget": true,
+        "bardSelf": true
+      },
+      "spellVar": "a1",
+      "spellOptions": {
+        "spellLoops": 1
+      },
+      "teleDist": 30
+    },
+    "enhanced-terrain-layer": {
+      "multiple": 1,
+      "terraintype": "ground",
+      "environment": "",
+      "min": 0,
+      "max": 0
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.9",
+      "systemVersion": "1.5.3"
+    }
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "name": "Lesser Restoration",
+  "type": "spell",
+  "img": "systems/dnd5e/icons/spells/heal-sky-1.jpg",
+  "data": {
+    "description": {
+      "value": "<p>You touch a creature and can end either one disease or one condition afflicting it. The condition can be blinded, deafened, paralyzed, or poisoned.</p>",
+      "chat": "<p>You touch a creature and can end either one disease or one condition afflicting it. The condition can be blinded, deafened, paralyzed, or poisoned.</p>",
+      "unidentified": ""
+    },
+    "source": "Basic Rules, Player's Handbook pg 255",
+    "activation": {
+      "type": "action",
+      "cost": 1,
+      "condition": ""
+    },
+    "duration": {
+      "value": null,
+      "units": ""
+    },
+    "target": {
+      "value": null,
+      "width": null,
+      "units": "touch",
+      "type": ""
+    },
+    "range": {
+      "value": null,
+      "long": null,
+      "units": "touch"
+    },
+    "uses": {
+      "value": 0,
+      "max": "0",
+      "per": ""
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "heal",
+    "attackBonus": 0,
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": null
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "level": 2,
+    "school": "abj",
+    "components": {
+      "value": "",
+      "vocal": true,
+      "somatic": true,
+      "material": false,
+      "ritual": false,
+      "concentration": false
+    },
+    "materials": {
+      "value": "",
+      "consumed": false,
+      "cost": 0,
+      "supply": 0
+    },
+    "preparation": {
+      "mode": "prepared",
+      "prepared": false
+    },
+    "scaling": {
+      "mode": "none",
+      "formula": ""
+    }
+  },
+  "effects": [],
+  "sort": 0,
+  "flags": {
+    "ddbimporter": {
+      "id": 138386,
+      "definitionId": 2164,
+      "entityTypeId": 435869154,
+      "dndbeyond": {
+        "lookup": "generic",
+        "class": "Druid",
+        "level": null,
+        "characterClassId": 64892372,
+        "spellLevel": 2,
+        "ability": "wis",
+        "mod": 4,
+        "dc": 14,
+        "cantripBoost": false,
+        "overrideDC": false,
+        "id": 138388,
+        "entityTypeId": 435869154,
+        "healingBoost": 0,
+        "lookupName": "generic",
+        "castAtLevel": null
+      },
+      "sources": [
+        {
+          "sourceId": 1,
+          "pageNumber": null,
+          "sourceType": 2
+        },
+        {
+          "sourceId": 2,
+          "pageNumber": 255,
+          "sourceType": 1
+        }
+      ],
+      "tags": [
+        "Healing"
+      ],
+      "pack": "world.ddb-darklands-spells",
+      "originalItemName": "Lesser Restoration",
+      "replaced": true
+    },
+    "betterRolls5e": {
+      "quickVersatile": {
+        "altValue": true
+      },
+      "quickCharges": {
+        "value": {
+          "use": true,
+          "resource": true
+        },
+        "altValue": {
+          "use": true,
+          "resource": true
+        }
+      }
+    },
+    "midi-qol": {
+      "onUseMacroName": "ItemMacro"
+    },
+    "itemacro": {
+      "macro": {
+        "data": {
+          "_id": null,
+          "name": "Lesser Restoration",
+          "type": "script",
+          "author": "Tyd5yiqWrRZMvG30",
+          "img": "icons/svg/dice-target.svg",
+          "scope": "global",
+          "command": "//##############################################################\n// READ FIRST!!!!!!!!!!!!!!!!!!!\n// Midi-Qol \"On Use\"\" macro only\n//##############################################################\nlet target = canvas.tokens.get(args[0].targets[0].id);\nlet condition_list = [\"Blinded\", \"Deafened\", \"Paralyzed\", \"Diseased\", \"Poisoned\"];\nlet effect = target.actor.effects.filter(i => condition_list.includes(i.data.label));\nlet selectOptions = effect.reduce((list, activeEffect) => {\n    let condition = activeEffect.data.label;\n    list.push(`<option value=\"${condition}\">${condition}</option>`);\n    return list;\n}, []);\nif (selectOptions.length === 0) return ui.notifications.error(`Nothing happens.. There's nothing to Cure on ${target.name}.`);\nlet the_content = `<form class=\"flexcol\"><div class=\"form-group\"><select id=\"element\">${selectOptions.join('')}</select></div></form>`;\nnew Dialog({\n    title: `Lesser Restoration : ${target.name}`,\n    content: the_content,\n    buttons: {\n        yes: {\n            icon: '<i class=\"fas fa-check\"></i>',\n            label: 'Remove it!',\n            callback: async (html) => {\n                let element = html.find('#element').val();\n                let effect = target.actor.effects.find(i => i.data.label === element);\n                await MidiQOL.socket().executeAsGM(\"removeEffects\", { actorUuid: target.actor.uuid, effects: [effect.id] });\n                let chatMessage = game.messages.get(args[0].itemCardId);\n                let chatContent = `<div class=\"midi-qol-nobox\"><div class=\"midi-qol-flex-container\"><div>Cures ${element}:</div><div class=\"midi-qol-target-npc midi-qol-target-name\" id=\"${target.data._id}\"> ${target.name}</div><div><img src=\"${target.data.img}\" width=\"30\" height=\"30\" style=\"border:0px\"></img></div></div></div>`;\n                let content = duplicate(chatMessage.data.content);\n                let searchString = /<div class=\"midi-qol-hits-display\">[\\s\\S]*<div class=\"end-midi-qol-hits-display\">/g;\n                let replaceString = `<div class=\"midi-qol-hits-display\"><div class=\"end-midi-qol-hits-display\">${chatContent}`;\n                content = content.replace(searchString, replaceString);\n                chatMessage.update({ content: content });\n                ui.chat.scrollBottom();\n            }\n        }\n    },\n    default: \"yes\"\n}).render(true);",
+          "folder": null,
+          "sort": 0,
+          "permission": {
+            "default": 0
+          },
+          "flags": {}
+        }
+      }
+    },
+    "enhanced-terrain-layer": {
+      "multiple": 1,
+      "min": 0,
+      "max": 0,
+      "environment": ""
+    },
+    "core": {
+      "sourceId": "Item.Nsg10SQL9lcKKJZT"
+    },
+    "exportSource": {
+      "world": "darklands",
+      "system": "dnd5e",
+      "coreVersion": "0.8.9",
+      "systemVersion": "1.5.2"
+    }
+  }
+}
